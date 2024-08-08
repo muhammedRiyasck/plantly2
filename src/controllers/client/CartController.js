@@ -20,6 +20,8 @@ const loadCart = async (req, res, next) => {
             await cartData.save();
             let querymessage = req.query.message
             if (cartData) {
+                console.log('anbhahnahahahahah');
+                
 
                 const unlistProduct = cartData.products.filter(val => val.product_id.status === false)
 
@@ -60,9 +62,11 @@ const loadCart = async (req, res, next) => {
 
 
             } else {
+                console.log('alalalal');
+                
                 const message = req.flash('message')
 
-                return res.render('Cart', { userlogdata: req.session.user, message, querymessage })
+                return res.render('Cart', { userlogdata: req.session.user, message, querymessage ,totalAmount:0})
             }
 
         } else {
@@ -72,6 +76,8 @@ const loadCart = async (req, res, next) => {
         }
 
     } catch (error) {
+        console.log(error.message);
+        
         next(error)
     }
 }
