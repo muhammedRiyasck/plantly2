@@ -37,7 +37,7 @@ const loadCart = async (req, res, next) => {
 
                 cartData = UpdatedCartData ? UpdatedCartData : cartData
 
-                let productPrice = cartData.products.reduce((acc, curr) => acc + curr.price, 0)
+                let productPrice = cartData.products.reduce((acc, curr) => acc + curr.price, 0) 
 
                 //  if(cartData.coupenDiscount>=0){
                 //     price -= cartData.coupenDiscount
@@ -48,8 +48,7 @@ const loadCart = async (req, res, next) => {
                 const updatedCartData = await cart.findOne({ user_id: userId }).populate('products.product_id')
 
 
-                let amount = await cart.findOne({ user_id: userId }, { totalCartPrice: true })
-
+                
                 let taxAmount = 0
 
     
