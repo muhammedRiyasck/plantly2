@@ -28,6 +28,7 @@ const loadProducts=async(req,res,next)=>{
             totalPages,
             currentPage:page,
             skip
+            
         })
    
     } catch (error) {
