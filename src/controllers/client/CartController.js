@@ -19,8 +19,8 @@ console.log('hellooooooooo');
             // console.log('hellooooooooo1');
             // console.log('hellooooooooo2');
         if(cartData){
-            cartData?.percentage=0;
-            cartData?.coupenDiscount=0;
+            cartData.percentage=0;
+            cartData.coupenDiscount=0;
             await cartData?.save();
         }
             let querymessage = req.query.message
