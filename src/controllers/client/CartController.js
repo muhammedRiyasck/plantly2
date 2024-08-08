@@ -16,8 +16,7 @@ console.log('hellooooooooo');
             const userId = req.session.user._id
 
             let cartData = await cart.findOne({ user_id: userId }).populate('products.product_id')
-            // console.log('hellooooooooo1');
-            // console.log('hellooooooooo2');
+
         if(cartData){
             cartData.percentage=0;
             cartData.coupenDiscount=0;
@@ -43,11 +42,7 @@ console.log('hellooooooooo');
                 cartData = UpdatedCartData ? UpdatedCartData : cartData
 
                 let productPrice = cartData.products.reduce((acc, curr) => acc + curr.price, 0) || 0
-console.log(productPrice);
 
-                //  if(cartData.coupenDiscount>=0){
-                //     price -= cartData.coupenDiscount
-                //  }
 
                 await cart.findOneAndUpdate({ user_id: userId }, { $set: { totalCartPrice: productPrice },percentage:0 }, { new: true, upsert: true }).exec();
 
