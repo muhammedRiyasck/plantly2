@@ -42,7 +42,8 @@ console.log('hellooooooooo');
 
                 cartData = UpdatedCartData ? UpdatedCartData : cartData
 
-                let productPrice = cartData.products.reduce((acc, curr) => acc + curr.price, 0) 
+                let productPrice = cartData.products.reduce((acc, curr) => acc + curr.price, 0) || 0
+console.log(productPrice);
 
                 //  if(cartData.coupenDiscount>=0){
                 //     price -= cartData.coupenDiscount
@@ -80,7 +81,7 @@ console.log('hellooooooooo');
         }
 
     } catch (error) {
-        console.log(error.message);
+        console.log(error);
         
         next(error)
     }

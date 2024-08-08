@@ -32,7 +32,8 @@ const cartSchema = new mongoose.Schema({
     totalCartPrice:{
 
         type:Number,
-        required : true
+        required : true,
+        default:0
 
     },
     coupenDiscount: {
