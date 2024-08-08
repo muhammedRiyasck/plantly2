@@ -16,7 +16,9 @@ console.log('hellooooooooo');
             const userId = req.session.user._id
 
             let cartData = await cart.findOne({ user_id: userId }).populate('products.product_id')
+            console.log('hellooooooooo1');
             cartData.percentage=0;
+            console.log('hellooooooooo2');
             cartData.coupenDiscount=0;
             await cartData.save();
             let querymessage = req.query.message
@@ -30,7 +32,7 @@ console.log('hellooooooooo');
 
                     for (const product of unlistProduct) {
 
-                        var UpdatedCartData = await cart.findOneAndUpdate({ user_id: userId }, { $pull: { products: { product_id: product.product_id._id } } }, { new: true })
+                        var UpdatedCartData = await cart.findOneAndUpdate({ user_id: userId }, { $pull: { products: { product_id: product.product_id._id } },percentage:0 }, { new: true })
 
                     }
 
@@ -44,7 +46,7 @@ console.log('hellooooooooo');
                 //     price -= cartData.coupenDiscount
                 //  }
 
-                await cart.findOneAndUpdate({ user_id: userId }, { $set: { totalCartPrice: productPrice } }, { new: true, upsert: true }).exec();
+                await cart.findOneAndUpdate({ user_id: userId }, { $set: { totalCartPrice: productPrice },percentage:0 }, { new: true, upsert: true }).exec();
 
                 const updatedCartData = await cart.findOne({ user_id: userId }).populate('products.product_id')
 
