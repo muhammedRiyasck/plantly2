@@ -22,7 +22,7 @@ const loadProducts=async(req,res,next)=>{
 
         const messages = req.flash('swal')
        
-        res.render('Products',{
+        res.render('products',{
             products,
             messages,
             totalPages,

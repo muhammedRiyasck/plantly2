@@ -653,7 +653,7 @@ const ResetPassword = async(req,res,next)=>{
 
 const loadSuccess = async(req,res,next)=>{
     try {
-        res.render('Payment_Success')
+        res.render('payment_Success')
     } catch (error) {
         console.log(error.message)
     }
