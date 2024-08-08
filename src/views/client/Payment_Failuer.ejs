@@ -1,0 +1,140 @@
+<%- include('../layouts/admin/header.ejs') -%>
+
+<div class="page-wrapper">
+	
+
+
+        <div class="container-fluid" style="padding: 10%;"style="z-index: 222;">
+
+            <div class="thanks-note justify-content-center " id="thanksNote" >
+
+                <div class=" text-center p-5 ">
+
+                    <h1>Payment Failed</h1>
+                    <p>We're sorry, but your payment was not successful.</p>
+                    <p>Please check your payment details and try again, or contact your bank for assistance.</p><br>
+                    <a href="/orders" class="btn btn-outline-info rounded-pill ">Show OrderDetails</a>&nbsp;
+                    <input id="repayment" onclick="retryPayment('<%=order_Id%>','<%=amount%>')" type="button" value="Try Again" class="btn btn-outline-danger rounded-pill">
+                     
+                </div>
+
+            </div>
+
+          </div>
+
+
+     
+</div><!-- End .page-wrapper -->
+
+  
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
+    <script>
+        // document.getElementById('repayment').addEventListener('click',()=>{
+           
+            function retryPayment(order_Id,amount){
+                console.log('hihihi')
+                console.log(order_Id,amount)
+            fetch('/retry-payment', {
+            method: 'put',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+                body: JSON.stringify({order_Id, amount})
+            })
+            .then(res => {
+                if (!res.ok) {
+                    throw new Error('Network response was not ok ' + res.statusText);
+                }
+                return res.json();
+            })
+            .then(data => {
+              if(data.razorpay){
+                 return razorpayPayment(data.order);
+              }
+            })
+            .catch(error => {
+                console.error('There was a problem with the fetch operation:', error);
+                // Handle the error here
+            });
+
+     
+
+        }
+    // })
+
+    function razorpayPayment(order){
+
+    var options = {
+    "key": "rzp_test_deu2ORuCjDgPNd", 
+    "amount":order.amount, 
+    "currency": "INR",
+    "name": "plantly", 
+    "description": "Test Transaction",
+    "image": "https://cdn-icons-png.flaticon.com/512/616/616430.png",
+    "order_id": order.id, 
+    // "callback_url": "https://eneqd3r9zrjok.x.pipedream.net/",
+    "handler": function (response){                              
+        console.log('response:',response);
+        verifyPayment(response,order);
+    },
+    "prefill": { 
+        "name": "muhammad riyas ck", 
+        "email": "plantlyplant@gmail.com", 
+        "contact": "9000090000" 
+    },
+    "notes": {
+        "address": "Razorpay Corporate Office"
+    },
+    "theme": {  
+        "color": "#f2a100"
+    }
+};
+console.log('hereeeeeeeeeeeeee');
+var rzp1 = new Razorpay(options);
+console.log('rzp1:',rzp1);
+rzp1.on('payment.failed', function (response){
+    window.location.href=`/failuer?id=${order.receipt}`
+});
+
+rzp1.open();
+}
+
+function verifyPayment(response,order){
+        fetch('/razorpay',{
+            method:"POST",
+            headers:{
+                "content-type": "application/json;charset=utf-8"
+            },
+            body:JSON.stringify({
+                response,
+                order
+            })
+        })
+        .then((res)=>res.json())
+        .then((data)=>{
+            if(data.statusChanged){
+      
+                window.location.href=`/success`
+            }
+        })   
+    }
+    </script>
+  
+   
+
+    <!-- Plugins JS File -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/jquery.hoverIntent.min.js"></script>
+    <script src="assets/js/jquery.waypoints.min.js"></script>
+    <script src="assets/js/superfish.min.js"></script>
+    <script src="assets/js/owl.carousel.min.js"></script>
+    <!-- Main JS File -->
+    <script src="assets/js/main.js"></script>
+
+    <script src="https://kit.fontawesome.com/fbf4adc7c4.js" crossorigin="anonymous"></script>
+
+
+<!-- 
+<%- include('../layouts/admin/footer') -%> 

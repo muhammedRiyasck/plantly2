@@ -1,0 +1,178 @@
+<%- include('../layouts/client/header') %>
+
+<div class="page-wrapper" id="reloadDiv">
+
+
+  <main class="main">
+
+        <div class="page-header text-center" style="background-image: url('assets/images/page-header-bg.jpg')">
+            <div class="container">
+                <h1 class="page-title pt-5 text-black-50">My Profile</h1>
+            </div><!-- End .container -->
+        </div><!-- End .page-header -->
+
+        <nav aria-label="breadcrumb" class="breadcrumb-nav mb-3">
+            <div class="container">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="">Home</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Wallet</li>
+                </ol>
+            </div><!-- End .container -->
+        </nav><!-- End .breadcrumb-nav -->
+
+         <div class="page-content">
+
+            <div class="dashboard">
+        
+                <div class="container">
+
+                    <div class="row">
+
+                        <%- include('../layouts/client/profileNavbar') %>
+
+                            <div class="col-md-8 col-lg-9">
+                                <% if (walletData?.transaction.length>0) { %>
+                                <% if(locals.walletData) {%>
+                              <div class="wishlist-share">
+            
+                              <div class="social-icons social-icons-sm mb-2">
+            
+                              <label class="social-label text-info">Total Amount: <span style="color: black;">$<%= walletData?.balance %></span> </label>
+            
+                               <p class="text-info "></p>
+            
+                            </div><!-- End .soial-icons -->
+            
+                            </div>
+            
+                        <% } %>
+                        <table class="table table-wishlist table-mobile text-center" style="width: 920px">
+
+                                <thead>
+
+                                    <tr>
+
+                                    <th scope="col" style="color: black;" >No</th>
+                                    <th scope="col" style="color: black;" >Amount</th>
+                                    <th scope="col" style="color: black;" >Time</th>
+                                    <th scope="col" style="color: black;" >Credit Or Debit</th>
+
+                                    </tr>
+
+                                </thead>
+
+                            <% walletData?.transaction.forEach((element , index) => { %>
+                                    
+                                <tbody>
+
+                                    <tr>
+                                            <td>
+
+                                                <%= index + 1 + startIndex %>
+
+                                            </td>
+
+                                            <td class="text-black-50">
+
+                                               $<%= element.amount %>
+
+                                            </td>
+
+                                           <% const formattedDate =element.time.toLocaleString('en-US', { weekday: 'short',
+                                            month: 'short', day: 'numeric', year: 'numeric', hour:
+                                            'numeric', minute: 'numeric', second: 'numeric', hour12:
+                                             true }); %>
+                                            <td>
+
+                                            <%= formattedDate %>
+                                            </td>
+       
+                                            <td class="<%= element.creditOrDebit == 'credit' ? 'text-success' : 'text-danger'%>">
+                          
+                                                <%= element.creditOrDebit %>
+
+                                            </td>
+
+                                    </tr>
+                                    
+
+                                </tbody>
+
+                            <%  }); %>
+
+                                </table>
+
+                             
+                    <%  } else { %>
+
+                        <p style="display: flex;padding-left:15rem;" >Wallet Amount Not Found</p>
+
+                    <% } %>
+
+                    <div class="row">
+                        <div class="col-12">
+                            <nav class="float-right mt-5 mt-col-3">
+                                <ul class="pagination">
+                                    <% if (currentPage > 1) { %>
+                                        <li class="page-item">
+                                            <a class="page-link" href="?page=<%= currentPage - 1 %>">
+                                                <span aria-hidden="true">&laquo;</span>
+                                            </a>
+                                        </li>
+                                    <% } %>
+                                    
+                                    <% for(let i = 1; i <= totalPages; i++) { %>
+                                        <li class="page-item <%= i === currentPage ? 'active' : '' %>">
+                                            <a class="page-link" href="?page=<%= i %>"><%=i %></a>
+                                        </li>
+                                    <% } %>
+                                    
+                                    <% if (currentPage < totalPages) { %>
+                                        <li class="page-item">
+                                            <a class="page-link" href="?page=<%= currentPage + 1 %>">
+                                                <span aria-hidden="true">&raquo;</span>
+                                            </a>
+                                        </li>
+                                    <% } %>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+                </div>
+
+            </div>
+          
+                        <!-- </aside>
+                    </div> -->
+                    
+    
+
+                </div>
+                
+    </main><!-- End .main -->
+
+  <!-- End .main -->
+
+  <!-- Connect Footer -->
+
+  <!-- Connect Footer -->
+
+</div>
+
+
+<!--Connect Mobaile View-->
+
+<!--Connect Mobaile View-->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<!-- Plugins JS File -->
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/bootstrap.bundle.min.js"></script>
+<script src="assets/js/jquery.hoverIntent.min.js"></script>
+<script src="assets/js/jquery.waypoints.min.js"></script>
+<script src="assets/js/superfish.min.js"></script>
+<script src="assets/js/owl.carousel.min.js"></script>
+<!-- Main JS File -->
+<script src="assets/js/main.js"></script>
+
+<%- include('../layouts/client/footer') %> 

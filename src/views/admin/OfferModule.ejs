@@ -1,0 +1,263 @@
+<%- include('../layouts/admin/header.ejs') %>
+
+  <div class="container-scroller" >
+
+    <%- include('../layouts/admin/sidebar.ejs') %>
+
+    <div class="container-fluid page-body-wrapper">
+
+        <%- include('../layouts/admin/navbar.ejs') %>
+
+      <!-- partial -->
+        <div class="main-panel">
+
+            <div class="content-wrapper" >
+                <div>
+                <div class="container-fluid mb-5" >
+                    
+                    <div class="container-fluid">
+
+                        <!-- Button trigger modal -->
+<button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
+   Add offers
+  </button>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Add offers</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">x</button>
+        </div>
+        <div class="modal-body">
+            <div class="modal-body">
+
+                <form id="form" action="/admin/offerModule" method="post">
+
+                <div class="form-group">
+
+                    <label for="offerName">Offer Name:</label>
+                    <input type="text" class="form-control" id="offername" name="offername">
+                    <p id="nameError" class="text-danger "></p>
+                </div>
+
+                <div class="form-group">
+
+                    <label for="selectionField">Selection Field:</label>
+
+                    <select class="form-control" id="selectionField" name="category">
+
+                    <!-- Options for selection field -->
+
+                    <% category.forEach(val =>{%>
+
+                    <option class="text-white"><%= val.name %></option>
+
+                   <% } )%>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="offer">Offer:</label>
+                    <input type="number" min="1" class="form-control" id="offer" max="70" name="offer"></input>
+                    <p id="amountError" class="text-danger "></p>
+
+                </div>
+
+                <div class="modal-footer">
+
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-success" id="bt">Submit</button>
+
+                </div>
+
+                </form>
+
+            </div>
+        </div>
+        <!-- <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div> -->
+      </div>
+    </div>
+  </div>
+
+              <p style="display: flex;justify-content: center; color:red"><%= message %></p>
+                <table  class="table  w-100 mt-4 table table-active table-dark  rounded-2 " style="border-radius: 10px;" >
+
+                    <thead class="text-center ">
+
+                        <tr>
+                            <th class="text-white">No</th>
+                            <th class="text-white">Offer Name</th>
+                            <th class="text-white">Category Name</th>
+                            <th class="text-white">Offer Price</th>
+                            <th class="text-white">Action</th>
+                        </tr>
+
+                    </thead>
+
+                    <tbody class="text-center ">
+
+                        
+                        <% if(offer.length > 0) {%>
+
+                                <% offer.slice().reverse().forEach((val , indx) => { %>
+                                    <tr id="reloadDiv">
+
+                                        <td><%= indx + 1 + skip%></td>
+
+                                        <td class="">
+
+                                            <p class="pt-2">
+
+                                                <%= val.name %>
+
+                                            </p>
+                                            
+                                        </td>
+                                        <td class="">
+
+                                            <p class="pt-2">
+
+                                                <%= val.category_id.name %>
+
+                                            </p>
+                                            
+                                        </td>
+
+                                        <td>
+                                            <%= val.offer %> %
+                                        </td>
+
+                                        <td>
+
+                                            <button class="btn btn-outline-danger" onclick="offerRemove('<%= val._id %>')">
+                                                Remove
+                                            </button>
+
+                                        </td>
+
+                                    </tr>
+                                    <%  }); %>
+                                
+
+                        <% }else{ %>
+
+                            <td colspan="6" class="text-center  text-danger ">
+
+                                <p>No Offer</p>
+
+                            </td>
+
+                        <% } %>
+
+                    </tbody>
+
+                </table>
+                
+                
+            </div>
+        <!-- </div> -->
+    </div>
+    
+    <%-include('../layouts/admin/Pagination') %>
+</div>
+
+
+</div>
+
+</div>
+
+<script>
+
+    //  Offer Validation :-
+
+const form = document.getElementById('form');
+const nameError = document.getElementById('nameError');
+const amountError = document.getElementById('amountError');
+
+form.addEventListener('submit', function(event) {
+
+    const offer = document.getElementById('offer').value
+    const offername = document.getElementById('offername').value
+    amountError.textContent = ''
+    nameError.textContent = ''
+
+    if (isNaN(offer) || offer.trim() === '') {
+
+        event.preventDefault(); 
+    amountError.textContent = 'Offer should be a valid number.';
+
+    }
+
+    if (offername.trim().length < 4 || !/^[a-zA-Z\s]+$/.test(offername)) {
+        event.preventDefault(); 
+        nameError.textContent = 'minimum 4 character';
+    }
+
+
+});
+
+//  Offer Remove (put) :-
+
+function offerRemove(id){
+
+    fetch(`/admin/offerRemove?id=${id}` , {method : 'put'})
+
+    .then(res => res.json())
+
+    .then(data => {
+        
+        if(data.succ){
+
+            const Toast = Swal.mixin({
+
+                toast: true,
+                position: "top-end",
+                showConfirmButton: false,
+                timer: 800,
+                timerProgressBar: true,
+
+                didOpen: (toast) => {
+
+                    toast.onmouseenter = Swal.stopTimer;
+                    toast.onmouseleave = Swal.resumeTimer;
+
+                }
+
+            });
+
+            Toast.fire({
+
+                icon: "success",
+                title: "Deleted Successfully"
+                
+            }).then(()=>{
+                window.location.reload()
+            })
+
+            
+
+            // $('#reloadDiv').load('/admin/adminOffer #reloadDiv')
+            
+
+        } else {
+
+            console.log("Illattoo");
+                        
+        }
+
+    })
+
+}
+
+</script>
+
+<%- include('../layouts/admin/footer.ejs') %>

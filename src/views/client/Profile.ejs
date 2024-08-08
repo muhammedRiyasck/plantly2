@@ -1,0 +1,819 @@
+<%- include('../layouts/client/header') %>
+
+<div class="page-wrapper">
+  <main style="margin-top: 2rem" class="main">
+    <div class="page-header text-center" style="background-image: url('assets/images/page-header-bg.jpg')">
+      <div class="container">
+        <h1 class="page-title text-black-50">My Profile</h1>
+      </div>
+      <!-- End .container -->
+    </div>
+    <!-- End .page-header -->
+
+    <nav aria-label="breadcrumb" class="breadcrumb-nav mb-3">
+      <div class="container">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="/home">Home</a></li>
+          <li class="breadcrumb-item active" aria-current="page">My Profile</li>
+        </ol>
+      </div>
+      <!-- End .container -->
+    </nav>
+    <!-- End .breadcrumb-nav -->
+
+    <div class="page-content">
+      <div class="dashboard">
+        <div class="container">
+          <div class="row">
+
+           <%- include('../layouts/client/profileNavbar') %>
+
+            <div class="col-md-8 col-lg-9">
+              <div class="tab-content">
+                <!--my profile-->
+
+                <div
+                  class="tab-pane fade show active"
+                  id="tab-dashboard"
+                  role="tabpanel"
+                  aria-labelledby="tab-dashboard-link"
+                >
+                  <div class="col col-lg-11 mb-4 mb-lg-0">
+                    <div class="card mb-3" style="border-radius: 0.5rem">
+                      <div class="row g-0">
+                        <div class="container-fluid d-flex justify-content-end mt-2 me-5">
+                          <p id="swal" hidden><%= swal %></p>
+                        </div>
+
+                        <div
+                          class="col-md-4 d-flex flex-column align-items-center justify-content-center gap-2 gradient-custom text-center text-white"
+                          style="border-top-left-radius: 0.5rem; border-bottom-left-radius: 0.5rem; padding-top: 2rem"
+                        >
+                          <img
+                            width="70"
+                            height="70"
+                            src="https://img.icons8.com/officel/80/person-male.png"
+                            alt="person-male"
+                          />
+
+                          <h5 class="text-white"><%= //userData.fullName %></h5>
+                        </div>
+
+                        <div class="col-md-8">
+                          <div class="card-body p-4">
+                            <div class="head h-100 d-flex align-items-center justify-content-between">
+                              <h6></h6>
+
+                              <form action="/logout" method="post">
+                                <button
+                                  class="bg-transparent border-0 d-flex align-items-center justify-content-center"
+                                >
+                                  <h6 type="submit">
+                                    <i class="ri-logout-circle-line" style="cursor: pointer"></i>
+                                  </h6>
+                                </button>
+                              </form>
+                            </div>
+
+                            <hr class="mt-0 mb-4" />
+
+                            <div class="row">
+                              <div class="col-6 mb-2">
+                                <h6>Name</h6>
+                                <p><%=userData.fullName %></p>
+                              </div>
+                            </div>
+
+                            <!-- <div class="row">
+
+                                                    <div class="col-6 mb-3">
+                                                      <h6>mobile</h6>
+                                                      <p><%= //userData.mobile %></p>
+                                                    </div>
+
+                                                  </div> -->
+
+                            <div class="row">
+                              <div class="col-6 mb-2">
+                                <h6>Email</h6>
+                                <p><%= userData.email %></p>
+                              </div>
+                            </div>
+
+                              <div class="row">
+                                <div class="col-6 mb-2">
+                                  <h6>Refferal Code</h6>
+                                  <p><%= userData.refferal %></p>
+                                </div>
+                              </div>
+                              <% //if (!walletData?.balance) { %>
+
+                              <!-- <div class="col-6 mb-2">
+    
+                                                      <h6>Wallet</h6>
+    
+                                                        <p class="text-primary">No Balance</p>
+    
+                                                    </div> -->
+
+                              <% // } else { %>
+
+                              <!-- <div class="col-6 mb-2">
+    
+                                                      <h6>Wallet</h6>
+    
+                                                        <p class="text-primary ">$<%=// walletData?.balance %></p>
+    
+                                                    </div> -->
+
+                              <% //} %>
+
+                            <div class="row pt-1">
+                              <div class="col-8 mb-3 d-flex">
+                                <!-- Change Password Section -->
+                                <div
+                                  class="modal fade"
+                                  id="changePassword"
+                                  tabindex="-1"
+                                  aria-labelledby="exampleModalLabel"
+                                  aria-hidden="true"
+                                  onsubmit="return validateForm()"
+                                >
+                                  <div class="modal-dialog">
+                                    <div class="modal-content">
+                                      <div class="modal-header">
+                                        <h1 class="modal-title fs-5" id="changePassword">Change Password</h1>
+                                        <a type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+                                          >X</a
+                                        >
+                                      </div>
+                                      <div class="modal-body">
+                                        <form
+                                          action="/changePassword?userId=<%= userData._id %>"
+                                          method="post"
+                                          id="editProfileForm"
+                                          class="px-5"
+                                          enctype="application/x-www-form-urlencoded"
+                                        >
+                                          <span class="message" id="msg" hidden><%= swal%></span>
+                                          <div class="mb-3">
+                                            <label for="CurrentPass" class="col-form-label">Current Password</label>
+                                            <input
+                                              type="password"
+                                              class="form-control"
+                                              name="CurrentPassword"
+                                              id="CurrentPassword"
+                                              style="border: 1px solid rgb(28, 32, 28)"
+                                            />
+                                            <div style="color: red" id="CurrentPasswordError"></div>
+                                          </div>
+                                          <div class="mb-3">
+                                            <label for="NewPass" class="col-form-label">New Password</label>
+                                            <input
+                                              type="password"
+                                              class="form-control"
+                                              name="NewPassword"
+                                              id="NewPassword"
+                                              style="border: 1px solid lightgreen"
+                                              oninput="validatePassword(this.value)"
+                                            />
+                                            <div style="color: red" id="passwordError"></div>
+                                            <div id="password-validation" style="color: red"></div>
+                                            <div id="password-strength"></div>
+                                          </div>
+                                          <div class="mb-3">
+                                            <label for="ConfirmPass" class="col-form-label">Confirm Password</label>
+                                            <input
+                                              type="password"
+                                              class="form-control"
+                                              name="ConfirmPassword"
+                                              id="ConfirmPassword"
+                                              style="border: 1px solid lightgreen"
+                                              oninput="validateConfirmPassword()"
+                                            />
+                                            <div style="color: red" id="confirmPasswordError"></div>
+                                          </div>
+                                          <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                                              Close
+                                            </button>
+                                            <button type="submit" class="btn btn-primary">Change Password</button>
+                                          </div>
+                                        </form>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+
+                                <div style="display: flex">
+                                  <button
+                                    type="button"
+                                    class="btn btn-primary"
+                                    data-bs-toggle="modal"
+                                    data-bs-target="#changePassword"
+                                  >
+                                    <i class="mdi mdi-upload btn-icon-prepend" style="margin-right: 3px"></i
+                                    >change&nbsp;Password
+                                  </button>
+
+                                  <button
+                                    type="button"
+                                    class="btn btn-primary"
+                                    style="transform: translateX(10px)"
+                                    data-bs-toggle="modal"
+                                    data-bs-target="#editProfile"
+                                  >
+                                    <i class="mdi mdi-upload btn-icon-prepend"></i>Edit&nbsp;Profile<i
+                                      class="far fa-edit"
+                                    ></i>
+                                  </button>
+                                </div>
+                                <!-- Change Password End -->
+
+                                <!-- Edit Profile Section -->
+
+                                <div
+                                  class="modal fade"
+                                  id="editProfile"
+                                  tabindex="-1"
+                                  aria-labelledby="exampleModalLabel"
+                                  aria-hidden="true"
+                                >
+                                  <div class="modal-dialog">
+                                    <div class="modal-content">
+                                      <div class="modal-header">
+                                        <h1 class="modal-title fs-5" id="editProfile">Edit Profile</h1>
+                                        <a type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+                                          >X</a
+                                        >
+                                      </div>
+                                      <div class="modal-body">
+                                        <form
+                                          action="/Profile?userId=<%= userData._id %>"
+                                          method="post"
+                                          id="editProfileForm"
+                                          class="px-5"
+                                          enctype="application/x-www-form-urlencoded"
+                                          onsubmit="return validateEditProfile()"
+                                        >
+                                          <!-- <span class="message" id="msg" hidden ><%=// swal %></span> -->
+
+                                          <div class="mb-3">
+                                            <label for="userName" class="col-form-label">Name</label>
+                                            <input
+                                              type="text"
+                                              class="form-control"
+                                              name="name"
+                                              id="userName"
+                                              value="<%= userData.fullName %>"
+                                              style="border: 1px solid lightgreen"
+                                            />
+                                            <div class="error" id="nameError" style="color: red"></div>
+                                          </div>
+
+                                          <!-- <div class="mb-3">
+                                                                    <label for="userPhone" class="col-form-label">Contact</label>
+                                                                    <input type="text" class="form-control" name="phone" id="userPhone" value="<%=// userData.mobile %>" style="border: 1px solid lightgreen;"  >
+                                                                    <div class="error " id="phoneError" style="color: red;"></div>
+                                                                </div> -->
+
+                                          <div class="mb-3">
+                                            <label for="userEmail" class="col-form-label">Email</label>
+                                            <input
+                                              type="text"
+                                              class="form-control"
+                                              name="email"
+                                              id="userEmail"
+                                              value="<%= userData.email %>"
+                                              style="border: 1px solid lightgreen"
+                                            />
+                                            <div class="error" id="emailError" style="color: red"></div>
+                                          </div>
+
+                                          <!-- <div class="modal-footer">
+                                                                    <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Cancel</button>
+                                                                    <button type="submit" class="btn btn-outline-success" id="saveButton">Save</button>
+                                                                </div> -->
+                                          <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                                              Close
+                                            </button>
+                                            <button type="submit" class="btn btn-primary">Save changes</button>
+                                          </div>
+                                        </form>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+
+                                <!-- Edit Profile End -->
+                              </div>
+                            </div>
+                            <!--                       
+                                                  <div class="d-flex justify-content-start" s>
+                                                    <a href="#!"><i class="fab fa-facebook-f fa-lg" style="padding-right: 1px;"></i></a>
+                                                    <a href="#!"><i class="fab fa-twitter fa-lg " style="padding-left: 1px;"></i></a>
+                                                    <a href="#!"><i class="fab fa-instagram fa-lg me-3"></i></a>
+                                                  </div>
+                       -->
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- .End .tab-pane -->
+
+                <!--my profile End-->
+
+                <!-- Orders -->
+
+                <!-- <div class="tab-pane fade" id="tab-orders" role="tabpanel" aria-labelledby="tab-orders-link"> -->
+
+                <!-- <p>No order has been made yet.</p>
+                                      
+                                      <a href="category.html" class="btn btn-outline-primary-2"><span>GO SHOP</span><i class="icon-long-arrow-right"></i></a> -->
+
+                <!-- </div>.End .tab-pane -->
+
+                <!-- Orders End -->
+
+                <!--whishlist-->
+
+                <!-- <div class="tab-pane fade" id="tab-downloads" role="tabpanel" aria-labelledby="tab-downloads-link"> -->
+
+                <!-- <p>No downloads available yet.</p>
+
+                                      <a href="category.html" class="btn btn-outline-primary-2"><span>GO SHOP</span><i class="icon-long-arrow-right"></i></a> -->
+
+                <!-- </div>.End .tab-pane -->
+
+                <!--whishlist End -->
+
+                <!--address-->
+
+                <!--address End-->
+
+                <!--Wallet-->
+
+                <!-- <div class="tab-pane fade" id="tab-wallet" role="tabpanel" aria-labelledby="tab-wallet-link"> -->
+
+                <!-- <p>Wallet</p>  -->
+
+                <!-- </div>.End .tab-pane -->
+
+                <!--wallet End-->
+
+                <!--coupons-->
+                <!-- <div class="tab-pane fade" id="tab-coupons" role="tabpanel" aria-labelledby="tab-coupons-link"> -->
+
+                <!-- <p>coupons</p>     -->
+
+                <!-- </div>.End .tab-pane -->
+
+                <!--coupons End-->
+              </div>
+            </div>
+            <!-- End .col-lg-9 -->
+          </div>
+          <!-- End .row -->
+        </div>
+        <!-- End .container -->
+      </div>
+      <!-- End .dashboard -->
+    </div>
+    <!-- End .page-content -->
+  </main>
+  <!-- End .main -->
+
+  <!-- End .main -->
+
+  <!-- Connect Footer -->
+
+  <!-- Connect Footer -->
+</div>
+
+<!--Connect Mobaile View-->
+<%- //include('../layouts/mobileView.ejs') %>
+<!--Connect Mobaile View-->
+
+
+  <i class="icon-arrow-up"></i>
+</button>
+
+<!-- Plugins JS File -->
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/bootstrap.bundle.min.js"></script>
+<script src="assets/js/jquery.hoverIntent.min.js"></script>
+<script src="assets/js/jquery.waypoints.min.js"></script>
+<script src="assets/js/superfish.min.js"></script>
+<script src="assets/js/owl.carousel.min.js"></script>
+<!-- Main JS File -->
+<script src="assets/js/main.js"></script>
+
+<!-- cdn for sweetalert2 -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<script>
+
+  //profile edit validation
+
+  // const message = document.getElementById()
+
+  // password validation
+
+  const messages = document.getElementById('swal')
+  // const error = document.getElementById('swal-error')
+      if(messages.textContent.trim() == 'password updated'){
+
+        Swal.fire({
+              position: "top-center",
+              icon: "success",
+              title:"Password Changed successfuly",
+              text:'New Password Updated successfuly',
+              showConfirmButton: false,
+              timer: 2000
+        });
+
+      }
+
+      else if(messages.textContent.trim()=='profile edited'){
+        Swal.fire({
+              position: "top-center",
+              icon: "success",
+              title:"Profile Edited successfuly",
+              text:'Yor Profile Updated successfuly',
+              showConfirmButton: false,
+              timer: 2000
+        });
+
+      }
+
+      else if(messages.textContent.trim() == 'current passwordwrong'){
+
+        Swal.fire({
+              position: "top-center",
+              icon: "error",
+              title:"Password Not Changed",
+              text:'Your Current Password Is Wrong',
+              showConfirmButton: false,
+              timer: 2000
+        });
+
+      }
+      else if(messages.textContent.trim()='email already exist'){
+         Swal.fire({
+              position: "top-center",
+              icon: "error",
+              title:"email already exist",
+              text:'this email is using someone else',
+              showConfirmButton: false,
+              timer: 2000
+        });
+      }
+
+
+      //edit profile
+
+
+
+      function validateEditProfile() {
+          let isValid = true;
+
+          // Name Validation
+          const name = document.getElementById('userName').value.trim();
+          const nameError = document.getElementById('nameError');
+          if (name === '') {
+              nameError.textContent = 'Name cannot be empty';
+              console.log('Name validation failed');
+              isValid = false;
+          } else if (!/^[A-Za-z]+$/.test(name)) {
+            nameError.textContent = 'Name should contain only letters';
+             isValid = false;
+             
+}
+          else {
+              nameError.textContent = '';
+          }
+
+          // Phone Validation
+          // const phone = document.getElementById('userPhone').value.trim();
+          // const phoneError = document.getElementById('phoneError');
+          // const phoneRegex = /^[6-9]\d{9}$/; // Indian phone number format
+          // if (phone === '') {
+          //     phoneError.textContent = 'Contact cannot be empty';
+
+          //     isValid = false;
+          // } else if (!phoneRegex.test(phone)) {
+          //     phoneError.textContent = 'Invalid phone number';
+
+          //     isValid = false;
+          // } else {
+          //     phoneError.textContent = '';
+          // }
+
+          // Email Validation
+          const email = document.getElementById('userEmail').value.trim();
+          const emailError = document.getElementById('emailError');
+          const emailRegex = /^[a-zA-Z0-9._%+-]+@gmail\.com$/; // Email should end with @gmail.com
+          if (email === '') {
+              emailError.textContent = 'Email cannot be empty';
+
+              isValid = false;
+          } else if (!emailRegex.test(email)) {
+              emailError.textContent = 'Invalid email';
+
+              isValid = false;
+          } else {
+              emailError.textContent = '';
+          }
+
+          // Prevent form submission if validation fails
+          if (!isValid) {
+              console.log('Form validation failed, preventing submission');
+          } else {
+              console.log('Form validation passed, allowing submission');
+          }
+
+          return isValid;
+      }
+
+
+
+      function validateCurrentPassword(){
+        const password = document.getElementById('CurrentPassword').value.trim()
+        const passwordError = document.getElementById('CurrentPasswordError')
+        console.log(password)
+        if(password==''){
+          passwordError.textContent='Current Password Required'
+          return false
+        }else{
+          passwordError.textContent=''
+          return true
+        }
+      }
+
+      function validatePassword(password) {
+
+               const passwordValidation = document.getElementById('password-validation');
+               const strength = document.getElementById('password-strength');
+               const passwordError = document.getElementById('passwordError');
+               passwordValidation.innerHTML = '';
+               strength.innerHTML = '';
+               passwordError.innerHTML = '';
+
+               const uppercaseRegex = /[A-Z]/;
+               const specialCharRegex = /[@$!%*?&]/;
+               const numberRegex = /\d/;
+               const strongRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%?&])[A-Za-z\d@$!%?&]{10,}$/;
+               const mediumRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d@$!%?&]{6,}$/;
+
+               password = password.trim();
+
+               if (password === '') {
+                   passwordError.innerText = 'Password should not be empty';
+                   return false;
+               } else if (!uppercaseRegex.test(password)) {
+                   passwordValidation.innerHTML += 'Include at least one uppercase letter.<br>';
+                   return false;
+               } else if (!specialCharRegex.test(password)) {
+                   passwordValidation.innerHTML += 'Include at least one special character.<br>';
+                   return false;
+               } else if (!numberRegex.test(password)) {
+                   passwordValidation.innerHTML += 'Include at least one number.<br>';
+                   return false;
+               }
+
+               if (strongRegex.test(password)) {
+                   strength.innerHTML = 'Strong';
+                   strength.style.color = 'green';
+                   return true;
+               } else if (mediumRegex.test(password)) {
+                   strength.innerHTML = 'Medium';
+                   strength.style.color = 'orange';
+                   return true;
+               } else {
+                   strength.innerHTML = 'Weak';
+                   strength.style.color = 'red';
+                   return false;
+               }
+           }
+
+           function validateConfirmPassword() {
+               const password = document.getElementById('NewPassword').value;
+               const confirmPassword = document.getElementById('ConfirmPassword').value;
+               const confirmPasswordError = document.getElementById('confirmPasswordError');
+
+               confirmPasswordError.innerHTML = '';
+
+               if (confirmPassword === '') {
+                   confirmPasswordError.innerText = 'Confirm password should not be empty';
+                   return false;
+               } else if (password !== confirmPassword) {
+                   confirmPasswordError.innerText = 'Passwords do not match';
+                   confirmPasswordError.style.color = 'red'
+                   return false;
+               }
+               confirmPasswordError.textContent = 'Password match';
+               confirmPasswordError.style.color = 'green'
+               return true;
+           }
+
+           function validateForm() {
+               const currentPassword = validateCurrentPassword()
+               const isPasswordValid = validatePassword(document.getElementById('NewPassword').value) ;
+               const isConfirmPasswordValid = validateConfirmPassword();
+
+               return isPasswordValid && isConfirmPasswordValid && currentPassword;
+           }
+</script>
+<!-- <script>
+
+  //  Sweet Alert :-
+
+  const msg = document.getElementById('msg');
+
+  if(msg.textContent == 'Profile Editted Successfully'){
+
+    Swal.fire({
+		
+			title:'Profile Edited',
+			text:'Profile Edited Successfully',
+			icon:'success',
+			confirmButtonText: 'OK'
+		
+		})
+
+  }
+
+  } else if(msg.textContent == 'Password Not Match!!!'){
+
+    Swal.fire({
+		
+			title:'Error',
+			text:'Password Not Match...!',
+			icon:'error',
+			confirmButtonText: 'OK',
+		
+		});
+
+  } else if(msg.textContent == 'Please Check Your Password Corroct Or Not'){
+
+
+    Swal.fire({
+		
+			title:'Error',
+			text:'Somthing Went Wrong...!',
+			icon:'error',
+			confirmButtonText: 'OK',
+		
+		});
+
+  } else if(msg.textContent == 'Addedd Address'){
+
+     Swal.fire({
+		
+			title:'Address Added',
+			text:'Address Added Successfully',
+			icon:'success',
+			confirmButtonText: 'OK'
+		
+		})
+
+  }
+  
+  //  Edit Profile Validation :-
+
+  document.addEventListener('DOMContentLoaded', function () {
+
+      const nameInput = document.getElementById('userName');
+      const phoneInput = document.getElementById('userPhone');
+      const nameError = document.getElementById('nameError');
+      const phoneError = document.getElementById('phoneError');
+      const saveButton = document.getElementById('saveButton');
+
+      function validateInputs() {
+
+          const nameValue = nameInput.value.trim();
+          const phoneValue = phoneInput.value.trim();
+
+          let nameValid = true;
+          let phoneValid = true;
+
+          if (nameValue === '') {
+
+                nameValid = false;
+                nameError.textContent = 'Name cannot be empty';
+
+            } else if (/[^a-zA-Z\s]/.test(nameValue)) {
+
+                nameValid = false;
+                nameError.textContent = 'This is can not be validate , eg : joseph ';
+
+            } else {
+
+              nameError.textContent = '';
+
+            }
+
+          if (!/^\d{10}$/.test(phoneValue)) {
+
+              phoneValid = false;
+              phoneError.textContent = 'Phone number must be 10 digits';
+              
+          } else {
+
+              phoneError.textContent = '';
+
+          }
+
+          saveButton.disabled = !(nameValid && phoneValid);
+      }
+
+      nameInput.addEventListener('input', validateInputs);
+      phoneInput.addEventListener('input', validateInputs);
+
+  });
+
+
+  //  Change Password :-
+
+  document.addEventListener('DOMContentLoaded', function () {
+
+    const oldPasswordInput = document.querySelector('input[name="oldPass"]');
+    const newPasswordInput = document.querySelector('input[name="newPass"]');
+    const confirmPasswordInput = document.querySelector('input[name="confirmPass"]');
+    const passwordError = document.getElementById('passwordError');
+    const savePasswordButton = document.getElementById('savePasswordButton');
+
+    // Password validation function
+
+    function validatePassword() {
+
+      // Get input values
+
+      const oldPassword = oldPasswordInput.value.trim();
+      const newPassword = newPasswordInput.value.trim();
+      const confirmPassword = confirmPasswordInput.value.trim();
+
+      // Check if any fields are empty
+
+      const isEmpty = oldPassword === '' || newPassword === '' || confirmPassword === '';
+
+        if (isEmpty) {
+
+          passwordError.textContent = 'All fields are required';
+          savePasswordButton.disabled = true;
+          return;
+
+        }
+
+        // Check if new password matches confirm password
+        const passwordMatch = newPassword === confirmPassword;
+
+        // Check password strength
+        const passwordLength = newPassword.length >= 8; // Minimum length requirement
+        const hasUppercase = /[A-Z]/.test(newPassword); // At least one uppercase letter
+        const hasLowercase = /[a-z]/.test(newPassword); // At least one lowercase letter
+        const hasDigit = /[0-9]/.test(newPassword); // At least one digit
+        const hasSpecialChar = /[!@#$%^&*(),.?":{}|<>]/.test(newPassword); // At least one special character
+
+        // Validate password criteria
+
+        if (!passwordMatch) {
+
+          passwordError.textContent = 'Passwords do not match';
+          savePasswordButton.disabled = true;
+
+        } else if (!passwordLength) {
+
+          passwordError.textContent = 'Password must be at least 8 characters';
+          savePasswordButton.disabled = true;
+
+        } else if (!hasUppercase || !hasLowercase || !hasDigit || !hasSpecialChar) {
+
+          passwordError.textContent = 'Password must contain at least one uppercase letter, one lowercase letter, one digit, and one special character';
+          savePasswordButton.disabled = true;
+
+        } else {
+
+          passwordError.textContent = '';
+          savePasswordButton.disabled = false;
+
+        }
+    }
+
+    // Attach event listeners for input changes
+    oldPasswordInput.addEventListener('input', validatePassword);
+    newPasswordInput.addEventListener('input', validatePassword);
+    confirmPasswordInput.addEventListener('input', validatePassword);
+
+  });
+
+</script> -->
+<script
+  src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+  crossorigin="anonymous"
+></script>
+<%- include('../layouts/client/footer') %>

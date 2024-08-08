@@ -1,0 +1,317 @@
+<div class="page-wrapper">
+
+    <%- include('../layouts/client/header') %>
+  
+    <main class="main">
+  
+          <div class="page-header text-center" style="background-image: url('assets/images/page-header-bg.jpg')">
+              <div class="container">
+                  <h1 class="page-title pt-5 text-black-50">My Orders</h1>
+              </div><!-- End .container -->
+          </div><!-- End .page-header -->
+  
+          <nav aria-label="breadcrumb" class="breadcrumb-nav mb-3">
+              <div class="container">
+                  <ol class="breadcrumb">
+                      <li class="breadcrumb-item"><a href="/home">Home</a></li>
+                      <!-- <li class="breadcrumb-item"><a href="#"></a></li> -->
+                      <li class="breadcrumb-item active" aria-current="page">Orders</li>
+                  </ol>
+              </div><!-- End .container -->
+          </nav><!-- End .breadcrumb-nav -->
+  
+          <div class="page-content">
+  
+                <div class="dashboard">
+            
+                    <div class="container">
+  
+                        <div class="row">
+  
+                           <%- include('../layouts/client/profileNavbar') %>
+  
+                              <div class="col-md-8 col-lg-9">
+                                <div class="tab-content">
+                                  <aside class="col col-xl-12 col-lg-8 col-md-6 col-sm-6 mb-4 mb-lg-0">
+                                    <div class="row w-100" style="gap: 2rem">
+                                      <div class="container">
+                                        <% if (orderedData.find(obj => 'products' in obj)) { %>
+                                          <table class="table table-wishlist table-mobile text-center" style="width: 100%; border-collapse: separate; border-spacing: 0 1rem;">
+                                            <thead>
+                                              <tr style="background-color: #f8f9fa;">
+                                                <th style="padding: 1rem;">No</th>
+                                                <th style="padding: 1rem;">order date</th>
+                                                <th style="padding: 1rem;">Products</th>
+                                                <th style="padding: 1rem;">Payment Method</th>
+                                                <th style="padding: 1rem;">Total Price</th>
+                                                <th style="padding: 1rem;"> Status</th>
+                                                <!-- <th style="padding: 1rem;">Details</th> -->
+                                                <th style="padding: 1rem;">options</th>
+                                                
+                                              </tr>
+                                            </thead>
+                                            <tbody class="text-center">
+                                              <% orderedData.forEach((ordVal, ind) => { %>
+
+                                                <tr class="fs-4" style="border-bottom: 1px solid #dee2e6;">
+                                                <% if(ordVal.orderStatus=='pending'||ordVal.orderAmount==0){ %>
+                                                    <td style="padding: 1rem; vertical-align: middle;"><%= ind + 1 + skip %></td>
+  
+                                                    <% const formattedDate =ordVal.orderDate.toLocaleString('en-US', { weekday: 'short',
+                                                    month: 'short', day: 'numeric', year: 'numeric', hour:
+                                                    'numeric', minute: 'numeric', second: 'numeric', hour12:
+                                                    true }); %>
+  
+  
+  
+                                                    <td style="padding: 1rem; vertical-align: middle;text-decoration:line-through"><%=formattedDate  %></td>
+                                                    <td style="padding: 1rem; vertical-align: middle;text-decoration:line-through">
+                                                      <% ordVal.products.forEach((product, index) => { %>
+                                                        
+                                                         <%= product.product_id?.name %>.
+                                                        
+                                                      <% }); %>
+                                                    </td>
+                                                    <td class="text-danger" style="padding: 1rem; vertical-align: middle;text-decoration:line-through"><%= ordVal?.payment %></td>
+                                                    <td style="padding: 1rem; vertical-align: middle;text-decoration:line-through">$<%= ordVal?.orderAmount %></td>
+
+                                                    <% if(ordVal?.orderAmount > 0){ %>
+                                                      <td style="padding: 1rem; vertical-align: middle; color:#0b681c;">Placed</td>
+                                                    <% }else{ %>
+                                                      <td style="padding: 1rem; vertical-align: middle; color:red;">canceled</td>
+                                                    <% } %>
+                                                   
+                                                   <% }else{ %>
+                                                    
+                                                <!-- <tr class="fs-4" style="border-bottom: 1px solid #dee2e6;"> -->
+                                                  <td style="padding: 1rem; vertical-align: middle;"><%= ind + 1 + skip %></td>
+
+                                                  <% const formattedDate =ordVal.orderDate.toLocaleString('en-US', { weekday: 'short',
+                                                  month: 'short', day: 'numeric', year: 'numeric', hour:
+                                                  'numeric', minute: 'numeric', second: 'numeric', hour12:
+                                                  true }); %>
+
+
+
+                                                  <td style="padding: 1rem; vertical-align: middle;"><%=formattedDate  %></td>
+                                                  <td style="padding: 1rem; vertical-align: middle;">
+                                                    <% ordVal.products.forEach((product, index) => { %>
+                                                      
+                                                       <%= product.product_id?.name %>.
+                                                      
+                                                    <% }); %>
+                                                  </td>
+                                                  <td class="text-danger" style="padding: 1rem; vertical-align: middle;"><%= ordVal?.payment %></td>
+                                                  <td style="padding: 1rem; vertical-align: middle;">$<%= ordVal?.orderAmount %></td>
+                                                  <td style="padding: 1rem; vertical-align: middle;color: #0b681c;"><%= ordVal?.orderStatus %></td>
+                                            
+                                                  <% } %>
+                                                  <td>
+                                                 <% if (ordVal.orderStatus == 'pending') { %>
+                                                  <input type="button" 
+                                                    style="
+                                                      border-radius: 5px;
+                                                      border: 0px solid transparent;
+                                                      outline: 0px;
+                                                      transition: all ease 0.5s;
+                                                      background-color: rgb(74, 144, 24);
+                                                      color: white;
+                                                      padding: 8px 8px;
+                                                      display: inline-block;
+                                                      text-decoration: none;
+                                                    " value="pay again" onclick="retryPayment('<%= ordVal.order_Id%>', '<%=ordVal?.orderAmount %>')">
+                                                   
+                                                <% } else { %>
+                                                <a href="/orderDetails?id=<%= ordVal?._id %>"
+                                                   style="
+                                                     border-radius: 5px;
+                                                     border: 0px solid transparent;
+                                                     outline: 0px;
+                                                     transition: all ease 0.5s;
+                                                     background-color: #c96;
+                                                     padding: 0.5rem 1rem;
+                                                     display: inline-block;
+                                                     text-decoration: none;
+                                                   "
+                                                   class="text-white">Details</a>
+                                                  <% } %>
+                                                </td>
+                                              </tr>
+                                              <% }); %>
+                                            </tbody>
+                                          </table>
+                                        <% } else { %>
+                                          <div class="">
+                                            <p class="text-black-50" style="padding-left: 16rem; padding-top:1rem;">Order Not Found</p>
+                                          </div>
+                                        <% } %>
+                              
+                                        <% if(orderedData.find(obj => 'products' in obj)) { %>
+                                          <div class="wishlist-share" style="margin-top: 2rem;">
+                                            <div class="social-icons social-icons-sm mb-2"> 
+                                              <label class="social-label">Total Order:</label>
+                                              <%= orderedData.length %>
+                                            </div>
+                                          </div>
+                                        <% } %>
+                                      </div>
+                                    </div>
+                                  </aside>
+                                </div>
+                              </div><!-- End .col-lg-9 -->
+                               <div class="container custom_container">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <nav class="float-right mt-5 mt-col-3">
+                                            <ul class="pagination">
+                                                <% if (currentPage > 1) { %>
+                                                    <li class="page-item">
+                                                        <a class="page-link" href="?page=<%= currentPage - 1 %>">
+                                                            <span aria-hidden="true">&laquo;</span>
+                                                        </a>
+                                                    </li>
+                                                <% } %>
+                                                
+                                                <% for(let i = 1; i <= totalPages; i++) { %>
+                                                    <li class="page-item <%= i === currentPage ? 'active' : '' %>">
+                                                        <a class="page-link" href="?page=<%= i %>"><%= i %></a>
+                                                    </li>
+                                                <% } %>
+                                                
+                                                <% if (currentPage < totalPages) { %>
+                                                    <li class="page-item">
+                                                        <a class="page-link" href="?page=<%= currentPage + 1 %>">
+                                                            <span aria-hidden="true">&raquo;</span>
+                                                        </a>
+                                                    </li>
+                                                <% } %>
+                                            </ul>
+                                        </nav>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!-- End .row -->
+                    </div><!-- End .container -->
+                </div><!-- End .dashboard -->
+              </div>
+  
+          </main>
+  
+    <!-- Connect Footer -->
+    <%- include('../layouts/client/footer') %>
+    <!-- Connect Footer -->
+  
+  </div>
+  
+  <button id="scroll-top" title="Back to Top">
+  
+    <i class="icon-arrow-up"></i>
+  
+  </button>
+  
+  <!--Connect Mobaile View-->
+ 
+  <!--Connect Mobaile View-->
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <!-- Plugins JS File -->
+  <script src="assets/js/jquery.min.js"></script>
+  <script src="assets/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/jquery.hoverIntent.min.js"></script>
+  <script src="assets/js/jquery.waypoints.min.js"></script>
+  <script src="assets/js/superfish.min.js"></script>
+  <script src="assets/js/owl.carousel.min.js"></script>
+  <!-- Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+  <script>
+  function retryPayment(order_Id,amount){
+
+    fetch('/retry-payment', {
+    method: 'put',
+    headers: {
+        'Content-Type': 'application/json'
+    },
+        body: JSON.stringify({order_Id, amount})
+    })
+    .then(res => {
+        if (!res.ok) {
+            throw new Error('Network response was not ok ' + res.statusText);
+        }
+        return res.json();
+    })
+    .then(data => {
+      if(data.razorpay){
+         return razorpayPayment(data.order);
+      }
+    })
+    .catch(error => {
+        console.error('There was a problem with the fetch operation:', error);
+        // Handle the error here
+    });
+   
+         
+  
+ }
+
+ function razorpayPayment(order){
+
+var options = {
+    "key": "rzp_test_deu2ORuCjDgPNd", 
+    "amount":order.amount, 
+    "currency": "INR",
+    "name": "plantly", 
+    "description": "Test Transaction",
+    "image": "https://cdn-icons-png.flaticon.com/512/616/616430.png",
+    "order_id": order.id, 
+    // "callback_url": "https://eneqd3r9zrjok.x.pipedream.net/",
+    "handler": function (response){                              
+        console.log('response:',response);
+        verifyPayment(response,order);
+    },
+    "prefill": { 
+        "name": "muhammad riyas ck", 
+        "email": "plantlyplant@gmail.com", 
+        "contact": "9000090000" 
+    },
+    "notes": {
+        "address": "Razorpay Corporate Office"
+    },
+    "theme": {  
+        "color": "#f2a100"
+    }
+};
+console.log('hereeeeeeeeeeeeee');
+var rzp1 = new Razorpay(options);
+console.log('rzp1:',rzp1);
+rzp1.on('payment.failed', function (response){
+    window.location.href=`/failuer?id=${order.receipt}`
+});
+
+rzp1.open();
+}
+
+function verifyPayment(response,order){
+        fetch('/razorpay',{
+            method:"POST",
+            headers:{
+                "content-type": "application/json;charset=utf-8"
+            },
+            body:JSON.stringify({
+                response,
+                order
+            })
+        })
+        .then((res)=>res.json())
+        .then((data)=>{
+            if(data.statusChanged){
+      
+                window.location.href=`/success`
+            }
+        })   
+    }
+
+
+
+  
+  </script>

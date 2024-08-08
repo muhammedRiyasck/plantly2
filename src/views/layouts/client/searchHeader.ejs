@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html class="" lang="en">
+
+<!-- Mirrored from dostguru.com/HTML/plantly/about-us.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 10 Nov 2023 08:19:15 GMT -->
+<head>
+      <title>Plantly</title>
+      <meta charset="utf-8"/>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <!-- Favicon -->
+      <link rel="shortcut icon" type="image/x-icon" href="/assets/img/Favicon.ico">
+      
+      <!-- bootstrap min-->
+      <link rel="stylesheet" type="text/css" href="/assets/css/bootstrap.min.css">
+      <!-- fontawesome -->
+      <link rel="stylesheet" type="text/css" href="/assets/css/all.min.css">
+      <link rel="stylesheet" type="text/css" href="/assets/css/fontawesome.css">
+      <link rel="stylesheet" type="text/css" href="/assets/css/fontawesome.min.css">
+      <!-- OwlCarousel2 -->
+      <link rel="stylesheet" type="text/css" href="/assets/css/owl.theme.default.min.css">
+      <link rel="stylesheet" type="text/css" href="/assets/css/owl.carousel.css">
+      <!-- fancybox -->
+      <link rel="stylesheet" type="text/css" href="/assets/css/jquery.fancybox.css">
+      <!-- animate -->
+      <link rel="stylesheet" type="text/css" href="/assets/css/animate.min.css">
+      <!-- media -->
+      <link rel="stylesheet" type="text/css" href="/assets/css/media.css">
+      <!-- style -->
+      <link rel="stylesheet" type="text/css" href="/assets/css/style.css">
+      <!-- responsive -->
+      <link rel="stylesheet" type="text/css" href="/assets/css/responsive.css">
+      <!-- googleapis -->
+      <link rel="preconnect" href="../../../fonts.gstatic.com/index.html">
+      <link href="../../../fonts.googleapis.com/css238f0.css?family=Rubik:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet">
+   </head>
+   <body>
+      <!-- cart-model -->
+      <div class="modal fade" id="cart_model" tabindex="-1"  aria-hidden="true">
+         <div class="modal-dialog">
+            <div class="modal-content">
+               <div class="modal-header">
+                  <div class="modal-title f_13 font-weight-bold">Product successfully added to your shopping cart</div>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                  </button>
+               </div>
+               <div class="modal-body">
+                  <div class="row">
+                     <div class="col-sm-4 col-xs-12 mb-3  ">
+                        <img src="/assets/img/product/product_13.jpg" class="fst-image mx-auto d-block img-fluid border rounded" alt="product_13">
+                     </div>
+                     <div class="col-sm-8 col-xs-12 ">
+                        <h6 class="font-weight-bold">Hummingbird printed t-shirt</h6>
+                        <div class="font-weight-bold pb-1">$19.12</div>
+                        <span class="font-weight-bold f_13 pb-1">Size: S</span><br>
+                        <span class="font-weight-bold f_13 pb-1">Color: White</span><br>
+                        <span class="font-weight-bold f_13 pb-1">Qty: 2</span>
+                     </div>
+                  </div>
+                  <div class="row">
+                     <div class=" col-12 ">
+                        <div class="border rounded final_payment">
+                           <div class="card-body  border-bottom">
+                              <p class="text-muted">5 items</p>
+                              <p class="font-weight-bolder">show details</p>
+                              <div>
+                                 <span class="font-weight-bold">subtotal</span>
+                                 <span class="float-right font-weight-bold">$94.00</span>
+                              </div>
+                              <div>
+                                 <span class="font-weight-bold">shipping</span>
+                                 <span class="float-right font-weight-bold">$9.00</span>
+                              </div>
+                           </div>
+                           <div class="card-body ">
+                              <div>
+                                 <span class="font-weight-bold">total(tax excl.)</span>
+                                 <span class="float-right font-weight-bold">$94.00</span>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="modal-footer">
+                  <a class="btn btn-primary mt-2 f_13 px-3 py-2 rounded" data-dismiss="modal">close</a>
+                  <a href="checkout.html" class="btn btn-primary mt-2 f_13 px-3 py-2 rounded">continue</a>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- cart_model -->
+      <!-- eye-model -->
+      <div class="modal fade" id="eye_model" tabindex="-1"  aria-hidden="true">
+         <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+               <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                  </button>
+               </div>
+               <div class="modal-body">
+                  <div class="row">
+                     <div class="col-sm-5 col-12">
+                        <img src="/assets/img/product/product_13.jpg" class="fst-image mx-auto d-block img-fluid border rounded" alt="product_13">
+                     </div>
+                     <div class="col-sm-7 col-12">
+                        <h5 class="font-weight-bold border-bottom me_name">Aliquam Top Erat Volutpat</h5>
+                        <div class="font-weight-bold border-bottom me_price">$19.12</div>
+                        <div class="my-2 border-bottom me_des">Fashion has been creating well-designed collections since 2010. </div>
+                        <div class="me_quan">
+                           <div class="sp_counter ">
+                              <div class="input-group">
+                                 <span class="input-group-btn">
+                                 <button type="button" class="btn btn-default btn-number" disabled="disabled" data-type="minus" data-field="quant[1]"><span class="minus">-</span></button>
+                                 </span>
+                                 <input type="number" name="quant[1]" class="form-control input-number" value="1" min="1" max="10">
+                                 <span class="input-group-btn">
+                                 <button type="button" class="btn btn-default btn-number" data-type="plus" data-field="quant[1]"><span class="plus">+</span></button>
+                                 </span>
+                              </div>
+                           </div>
+                           <span>
+                           <a href="cart.html" class="btn btn-primary primary mt-3">add to cart</a>
+                           </span>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- eye_model -->
+      <!-- compare-model -->
+      <div class="modal fade" id="compare_model" tabindex="-1"  aria-hidden="true">
+         <div class="modal-dialog">
+            <div class="modal-content">
+               <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                  </button>
+               </div>
+               <div class="modal-body text-center">
+                  <p>
+                     <svg width="30px" height="30px">
+                        <use xlink:href="#checked"></use>
+                     </svg>
+                  </p>
+                  <h5>Compare list updated!</h5>
+                  <p class="text-muted font-weight-bold">Product successfully removed from the product comparison!</p>
+                  <div class="text-danger font-weight-bold">Go to Compare</div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- compare_model -->
+      <!-- heart-model -->
+      <!-- <div class="modal fade" id="heart_model" tabindex="-1"  aria-hidden="true">
+         <div class="modal-dialog">
+            <div class="modal-content">
+               <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                  </button>
+               </div>
+               <div class="modal-body text-center">
+                  <p>
+                     <svg width="30px" height="30px">
+                        <use xlink:href="#checked"></use>
+                     </svg>
+                  </p>
+                  <p class="text-muted font-weight-bold">You must be logged in to manage your wishlist.</p>
+                  <div class="text-danger font-weight-bold">Go to wishlist</div>
+               </div>
+            </div>
+         </div>
+      </div> -->
+      <!-- heart_model -->
+      <!-- shipping -->
+      <div class="modal fade" id="shippingModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+         <div class="modal-dialog modal-lg">
+            <div class="modal-content ">
+               <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                  </button>
+               </div>
+               <div class="modal-body">
+                  <ul>
+                     <li>Fashion has been creating well-designed collections since 2010. </li>
+                     <li>The brand offers feminine designs delivering stylish separates and statement dresses which have since evolved into a full ready-to-wear collection in which every item is a vital part of a woman's wardrobe. </li>
+                     <li>The result? Cool, easy, chic looks with youthful elegance and unmistakable signature style. </li>
+                     <li>All the beautiful pieces are made in Italy and manufactured with the greatest attention. Now Fashion extends to a range of accessories including shoes, hats, belts and more!</li>
+                  </ul>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- shipping -->
+      <!-- ask about product -->
+      <div class="modal fade" id="question_Modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+         <div class="modal-dialog">
+            <div class="modal-content">
+               <div class="modal-header">
+                  <h5 class="modal-title " id="exampleModalLabel">shipping</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                  </button>
+               </div>
+               <div class="modal-body que_form">
+                  <h6>have a any question?</h6>
+                  <form>
+                     <div>
+                        <div class="col-12 sp_form pl-0 pb-3">
+                           <textarea class="form-control"  rows="3" placeholder="Enter Your Message"></textarea>
+                        </div>
+                        <div class="col-12 sp_form pl-0 pb-3">
+                           <input type="text" class="form-control" placeholder="Enter Your Name">
+                        </div>
+                        <div class="col-12 sp_form pl-0 pb-3">
+                           <input type="email" class="form-control" placeholder="Enter Your Mail">
+                        </div>
+                        <div class="col-12 sp_form pl-0 pb-3 ">
+                           <input type="tel" pattern=".{10}" class="form-control" id="other_number" oninput="check(this)" required placeholder="Enter Your Phone">
+                        </div>
+                        <div class="col-12 sp_form pl-0 pb-3">
+                           <button type="submit" class="btn btn-primary">submit review</button>
+                        </div>
+                     </div>
+                  </form>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- ask about product -->
+      <!-- add to wishlist -->
+      <div class="modal fade" id="wish_Modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+         <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+               <div class="modal-body">
+                  Please login and you will add product to your wishlist
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                  </button>
+               </div>
+               <div class="modal-footer">
+                  <button type="submit" class="btn btn-primary">Sign In</button>
+                  <button type="submit" class="btn btn-primary">Register</button>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- add to wishlist -->
+      <div class="preloader"></div>
+      <!-- header area -->
+       <!-- header area -->
+      <header>
+         <div class="topbar-outer py-2 border-bottom d-md-none d-none d-none d-lg-block">
+            <div class="">
+               <div class="row">
+                  <div class="col-lg-5 col-md-4 col-sm-4 topbar_left">
+                     <ul>
+                        <li>
+                           <span class="font-weight-bolderer">Get 30% Off On Selected Items</span>
+                        </li>
+                     </ul>
+                  </div>
+                  <!-- col-lg-5 col-md-4 col-sm-4 hidden-md-down topbar_left -->
+                  <!-- <div class="col-lg-7 col-md-8 col-sm-8 text-xs-right  topbar_right text-right">
+                     <nav class="navbar d-flex align-items-center  justify-content-end">
+                        <div class="dropdown right1 md_2 hr_">
+                           <span class="dropdown-toggle lng-select-menu" role="menu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                               <select class=" select-menu form-select d-none d-sm-block" >
+                                 <option value="selected">English <i class="fas fa-angle-down"></i></option>
+                                 <option value="1">Polski</option>
+                                 <option value="2">Romana</option>
+                                 <option value="3">Deutsch</option>
+                              </select>
+                           </span>
+                        </div>
+                        <div class="dropdown right1 md_1">
+                            <span class="dropdown-toggle lng-select-menu" role="menu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                               <select class=" select-menu form-select d-none d-sm-block" >
+                                 <option value="selected">EUR €<i class="fas fa-angle-down"></i></option>
+                                 <option value="1">USD $</option>
+                              </select>
+                           </span>
+                        </div>
+
+                     </nav>
+                  </div> -->
+                  <!-- col-lg-7 col-md-8 col-sm-8 text-xs-right hidden-md-down topbar_right text-right -->
+               </div>
+               <!-- row -->
+            </div>
+            <!-- container  -->
+         </div>
+         <!-- topbar-outer py-2 border-bottom<-->
+         <!-- second row -->
+         <div class="header-top py-4 border-bottom sticky-md-top">
+            <div class="header-top-container">
+               <div class="row header_row">
+                  <div class="col-xl-2 col-lg-2 col-6  head-logo pl-md-0">
+                     <div class="text-left header-top-left pt-2"><a href="index.html"><img src="/assets/img/logo.png" class="img-responsive img" alt="logo"></a></div>
+                  </div>
+                  <!-- col-xl-2 col-lg-2 col-md-2 col-sm-3 head-logo -->
+                  <div class="col-xl-10 col-lg-10 col-6  head-search">
+                     <div class="d-flex navbar">
+                        <div class="input-class  text-left col-xl-8 col-lg-7 col-md-12  ">
+                           <div class="between-header border border-danger rounded mb-0 head-left">
+                              <select class="select-menu form-select d-none d-sm-block" >
+                                 <option value="selected">all categories</option>
+                                 <!-- <option value="1">laptop</option>
+                                 <option value="2">headphone</option>
+                                 <option value="3">audio</option> -->
+                              </select>
+                              <div class="input-group">
+                                 <input type="text" id="Search" onblur="search()" placeholder="search" class="form-control" aria-label="search" >
+                                 <div class="input-group-btn"><button type="button" class="btn btn-danger text-uppercase font-weight-normal">search</button></div>
+                              </div>
+                           </div>
+                           <!-- between-header text-left col-sm-8 head-left border border-danger rounded mb-0 -->
+                        </div>
+      
+                        <div class="col-xl-4 col-lg-5 head-right text-right pr-3">
+                           <ul class="top_cart">
+
+                              <% if (locals.userlogdata) { %>
+
+                                 <li class="dropdown right1 md_acc md_acco pr-4">
+
+                                   <span class="dropdown-toggle my_account "><%= userlogdata.fullName %></span>
+
+                                   <span class="dropdown-menu r_menu dropdown-menu-right" >
+                                    <a class="dropdown-item font-weight-bolderer" href="/profile">Profile</a>
+
+                                    <form action="/logout" method="post">
+
+                                       <button class="dropdown-item font-weight-bolderer">Logout</button>
+
+
+                                    </form>
+
+                                    </span>
+
+                                 </li>
+
+                            <%  } else { %>
+
+                              <li class="dropdown right1 md_acc md_acco">
+                                 <span class="account-block">
+                                 </span>
+                                <!-- <span class="dropdown-toggle my_account"></span> bellow span -->
+                                 <span  role="menu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="padding-right: 3rem;">My account
+                                 <a href="#">
+                                 </a>
+                                 </span>
+                                 <span class="dropdown-menu r_menu dropdown-menu-right" >
+                                 <a class="dropdown-item font-weight-bolderer" href="/login">log in</a>
+                                 <a class="dropdown-item font-weight-bolderer" href="/registration">register</a>
+                                 </span>
+                              </li>
+
+                              <% } %>
+
+                              <!--  <li class="d-lg-none d-md-inline-block user">
+                                 <div class="head_ border rounded bg-white text-left">
+                                    <a class=" md_login" href="#"></a>
+                                 </div>
+                                 </li> -->
+                              <li class="dropdown d-inline-block my-cart md_acc ">
+
+                                 <a href="/cart"  class="cart-qty">
+                                 <span class="cart-contents">
+                                 </span>
+                                 <span class="d-lg-inline-block d-md-none d-sm-none d-none align-middle font-weight-bolderer"></span>
+                                 <!-- <span class="price_cart d-md-inline-block align-middle font-weight-bolderer">*</span> -->
+                                 
+                                 <span class="dropdown-toggle Price-amount" role="menu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                 <!-- $230.00 -->
+                                 </span>
+
+                                 </a>
+                              
+                              </li>
+                       
+                              <a href="/wishlist" style="padding-top: 5px;">  <img width="30" height="30" src="https://img.icons8.com/sf-regular/48/like.png" alt="like"/></a>
+                          
+                           </ul>
+                        </div>
+                        <!-- col-sm-4 head-right text-right -->
+                     </div>
+                     <!-- row -->
+                  </div>
+                  <!-- col-xl-10 col-lg-10 col-md-10 col-sm-12 col-12 head-search -->
+               </div>
+               <!-- row -->
+            </div>
+            <!--  container  -->
+         </div>
+         <!-- header-top py-4 border-bottom-->
+         <!-- third row -->
+         <!-- third row -->
+
+
+                  <div class="header_bottom shadow-sm rounded d-md-none d-sm-none d-none d-lg-block">
+         <div class="">
+            <div class="row">
+               <div class="col-lg-12 text-left">
+                  <ul class="main-menu navbar">
+                     <li><a href="/">Home</a></li>
+                     <li>
+                  <a href="/shop"  >shop</a>
+
+               </li>
+               </li>
+               <!-- <li class="dropdown mega_menu m1 level-1 font-weight-bolderer">
+                  <a class="dropdown-toggle" href="single-product.html"  role="button" data-toggle="dropdown" aria-expanded="false">category&nbsp;<span class="float-right"><i class="fas fa-angle-down"></i></span></a>
+                  <ul class="dropdown-menu">
+                     <li>
+                        <ul class="row mx-0">
+                           <li class="mg_menu col-lg-3 col-md-12 ">
+                              <ul class="sub-category">
+                                 <li class="h_title text-uppercase font-weight-bolder border-bottom d-block">Pot</li>
+                                 <li class="d-block"><a class="dropdown-item font-weight-bolderer" href="shop-left-sidebar.html">Pigmyweeds</a></li>
+                                 <li class="d-block"><a class="dropdown-item font-weight-bolderer" href="shop-left-sidebar.html">Indoor Plants</a></li>
+                                 <li class="d-block"><a class="dropdown-item font-weight-bolderer" href="shop-left-sidebar.html">outdoor Plants</a></li>
+                                 <li class="d-block"><a class="dropdown-item font-weight-bolderer" href="shop-left-sidebar.html">Flamingo plant</a></li>
+                                 <li class="d-block"><a class="dropdown-item font-weight-bolderer" href="shop-left-sidebar.html">Succulent Plant</a></li>
+                              </ul>
+                           </li>
+                           <li class="mg_menu col-lg-3 col-md-12 ">
+                              <ul class="sub-category">
+                                 <li class="h_title text-uppercase font-weight-bolder border-bottom d-block">Plant</li>
+                                 <li class="d-block"><a class="dropdown-item font-weight-bolderer" href="shop-left-sidebar.html">Fragrant Plants</a></li>
+                                 <li class="d-block"><a class="dropdown-item font-weight-bolderer" href="shop-left-sidebar.html">Purifying Plant</a></li>
+                                 <li class="d-block"><a class="dropdown-item font-weight-bolderer" href="shop-left-sidebar.html">Live Plant</a></li>
+                                 <li class="d-block"><a class="dropdown-item font-weight-bolderer" href="shop-left-sidebar.html">Raisin Pot</a></li>
+                                 <li class="d-block"><a class="dropdown-item font-weight-bolderer" href="shop-left-sidebar.html"> Decorative Pot</a></li>
+                              </ul>
+                           </li>
+                           <li class="mg_menu col-lg-3 col-md-12 ">
+                              <ul class="sub-category">
+                                 <li class="h_title text-uppercase font-weight-bolder border-bottom d-block">Crassula</li>
+                                 <li class="d-block"><a class="dropdown-item font-weight-bolderer" href="shop-left-sidebar.html">Nerve Plant</a></li>
+                                 <li class="d-block"><a class="dropdown-item font-weight-bolderer" href="shop-left-sidebar.html">Flowering Plants</a></li>
+                                 <li class="d-block"><a class="dropdown-item font-weight-bolderer" href="shop-left-sidebar.html">Plant Seed</a></li>
+                                 <li class="d-block"><a class="dropdown-item font-weight-bolderer" href="shop-left-sidebar.html">Luck Plants</a></li>
+                                 <li class="d-block"><a class="dropdown-item font-weight-bolderer" href="shop-left-sidebar.html">Plant House</a></li>
+                              </ul>
+                           </li>
+                           <li class="mg_menu col-lg-3 col-md-12">
+                              <ul>
+                                 <li class="d-block"><a href="single-product.html"><img src="/assets/img/m_menu.jpg" class="fst-image mx-auto d-block mb-1 img-fluid" alt="m_menu"></a></li>
+                              </ul>
+                           </li>
+                        </ul>
+                     </li>
+                  </ul>
+               </li> -->
+               <li>
+
+                     <a class="dropdown-item font-weight-bolder" href="/blog">blog</a>
+
+               </li>
+               <!-- <li><a href="#">gallery</a></li> -->
+               <li><a href="/aboutuS">about us</a></li>
+               <!-- <li>
+                  <a class="dropdown-toggle" href="#"  role="button" data-toggle="dropdown" aria-expanded="false">pages  <i class="fas fa-angle-down"></i></a>
+                  <ul class="dropdown-menu all-page-drop">
+                     <li class="d-block"><a class="dropdown-item font-weight-bolderer" href="about-us.html">about us</a></li>
+                     <li class="d-block"><a class="dropdown-item font-weight-bolderer" href="single-product.html">single product</a></li>
+                     <li class="d-block"><a class="dropdown-item font-weight-bolderer" href="single-blog.html">single blog</a></li>
+                     <li class="d-block"><a class="dropdown-item font-weight-bolderer" href="login.html">login</a></li>
+                     <li class="d-block"><a class="dropdown-item font-weight-bolderer" href="registration.html">registration</a></li>
+                     <li class="d-block"><a class="dropdown-item font-weight-bolderer" href="cart.html">cart</a></li>
+                     <li class="d-block"><a class="dropdown-item font-weight-bolderer" href="compare.html">compare</a></li>
+                     <li class="d-block"><a class="dropdown-item font-weight-bolderer" href="wishlist.html">wishlist</a></li>
+                     <li class="d-block"><a class="dropdown-item font-weight-bolderer" href="checkout.html">check out</a></li>
+                     <li class="d-block"><a class="dropdown-item font-weight-bolderer" href="forgot.html">forgot password</a></li>
+                  </ul>
+               </li> -->
+               <li><a href="/contactUs">contact-us</a></li>
+            </ul>
+         </div>
+         <!-- col-lg-12 text-left -->
+         </div>
+               <!-- row -->
+            </div>
+            <!-- container  -->
+         </div>
+
+
+         <!-- header_bottom shadow-sm rounded  -->
+      </header>
+      <script>
+function search(page = 1) {
+    var sortValue = document.querySelector('input[name="sort"]:checked');
+    selectedSort = sortValue ? sortValue.value : null;
+    const min = document.getElementById('min').value || 0;
+    const max = document.getElementById('max').value || '';
+    
+    const checkboxes = document.querySelectorAll('.checkbox-item');
+    const categoryVal = [];
+    checkboxes.forEach((checkbox) => {
+        if (checkbox.checked) {
+            categoryVal.push(checkbox.value);
+        }
+    });
+    
+    const searchQuery = document.getElementById('Search').value;
+    
+    const result = document.getElementById('products');
+   
+    fetch('/sortAndFilterAndSearch', {
+        method: 'post',
+        headers: {'Content-Type': 'application/json'}, 
+        body: JSON.stringify({searchQuery, categoryVal, max, min, selectedSort, page})
+    })
+    .then(res => res.json())
+    .then(data => {
+        if (data.productData.length > 0) {
+            result.classList.remove('justify-content-center');
+            
+            result.innerHTML = data.productData.map((product) => `
+                <div class="item col-xl-3">
+                    <div class="product_thumb bg-white rounded">
+                        <div class="pro_image" style="position: relative;">
+                            <a href="/single-product?id=${product._id}">
+                                <img src="/assets/productImages/${product.images[0]}" class="fst-image mx-auto d-block img-fluid" alt="product_img">
+                            </a>
+                            <a href="/single-product?id=${product._id}">
+                                <img src="/assets/productImages/${product.images[1]}" class="second-img mx-auto d-block img-fluid" alt="product_img">
+                            </a>
+                            
+                            ${product.stock <= 0 
+                                ? `<span class="product-label text-white p-1 label-out-of-stock" style="position: absolute; top: 0; left: 0; width:60%; text-align: center; background-color: rgba(196, 25, 25, 0.75);">Out of Stock</span>`
+                                : `<span class="product-label p-1 text-white ${product.discount > 0 ? 'bg-danger' : ''}" style="position: absolute; top: 0; left: 0; width: 40%; text-align: center;">${product.discount > 0 ? product.discount + '% OFF' : ''}</span>`
+                            }
+                        </div>
+                        <div class="text-center main_text pt-3">
+                            <div>
+                                <div class="star mb-2">
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                </div>
+                                <h2 class="pro-heading font-weight-bolder mb-1"><a href="/single-product?id=${product._id}">${product.name}</a></h2>
+                                
+                                ${product.discount > 0 
+                                    ? `<span style="text-decoration: line-through !important; color: rgb(255, 3, 3) !important; opacity: 0.5 !important;">$${product.price}.00</span>&nbsp;
+                                       <span class="text-success">$${product.discount_price}.00</span>`
+                                    : `<span>$${product.price}.00</span>&nbsp;`
+                                }
+                                
+                                <p class="description mt-1 text-muted">${product.description}</p>
+                                <div class="button-group">
+                                    <a onclick="addToWishlist('${product._id}')" class="symbol pro_heart ml-0" data-toggle="modal"></a>
+                                    <a href="#" class="symbol pro_eye" data-toggle="modal" data-target="#eye_model"></a>
+                                    <a href="#" class="symbol pro_compare" data-toggle="modal" data-target="#compare_model"></a>
+                                </div>
+                                ${product.stock > 0
+                                    ? `<a class="btn symbol add_to_cart" onclick="addToCart('${product._id}')">+ ADD TO CART</a>`
+                                    : `<span class="btn symbol add_to_cart" style="color: red;">OUT OF STOCK</span>`
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+
+            updatePagination(data.currentPage, data.totalPages);
+        } else {
+            result.innerHTML = '<p style="margin-left: 22rem">No products found</p>';
+            updatePagination(1, 1); // Reset pagination if no products found
+        }
+    })
+    .catch(error => console.error('Error:', error));
+}  
+
+function updatePagination(currentPage, totalPages) {
+   console.log(currentPage,totalPages)
+    const paginationContainer = document.querySelector('.pagination');
+    let paginationHTML = '';
+
+    if (currentPage > 1) {
+        paginationHTML += `
+            <li class="page-item">
+                <a class="page-link" href="javascript:void(0);" onclick="search(${currentPage - 1})">
+                    <span aria-hidden="true">&laquo;</span>
+                </a>
+            </li>
+        `;
+    }
+
+    const startPage = Math.max(1, currentPage - 2);
+    const endPage = Math.min(totalPages, currentPage + 2);
+
+    for (let i = startPage; i <= endPage; i++) {
+        paginationHTML += `
+            <li class="page-item ${i === currentPage ? 'active' : ''}">
+                <a class="page-link" href="javascript:void(0);" onclick="search(${i})">${i}</a>
+            </li>
+        `;
+    }
+
+    if (currentPage < totalPages) {
+        paginationHTML += `
+            <li class="page-item">
+                <a class="page-link" href="javascript:void(0);" onclick="search(${currentPage + 1})">
+                    <span aria-hidden="true">&raquo;</span>
+                </a>
+            </li>
+        `;
+    }
+
+    paginationContainer.innerHTML = paginationHTML;
+
+    const pageLinks = paginationContainer.querySelectorAll('.page-link');
+    pageLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            const page = parseInt(this.textContent);
+            if (!isNaN(page)) {
+                search(page);
+            } else if (this.querySelector('span')) {
+                // Handle previous/next buttons
+                const direction = this.querySelector('span').textContent;
+                search(direction === '«' ? currentPage - 1 : currentPage + 1);
+            }
+        });
+    });
+}
+
+// Initial load
+search(1);
+</script>

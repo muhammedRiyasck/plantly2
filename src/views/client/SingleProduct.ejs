@@ -1,0 +1,1351 @@
+<%- include('../layouts/client/header') %>
+
+<!-- header -->
+<!-- header area end -->
+<!-- vertical menu and slider -->
+<div id="home_vertical_menu">
+  <div class="row">
+    <div class="col-lg-3 vertical_menu">
+      <div class="v_menu bg-white rounded">
+        <div class="cat_menu bg-warning rounded-top">
+          <a href="#" class="pe-auto text-uppercase d-md-none d-sm-none d-none d-lg-block font-weight-bold"
+            ><i class="fas fa-bars"></i>all categories</a
+          >
+        </div>
+        <div class="navbar-header d-xl-none d-lg-none">
+          <button
+            type="button"
+            class="btn-navbar navbar-toggle"
+            onclick="openNav()"
+            data-toggle="collapse"
+            data-target=".navbar-ex1-collapse"
+          >
+            <i class="fas fa-bars"></i>
+          </button>
+        </div>
+        <div id="mySidenav" class="sidenav">
+          <div class="close-nav d-xl-none d-lg-none">
+            <span class="categories">Menu</span>
+            <a href="javascript:void(0)" class="closebtn pull-right" onclick="closeNav()"
+              ><i class="fas fa-times"></i
+            ></a>
+          </div>
+          <ul class="vertical_main_menu h_menu navbar navbar-nav">
+            <li class="dropdown mega_menu m1_menu level-1 font-weight-bolder">
+              <a
+                class="dropdown-toggle"
+                href="single-product.html"
+                role="button"
+                data-toggle="dropdown"
+                aria-expanded="false"
+                >portfolio&nbsp;<span class="float-right mt-1"><i class="fas fa-angle-down"></i></span
+              ></a>
+              <ul class="dropdown-menu">
+                <li>
+                  <ul class="row mx-0">
+                    <li class="mg_menu col-lg-6 col-md-12">
+                      <ul>
+                        <li class="h_title text-uppercase font-weight-bold border-bottom">portfolio grid 2</li>
+                        <li>
+                          <a class="dropdown-item font-weight-bolder" href="portfolio-grid-2.html">portfolio grid 2</a>
+                        </li>
+                        <li>
+                          <a class="dropdown-item font-weight-bolder" href="portfolio-grid-3.html">portfolio grid 3</a>
+                        </li>
+                        <li>
+                          <a class="dropdown-item font-weight-bolder" href="portfolio-grid-4.html">portfolio grid 4</a>
+                        </li>
+                        <li>
+                          <a class="dropdown-item font-weight-bolder" href="mesonary-grid-2.html">mesonary grid 2</a>
+                        </li>
+                        <li>
+                          <a class="dropdown-item font-weight-bolder" href="mesonary-grid-3.html">mesonary grid 3</a>
+                        </li>
+                        <li>
+                          <a class="dropdown-item font-weight-bolder" href="mesonary-grid-4.html">mesonary grid 4</a>
+                        </li>
+                      </ul>
+                    </li>
+                    <li class="mg_menu col-lg-6 col-md-12">
+                      <ul>
+                        <li class="h_title text-uppercase font-weight-bold border-bottom">theme elements</li>
+                        <li><a class="dropdown-item font-weight-bolder" href="title.html">title</a></li>
+                        <li><a class="dropdown-item font-weight-bolder" href="category-style.html">category</a></li>
+                        <li><a class="dropdown-item font-weight-bolder" href="services.html">services</a></li>
+                        <li><a class="dropdown-item font-weight-bolder" href="product-tab.html">product tab</a></li>
+                        <li>
+                          <a class="dropdown-item font-weight-bolder" href="multi-slider-product.html"
+                            >multi slider product</a
+                          >
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li class="dropdown level-1 font-weight-bolder">
+              <a class="dropdown-toggle" href="blog.html" role="button" data-toggle="dropdown" aria-expanded="false">
+                blog&nbsp;<span class="float-right mt-1"><i class="fas fa-angle-down"></i></span
+              ></a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item font-weight-bolder" href="blog.html">blog</a></li>
+                <li><a class="dropdown-item font-weight-bolder" href="blog-left-sidebar.html">left sidebar</a></li>
+                <li><a class="dropdown-item font-weight-bolder" href="blog-right-sidebar.html">right sidebar</a></li>
+              </ul>
+            </li>
+            <li class="dropdown level-1 font-weight-bolder">
+              <a
+                class="dropdown-toggle"
+                href="shop-left-sidebar.html"
+                role="button"
+                data-toggle="dropdown"
+                aria-expanded="false"
+                >shop&nbsp;<span class="float-right mt-1"><i class="fas fa-angle-down"></i></span
+              ></a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item font-weight-bolder" href="shop-left-sidebar.html">left sidebar</a></li>
+                <li><a class="dropdown-item font-weight-bolder" href="shop-right-sidebar.html">right sidebar</a></li>
+              </ul>
+            </li>
+            <li class="dropdown mega_menu level-1 font-weight-bolder">
+              <a
+                class="dropdown-toggle"
+                href="single-product.html"
+                role="button"
+                data-toggle="dropdown"
+                aria-expanded="false"
+                >Category&nbsp;<span class="float-right mt-1"><i class="fas fa-angle-down"></i></span
+              ></a>
+              <ul class="dropdown-menu">
+                <li>
+                  <ul class="row mx-0">
+                    <li class="mg_menu col-lg-4 col-md-12">
+                      <ul>
+                        <li class="h_title text-uppercase font-weight-bold border-bottom">Pot</li>
+                        <li>
+                          <a class="dropdown-item font-weight-bolder" href="shop-left-sidebar.html">Pigmyweeds</a>
+                        </li>
+                        <li>
+                          <a class="dropdown-item font-weight-bolder" href="shop-left-sidebar.html">Indoor Plants</a>
+                        </li>
+                        <li>
+                          <a class="dropdown-item font-weight-bolder" href="shop-left-sidebar.html">outdoor Plants</a>
+                        </li>
+                        <li>
+                          <a class="dropdown-item font-weight-bolder" href="shop-left-sidebar.html">Flamingo plant</a>
+                        </li>
+                        <li>
+                          <a class="dropdown-item font-weight-bolder" href="shop-left-sidebar.html">Succulent Plant</a>
+                        </li>
+                      </ul>
+                    </li>
+                    <li class="mg_menu col-lg-4 col-md-12">
+                      <ul>
+                        <li class="h_title text-uppercase font-weight-bold border-bottom">Plants</li>
+                        <li>
+                          <a class="dropdown-item font-weight-bolder" href="shop-left-sidebar.html">Nerve Plant</a>
+                        </li>
+                        <li>
+                          <a class="dropdown-item font-weight-bolder" href="shop-left-sidebar.html">Flowering Plants</a>
+                        </li>
+                        <li>
+                          <a class="dropdown-item font-weight-bolder" href="shop-left-sidebar.html">Plant Seed</a>
+                        </li>
+                        <li>
+                          <a class="dropdown-item font-weight-bolder" href="shop-left-sidebar.html">Luck Plants</a>
+                        </li>
+                        <li>
+                          <a class="dropdown-item font-weight-bolder" href="shop-left-sidebar.html">Plant House</a>
+                        </li>
+                      </ul>
+                    </li>
+                    <li class="mg_menu col-lg-4 col-md-12">
+                      <ul>
+                        <li>
+                          <a href="single-product.html"
+                            ><img
+                              src="assets/img/product/m_menu.html"
+                              class="fst-image mx-auto d-block mb-1 img-fluid"
+                              alt="m_menu"
+                          /></a>
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li class="dropdown level-1 font-weight-bolder">
+              <a class="dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false"
+                >pages&nbsp;<span class="float-right mt-1"><i class="fas fa-angle-down"></i></span
+              ></a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item font-weight-bolder" href="about-us.html">about us</a></li>
+                <li><a class="dropdown-item font-weight-bolder" href="login.html">login</a></li>
+                <li><a class="dropdown-item font-weight-bolder" href="registration.html">registration</a></li>
+                <li><a class="dropdown-item font-weight-bolder" href="single-product.html">single product</a></li>
+                <li><a class="dropdown-item font-weight-bolder" href="single-blog.html">single blog</a></li>
+                <li><a class="dropdown-item font-weight-bolder" href="/cart">cart</a></li>
+                <li><a class="dropdown-item font-weight-bolder" href="compare.html">compare</a></li>
+                <li><a class="dropdown-item font-weight-bolder" href="wishlist.html">wishlist</a></li>
+                <li><a class="dropdown-item font-weight-bolder" href="checkout.html">check out</a></li>
+                <li><a class="dropdown-item font-weight-bolder" href="forgot.html">forgot password</a></li>
+              </ul>
+            </li>
+            <li class="level-1 font-weight-bolder"><a href="contact-us.html">contact-us</a></li>
+          </ul>
+        </div>
+      </div>
+      <!-- v_menu bg-white rounded -->
+    </div>
+  </div>
+  <!-- row -->
+</div>
+<!-- container  menu_slider mt-4 -->
+<!-- vertical menu and slider end -->
+<!-- single product header area -->
+<div id="single_product" class="single_product_page animate__animated animate__fadeInUp">
+  <div class="sp_header bg-white p-3">
+    <div class="container custom_container">
+      <div class="row">
+        <div class="col-12">
+          <ul>
+            <li class="d-inline-block font-weight-bolder"><a href="/home">home</a></li>
+            <li class="d-inline-block hr_ font-weight-bolder"><a href="#">plant</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- single product header area -->
+  <!-- single product img and detail -->
+
+  <div class="container sp_pro_container pt-2">
+    <div class="row sh_page bg-white rounded border py-2">
+      <div class="col-xl-4 col-lg-6 col-md-6 col-12 sp_left_product px-2">
+        <div id="content" class="page-content">
+          <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-12 sp_zoom_pro mb-5 imf">
+              <img
+                id="zoom_03"
+                src="/assets/productImages/<%= singleProduct.images[0] %>"
+                class="rounded img-fluid js-product-cover product-main-image"
+                data-zoom-image="assets/img/product/product_1.jpg"
+              />
+            </div>
+
+            <div class="col-lg-12 col-md-12 col-sm-12 col-12 sp_muti_pro">
+              <div id="gallery_02" class="row owl-carousel owl-theme row" style="display: flex">
+                <div class="col-4 px-1">
+                  <a
+                    class="elevatezoom-gallery nj"
+                    data-image="assets/img/product/product_1.jpg"
+                    data-zoom-image="assets/img/product/product_1.jpg"
+                  >
+                    <img
+                      src="/assets/productImages/<%= singleProduct.images[0] %>"
+                      class="border rounded img-fluid"
+                      width="100"
+                  /></a>
+                </div>
+
+                <div class="col-4 px-1 pt-1">
+                  <a
+                    class="elevatezoom-gallery nj"
+                    data-image="assets/img/product/product_12.jpg"
+                    data-zoom-image="assets/img/product/product_12.jpg"
+                  >
+                    <img
+                      src="/assets/productImages/<%= singleProduct.images[1] %>"
+                      class="border rounded img-fluid"
+                      width="100"
+                  /></a>
+                </div>
+
+                <div class="col-4 px-1 pt-1">
+                  <a
+                    class="elevatezoom-gallery nj"
+                    data-image="assets/img/product/product_13.jpg"
+                    data-zoom-image="assets/img/product/product_13.jpg"
+                  >
+                    <img
+                      src="/assets/productImages/<%= singleProduct.images[2] %>"
+                      class="border rounded img-fluid"
+                      width="100"
+                  /></a>
+                </div>
+
+                <!-- <div class="col-12 px-1">
+                             <a  href="#" class="elevatezoom-gallery" data-image="assets/img/product/product_19.jpg" data-zoom-image="assets/img/product/product_19.jpg">
+                             <img src="assets/img/product/product_19.jpg" class="border rounded img-fluid" width="100"/></a>
+                          </div>
+                          <div class="col-12 px-1">
+                             <a  href="#" class="elevatezoom-gallery" data-image="assets/img/product/product_17.jpg" data-zoom-image="assets/img/product/product_17.jpg">
+                             <img src="assets/img/product/product_17.jpg" class="border rounded img-fluid" width="100"/></a>
+                          </div>
+                          <div class="col-12 px-1">
+                             <a  href="#" class="elevatezoom-gallery" data-image="assets/img/product/product_15.jpg" data-zoom-image="assets/img/product/product_15.jpg">
+                             <img src="assets/img/product/product_15.jpg" class="border rounded img-fluid" width="100"/></a>
+                          </div>
+                          <div class="col-12 px-1">
+                             <a  href="#" class="elevatezoom-gallery" data-image="assets/img/product/product_1.jpg" data-zoom-image="assets/img/product/product_11.jpg">
+                             <img src="assets/img/product/product_11.jpg" class="border rounded img-fluid" width="100"/></a>
+                          </div>  -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-xl-8 col-lg-6 col-md-6 col-12 sp_right_product pl-lg-3 pl-2 pr-2">
+        <div class="sp_ri_leftpart">
+          <div class="sp_product_detail">
+            <h1 class=""><a href="#"><%= singleProduct.name %></a></h1>
+            <span class="sp_price font-weight-bold">$<%= singleProduct.discount_price>0?singleProduct.discount_price:singleProduct.price %></span>
+            <div class="text-secondary sp_tax">Tax included.</div>
+            <div class="sp_add_info my-3">
+              <ul>
+                <!-- <li class="sku my-2">
+                             <span class="text-uppercase font-weight-bolder tags-title">sku:</span>
+                             <span>5010</span>
+                          </li> -->
+                <li class="availability my-2">
+                  <span class="font-weight-bolder tags-title">Availability:</span>
+                  <span class="p_quantity" style="color: red"><%= singleProduct.stock %></span>
+                  <span style="color: red">in stock</span>
+                </li>
+              </ul>
+            </div>
+            <div class="sp_text">
+              <ul>
+                <!-- <li class="my-2" style="color: #505050;">Fashion has been creating well-designed collections since 2010. </li> -->
+                <li class="my-2"><%= singleProduct.description %></li>
+              </ul>
+            </div>
+            <div class="sp_rating">
+              <i class="fa fa-star" aria-hidden="true"></i>
+              <i class="fa fa-star" aria-hidden="true"></i>
+              <i class="fa fa-star" aria-hidden="true"></i>
+              <i class="fa fa-star" aria-hidden="true"></i>
+              <i class="fa fa-star" aria-hidden="true"></i>
+            </div>
+            <!-- <div id="clockdiv" class="sp_clockdiv">
+                       <div class="main_box rounded">
+                          <span class="days"></span>
+                          <div class="smalltext">Day</div>
+                       </div>
+                       <div class="main_box rounded">
+                          <span class="hours"></span>
+                          <div class="smalltext">Hour</div>
+                       </div>
+                       <div class="main_box rounded">
+                          <span class="minutes"></span>
+                          <div class="smalltext">Min</div>
+                       </div>
+                       <div class="main_box rounded">
+                          <span class="seconds"></span>
+                          <div class="smalltext">Sec</div>
+                       </div>
+                    </div> -->
+            <!-- <div class="sp_color my-4">
+                       <ul>
+                          <li class="font-weight-bold text-uppercase my-2">color:</li>
+                          <li class="btn-group btn-group-toggle my-2" data-toggle="buttons">
+                             <label class="btn yellow rounded  active">
+                             <input class="" type="radio" name="options"  >
+                             </label>
+                             <label class="btn black rounded">
+                             <input class="" type="radio" name="options" > 
+                             </label>
+                          </li>
+                       </ul>
+                    </div> -->
+            <!-- <div class="sp_size">
+                       <ul>
+                          <li class="font-weight-bold text-uppercase my-2">size:</li>
+                          <li class="btn-group btn-group-toggle my-2" data-toggle="buttons">
+                             <label class="btn size_ rounded  active">
+                             <input class="" type="radio" name="options"  >S
+                             </label>
+                             <label class="btn size_ rounded">
+                             <input class="" type="radio" name="options" >M
+                             </label>
+                             <label class="btn size_ rounded">
+                             <input class="" type="radio" name="options" >L
+                             </label>
+                          </li>
+                       </ul>
+                    </div> -->
+            <div class="sp_about my-3">
+              <span class="sp_comn1"
+                ><a href="#" class="font-weight-bolder" data-toggle="modal" data-target="#shippingModal"
+                  ><i class="fas fa-box-open"></i>shipping</a
+                ></span
+              >
+              <!-- <span class="sp_comn2"><a href="#" class="font-weight-bolder" data-toggle="modal" data-target="#question_Modal"><i class="far fa-envelope"></i>ask about this product</a></span> -->
+            </div>
+           
+            <div class="sp_counter">
+              <div class="sp_c_count1">
+                 <div class="number">
+                    <!-- <span class="minus">-</span>
+                       <input type="text" value="1"/>
+                       <span class="plus">+</span> -->
+                    <div class="sp_counter ">
+                       <div class="input-group">
+                          <span class="input-group-btn">
+                          <button type="button" class="btn btn-default btn-number p-0" disabled="disabled" data-type="minus" data-field="qty"><span class="minus">-</span></button>
+                          </span> 
+                          <input type="number" name="qty"class="form-control input-number" value="1"  min="1" max="<%= singleProduct.stock %>" readonly>
+                          <span class="input-group-btn">
+                          <button type="button" class="btn btn-default btn-number p-0" data-type="plus" data-field="qty"><span class="plus">+</span></button>
+                          </span>
+                       </div>
+                    </div>
+                 </div>
+              </div>
+              <!-- <span class="sp_c_count2"> -->
+                <% if (singleProduct.stock>0) { %>        
+                  <a onclick="addToCart('<%= singleProduct._id %>')" class="btn btn-primary primary">add to cart</a>
+               <% } else {%>
+                <span class="btn btn-primary primary" style="background:red;">out of stock</span>
+                <% } %>
+              <!-- </span> -->
+           </div>
+            <div class="form-check sp_check my-3">
+              <input class="form-check-input" type="checkbox" value="" id="defaultCheck1" />
+              <label class="form-check-label" for="defaultCheck1">I agree with the terms and conditions </label>
+            </div>
+            <div class="sp_buy">
+              <button type="button" class="btn btn-primary primary">buy it now</button>
+            </div>
+            <div class="sp_wish_com my-3">
+              <span class="sp_comp1"
+                ><a href="#" class="text-uppercase font-weight-bolder" data-toggle="modal"  data-target="#wish_Modal"
+                  ><i class="far fa-heart"></i>add TO WISHLIST</a
+                ></span>
+
+                <div class="modal fade" id="wish_Modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                  <div class="modal-dialog modal-lg modal-dialog-centered">
+                     <div class="modal-content">
+                        <div class="modal-body">
+                           Please login and you will add product to your wishlist
+                           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                           <span aria-hidden="true">&times;</span>
+                           </button>
+                        </div>
+                        <div class="modal-footer">
+                           <a href="/registration" class="btn btn-primary">Sign In</a>
+                           <button type="submit" class="btn btn-primary">Register</button>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+
+              <span class="sp_comp2"
+                ><a href="#" class="text-uppercase font-weight-bolder"
+                  ><i class="fas fa-tasks"></i>ADD TO COMPARE</a
+                ></span
+              >
+            </div>
+            <div class="sp_ad_info">
+              <ul>
+                <!-- <li class="my-2">
+                             <span class="font-weight-bolder tags-title">vendor:</span><span><a href="#" class="text-muted pl-2">levis</a></span>
+                          </li> -->
+                <li class="my-2">
+                  <span class="font-weight-bolder tags-title">product type:</span
+                  ><span class="text-muted pl-2"><%= singleProduct.category_id.name %></span>
+                </li>
+                <!-- <li class="my-2">
+                             <span class="font-weight-bolder tags-title">barcode:</span><span class="text-muted pl-2">1234321</span>
+                          </li> -->
+                <li class="my-2">
+                  <span class="font-weight-bolder tags-title">tags:</span
+                  ><span><a href="#" class="text-muted px-2">summer ,</a></span
+                  ><span><a href="#" class="text-muted">winter</a></span>
+                </li>
+              </ul>
+            </div>
+            <div class="sp_collapse_block my-4">
+              <div class="accordion" id="collapse_block">
+                <div class="card">
+                  <div class="card-header" id="heading_One">
+                    <h2 class="mb-0">
+                      <button
+                        class="btn btn-link btn-block text-left tags-title"
+                        type="button"
+                        data-toggle="collapse"
+                        data-target="#collapse_One"
+                        aria-expanded="true"
+                        aria-controls="collapse_One"
+                      >
+                        DESCRIPTION<span class="float-right"><i class="fas fa-angle-down"></i></span>
+                      </button>
+                    </h2>
+                  </div>
+                  <div
+                    id="collapse_One"
+                    class="collapse show"
+                    aria-labelledby="heading_One"
+                    data-parent="#collapse_block"
+                  >
+                    <div class="card-body">
+                      <p><%=singleProduct.description %></p>
+                    </div>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-header" id="heading_Two">
+                    <h2 class="mb-0">
+                      <button
+                        class="btn btn-link btn-block text-left collapsed"
+                        type="button"
+                        data-toggle="collapse"
+                        data-target="#collapse_Two"
+                        aria-expanded="false"
+                        aria-controls="collapse_Two"
+                      >
+                        ADDITIONAL INFORMATION<span class="float-right"><i class="fas fa-angle-down"></i></span>
+                      </button>
+                    </h2>
+                  </div>
+                  <div id="collapse_Two" class="collapse" aria-labelledby="heading_Two" data-parent="#collapse_block">
+                    <div class="card-body">
+                      <table>
+                        <tbody>
+                          <tr>
+                            <td class="pr-5">color:</td>
+                            <td>pink</td>
+                          </tr>
+                          <tr>
+                            <td>size:</td>
+                            <td>large</td>
+                          </tr>
+                          <tr>
+                            <td>material:</td>
+                            <td>faberics</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-header" id="heading_Three">
+                    <h2 class="mb-0">
+                      <button
+                        class="btn btn-link btn-block text-left collapsed"
+                        type="button"
+                        data-toggle="collapse"
+                        data-target="#collapse_Three"
+                        aria-expanded="false"
+                        aria-controls="collapse_Three"
+                      >
+                        REVIEW<span class="float-right"><i class="fas fa-angle-down"></i></span>
+                      </button>
+                    </h2>
+                  </div>
+                  <div
+                    id="collapse_Three"
+                    class="collapse"
+                    aria-labelledby="heading_Three"
+                    data-parent="#collapse_block"
+                  >
+                    <div class="card-body">
+                      <form>
+                        <div class="">
+                          <div class="col-12 sp_form pl-0">
+                            <label class="font-weight-bolder">name:</label>
+                            <input type="text" class="form-control" placeholder="First name" />
+                          </div>
+                          <div class="col-12 sp_form pl-0">
+                            <label class="font-weight-bolder">email:</label>
+                            <input type="email" class="form-control" placeholder="Enter Your Mail" />
+                          </div>
+                          <div class="col-12 sp_form pl-0">
+                            <label class="font-weight-bolder">title:</label>
+                            <input type="text" class="form-control" placeholder="Review Title" />
+                          </div>
+                          <div class="col-12 sp_form pl-0">
+                            <label class="font-weight-bolder">review:</label>
+                            <textarea
+                              class="form-control sp_text_area"
+                              id="exampleFormControlTextarea1"
+                              rows="3"
+                              placeholder="Your Review"
+                            ></textarea>
+                          </div>
+                          <div class="col-12 sp_form pl-0">
+                            <button type="submit" class="btn btn-primary font-weight-bolder">submit review</button>
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- single product img and detail -->
+  <!-- related product -->
+  <div class="container custom_container t_pro_container fadeInUp">
+    <div class="row">
+      <div class="col-12">
+        <div class="title_outer">
+          <h5 class="font-weight-bolder mb-4 d-inline-block">related products</h5>
+        </div>
+        <!-- title_outer -->
+      </div>
+      <!-- col-12 -->
+    </div>
+    <!-- row -->
+    <div class="row">
+      <div id="related_product_carousel" class="srelated_product_carousel owl-carousel owl-theme pro_thumb">
+        <div class="item">
+          <div class="col-12">
+            <div class="product_thumb bg-white rounded">
+              <div class="pro_image">
+                <a href="single-product.html"
+                  ><img
+                    src="assets/img/product/product_1.jpg"
+                    class="fst-image mx-auto d-block img-fluid"
+                    alt="product_1"
+                /></a>
+                <a href="single-product.html"
+                  ><img
+                    src="assets/img/product/product_2.jpg"
+                    class="second-img mx-auto d-block img-fluid"
+                    alt="product_2"
+                /></a>
+              </div>
+              <div class="text-center">
+                <div class="button-group">
+                  <a href="#" class="symbol pro_heart" data-toggle="modal" data-target="#heart_model"></a>
+                  <a href="#" class="symbol pro_eye" data-toggle="modal" data-target="#eye_model"></a>
+                  <a href="#" class="symbol pro_compare" data-toggle="modal" data-target="#compare_model "></a>
+                </div>
+
+                <div class="main_text">
+                  <h2 class="text-center pro-heading my-2">
+                    <a href="single-product.html" class="font-weight-bolder">Set of 3 Good Luck Plants</a>
+                  </h2>
+                  <div class="star">
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                  </div>
+                  <span class="text-center prices"
+                    ><span class="font-weight-bolder price">$69.00 </span> <del class="text-muted">$100.00</del></span
+                  >
+                  <a href="#" class="symbol add_to_cart" data-toggle="modal" data-target="#cart_model">
+                    + ADD TO CART
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- item -->
+        <div class="item">
+          <div class="col-12">
+            <div class="product_thumb bg-white rounded">
+              <div class="pro_image">
+                <a href="single-product.html"
+                  ><img
+                    src="assets/img/product/product_5.jpg"
+                    class="fst-image mx-auto d-block img-fluid"
+                    alt="product_5"
+                /></a>
+                <a href="single-product.html"
+                  ><img
+                    src="assets/img/product/product_6.jpg"
+                    class="second-img mx-auto d-block img-fluid"
+                    alt="product_6"
+                /></a>
+              </div>
+              <div class="text-center">
+                <div class="button-group">
+                  <a href="#" class="symbol pro_heart" data-toggle="modal" data-target="#heart_model"></a>
+                  <a href="#" class="symbol pro_eye" data-toggle="modal" data-target="#eye_model"></a>
+                  <a href="#" class="symbol pro_compare" data-toggle="modal" data-target="#compare_model "></a>
+                </div>
+
+                <div class="main_text">
+                  <h2 class="text-center pro-heading my-2">
+                    <a href="single-product.html" class="font-weight-bolder">2 Layer Bamboo Plant With FNP Sleeve</a>
+                  </h2>
+                  <div class="star">
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                  </div>
+                  <span class="text-center prices"
+                    ><span class="font-weight-bolder price">$69.00 </span> <del class="text-muted">$100.00</del></span
+                  >
+                  <a href="#" class="symbol add_to_cart" data-toggle="modal" data-target="#cart_model">
+                    + ADD TO CART
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- item -->
+        <div class="item">
+          <div class="col-12">
+            <div class="product_thumb bg-white rounded">
+              <div class="pro_image">
+                <a href="single-product.html"
+                  ><img
+                    src="assets/img/product/product_9.jpg"
+                    class="fst-image mx-auto d-block img-fluid"
+                    alt="product_9"
+                /></a>
+                <a href="single-product.html"
+                  ><img
+                    src="assets/img/product/product_10.jpg"
+                    class="second-img mx-auto d-block img-fluid"
+                    alt="product_10"
+                /></a>
+              </div>
+              <div class="text-center">
+                <div class="button-group">
+                  <a href="#" class="symbol pro_heart" data-toggle="modal" data-target="#heart_model"></a>
+                  <a href="#" class="symbol pro_eye" data-toggle="modal" data-target="#eye_model"></a>
+                  <a href="#" class="symbol pro_compare" data-toggle="modal" data-target="#compare_model "></a>
+                </div>
+
+                <div class="main_text">
+                  <h2 class="text-center pro-heading my-2">
+                    <a href="single-product.html" class="font-weight-bolder"
+                      >amboo Plant Live Indoor Yellow Plastic Pot</a
+                    >
+                  </h2>
+                  <div class="star">
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                  </div>
+                  <span class="text-center prices"
+                    ><span class="font-weight-bolder price">$69.00 </span> <del class="text-muted">$100.00</del></span
+                  >
+                  <a href="#" class="symbol add_to_cart" data-toggle="modal" data-target="#cart_model">
+                    + ADD TO CART
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- item -->
+        <div class="item">
+          <div class="col-12">
+            <div class="product_thumb bg-white rounded">
+              <div class="pro_image">
+                <a href="single-product.html"
+                  ><img
+                    src="assets/img/product/product_27.jpg"
+                    class="fst-image mx-auto d-block img-fluid"
+                    alt="product_27"
+                /></a>
+                <a href="single-product.html"
+                  ><img
+                    src="assets/img/product/product_28.jpg"
+                    class="second-img mx-auto d-block img-fluid"
+                    alt="product_28"
+                /></a>
+              </div>
+              <div class="text-center">
+                <div class="button-group">
+                  <a href="#" class="symbol pro_heart" data-toggle="modal" data-target="#heart_model"></a>
+                  <a href="#" class="symbol pro_eye" data-toggle="modal" data-target="#eye_model"></a>
+                  <a href="#" class="symbol pro_compare" data-toggle="modal" data-target="#compare_model "></a>
+                </div>
+
+                <div class="main_text">
+                  <h2 class="text-center pro-heading my-2">
+                    <a href="single-product.html" class="font-weight-bolder">Ferns 'N' Petals 2 Layer Bamboo Plant </a>
+                  </h2>
+                  <div class="star">
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                  </div>
+                  <span class="text-center prices"
+                    ><span class="font-weight-bolder price">$69.00 </span> <del class="text-muted">$100.00</del></span
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- item -->
+        <div class="item">
+          <div class="col-12">
+            <div class="product_thumb bg-white rounded">
+              <div class="pro_image">
+                <a href="single-product.html"
+                  ><img
+                    src="assets/img/product/product_17.jpg"
+                    class="fst-image mx-auto d-block img-fluid"
+                    alt="product_17"
+                /></a>
+                <a href="single-product.html"
+                  ><img
+                    src="assets/img/product/product_18.jpg"
+                    class="second-img mx-auto d-block img-fluid"
+                    alt="product_18"
+                /></a>
+              </div>
+              <div class="text-center">
+                <div class="button-group">
+                  <a href="#" class="symbol pro_heart" data-toggle="modal" data-target="#heart_model"></a>
+                  <a href="#" class="symbol pro_eye" data-toggle="modal" data-target="#eye_model"></a>
+                  <a href="#" class="symbol pro_compare" data-toggle="modal" data-target="#compare_model "></a>
+                </div>
+
+                <div class="main_text">
+                  <h2 class="text-center pro-heading my-2">
+                    <a href="single-product.html" class="font-weight-bolder">VishNature Two Layer Lucky Bamboo Plant</a>
+                  </h2>
+                  <div class="star">
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                  </div>
+                  <span class="text-center prices"
+                    ><span class="font-weight-bolder price">$69.00 </span> <del class="text-muted">$100.00</del></span >
+                  <a href="#" class="symbol add_to_cart" data-toggle="modal" data-target="#cart_model">
+                    + ADD TO CART
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- item -->
+        <div class="item">
+          <div class="col-12">
+            <div class="product_thumb bg-white rounded">
+              <div class="pro_image">
+                <a href="single-product.html"
+                  ><img
+                    src="assets/img/product/product_21.jpg"
+                    class="fst-image mx-auto d-block img-fluid"
+                    alt="product_21"
+                /></a>
+                <a href="single-product.html"
+                  ><img
+                    src="assets/img/product/product_22.jpg"
+                    class="second-img mx-auto d-block img-fluid"
+                    alt="product_22"
+                /></a>
+              </div>
+              <div class="text-center">
+                <div class="button-group">
+                  <a href="#" class="symbol pro_heart" data-toggle="modal" data-target="#heart_model"></a>
+                  <a href="#" class="symbol pro_eye" data-toggle="modal" data-target="#eye_model"></a>
+                  <a href="#" class="symbol pro_compare" data-toggle="modal" data-target="#compare_model "></a>
+                </div>
+
+                <div class="main_text">
+                  <h2 class="text-center pro-heading my-2">
+                    <a href="single-product.html" class="font-weight-bolder"> Bougainvillea FLOWER</a>
+                  </h2>
+                  <div class="star">
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                  </div>
+                  <span class="text-center prices"
+                    ><span class="font-weight-bolder price">$69.00 </span> <del class="text-muted">$100.00</del></span
+                  >
+                  <a href="#" class="symbol add_to_cart" data-toggle="modal" data-target="#cart_model">
+                    + ADD TO CART
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- item -->
+      </div>
+      <!-- product_carousel2 -->
+    </div>
+  </div>
+  <!-- related product end -->
+  <!-- custom product -->
+  <div class="container custom_container t_pro_container">
+    <div class="row">
+      <div class="col-12">
+        <div class="title_outer">
+          <h5 class="font-weight-bolder mb-4 d-inline-block">custom products</h5>
+        </div>
+        <!-- title_outer -->
+      </div>
+      <!-- col-12 -->
+    </div>
+    <!-- row -->
+    <div class="row">
+      <div id="custom_product_carousel" class="owl-carousel owl-theme pro_thumb">
+        <div class="item">
+          <div class="col-12">
+            <div class="product_thumb bg-white rounded">
+              <div class="pro_image">
+                <a href="single-product.html"
+                  ><img
+                    src="assets/img/product/product_21.jpg"
+                    class="fst-image mx-auto d-block img-fluid"
+                    alt="product_21"
+                /></a>
+                <a href="single-product.html"
+                  ><img
+                    src="assets/img/product/product_22.jpg"
+                    class="second-img mx-auto d-block img-fluid"
+                    alt="product_22"
+                /></a>
+              </div>
+              <div class="text-center">
+                <div class="button-group">
+                  <a href="#" class="symbol pro_heart" data-toggle="modal" data-target="#heart_model"></a>
+                  <a href="#" class="symbol pro_eye" data-toggle="modal" data-target="#eye_model"></a>
+                  <a href="#" class="symbol pro_compare" data-toggle="modal" data-target="#compare_model "></a>
+                </div>
+
+                <div class="main_text">
+                  <h2 class="text-center pro-heading my-2">
+                    <a href="single-product.html" class="font-weight-bolder">Set of 3 Good Luck Plants</a>
+                  </h2>
+                  <div class="star">
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                  </div>
+                  <span class="text-center prices"
+                    ><span class="font-weight-bolder price">$69.00 </span> <del class="text-muted">$100.00</del></span
+                  >
+                  <a href="#" class="symbol add_to_cart" data-toggle="modal" data-target="#cart_model">
+                    + ADD TO CART
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- item -->
+        <div class="item">
+          <div class="col-12">
+            <div class="product_thumb bg-white rounded">
+              <div class="pro_image">
+                <a href="single-product.html"
+                  ><img
+                    src="assets/img/product/product_5.jpg"
+                    class="fst-image mx-auto d-block img-fluid"
+                    alt="product_5"
+                /></a>
+                <a href="single-product.html"
+                  ><img
+                    src="assets/img/product/product_1.jpg"
+                    class="second-img mx-auto d-block img-fluid"
+                    alt="product_1"
+                /></a>
+              </div>
+              <div class="text-center">
+                <div class="button-group">
+                  <a href="#" class="symbol pro_heart" data-toggle="modal" data-target="#heart_model"></a>
+                  <a href="#" class="symbol pro_eye" data-toggle="modal" data-target="#eye_model"></a>
+                  <a href="#" class="symbol pro_compare" data-toggle="modal" data-target="#compare_model "></a>
+                </div>
+
+                <div class="main_text">
+                  <h2 class="text-center pro-heading my-2">
+                    <a href="single-product.html" class="font-weight-bolder">2 Layer Bamboo Plant With FNP Sleeve</a>
+                  </h2>
+                  <div class="star">
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                  </div>
+                  <span class="text-center prices"
+                    ><span class="font-weight-bolder price">$69.00 </span> <del class="text-muted">$100.00</del></span
+                  >
+                  <a href="#" class="symbol add_to_cart" data-toggle="modal" data-target="#cart_model">
+                    + ADD TO CART
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- item -->
+        <div class="item">
+          <div class="col-12">
+            <div class="product_thumb bg-white rounded">
+              <div class="pro_image">
+                <a href="single-product.html"
+                  ><img
+                    src="assets/img/product/product_5.jpg"
+                    class="fst-image mx-auto d-block img-fluid"
+                    alt="product_5"
+                /></a>
+                <a href="single-product.html"
+                  ><img
+                    src="assets/img/product/product_16.jpg"
+                    class="second-img mx-auto d-block img-fluid"
+                    alt="product_16"
+                /></a>
+              </div>
+              <div class="text-center">
+                <div class="button-group">
+                  <a href="#" class="symbol pro_heart" data-toggle="modal" data-target="#heart_model"></a>
+                  <a href="#" class="symbol pro_eye" data-toggle="modal" data-target="#eye_model"></a>
+                  <a href="#" class="symbol pro_compare" data-toggle="modal" data-target="#compare_model "></a>
+                </div>
+
+                <div class="main_text">
+                  <h2 class="text-center pro-heading my-2">
+                    <a href="single-product.html" class="font-weight-bolder"
+                      >amboo Plant Live Indoor Yellow Plastic Pot</a
+                    >
+                  </h2>
+                  <div class="star">
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                  </div>
+                  <span class="text-center prices"
+                    ><span class="font-weight-bolder price">$69.00 </span> <del class="text-muted">$100.00</del></span
+                  >
+                  <a href="#" class="symbol add_to_cart" data-toggle="modal" data-target="#cart_model">
+                    + ADD TO CART
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- item -->
+        <div class="item">
+          <div class="col-12">
+            <div class="product_thumb bg-white rounded">
+              <div class="pro_image">
+                <a href="single-product.html"
+                  ><img
+                    src="assets/img/product/product_1.jpg"
+                    class="fst-image mx-auto d-block img-fluid"
+                    alt="product_1"
+                /></a>
+                <a href="single-product.html"
+                  ><img
+                    src="assets/img/product/product_6.jpg"
+                    class="second-img mx-auto d-block img-fluid"
+                    alt="product_6"
+                /></a>
+              </div>
+              <div class="text-center">
+                <div class="button-group">
+                  <a href="#" class="symbol pro_heart" data-toggle="modal" data-target="#heart_model"></a>
+                  <a href="#" class="symbol pro_eye" data-toggle="modal" data-target="#eye_model"></a>
+                  <a href="#" class="symbol pro_compare" data-toggle="modal" data-target="#compare_model "></a>
+                </div>
+
+                <div class="main_text">
+                  <h2 class="text-center pro-heading my-2">
+                    <a href="single-product.html" class="font-weight-bolder">VishNature Two Layer Lucky Bamboo Plant</a>
+                  </h2>
+                  <div class="star">
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                  </div>
+                  <span class="text-center prices"
+                    ><span class="font-weight-bolder price">$69.00 </span> <del class="text-muted">$100.00</del></span
+                  >
+                  <a href="#" class="symbol add_to_cart" data-toggle="modal" data-target="#cart_model">
+                    + ADD TO CART
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- item -->
+        <div class="item">
+          <div class="col-12">
+            <div class="product_thumb bg-white rounded">
+              <div class="pro_image">
+                <a href="single-product.html"
+                  ><img
+                    src="assets/img/product/product_22.jpg"
+                    class="fst-image mx-auto d-block img-fluid"
+                    alt="product_22"
+                /></a>
+                <a href="single-product.html"
+                  ><img
+                    src="assets/img/product/product_21.jpg"
+                    class="second-img mx-auto d-block img-fluid"
+                    alt="product_21"
+                /></a>
+              </div>
+              <div class="text-center">
+                <div class="button-group">
+                  <a href="#" class="symbol pro_heart" data-toggle="modal" data-target="#heart_model"></a>
+                  <a href="#" class="symbol pro_eye" data-toggle="modal" data-target="#eye_model"></a>
+                  <a href="#" class="symbol pro_compare" data-toggle="modal" data-target="#compare_model "></a>
+                </div>
+
+                <div class="main_text">
+                  <h2 class="text-center pro-heading my-2">
+                    <a href="single-product.html" class="font-weight-bolder"> Bamboo Plant For Happy Birthday</a>
+                  </h2>
+                  <div class="star">
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                  </div>
+                  <span class="text-center prices"
+                    ><span class="font-weight-bolder price">$69.00 </span> <del class="text-muted">$100.00</del></span
+                  >
+                  <a href="#" class="symbol add_to_cart" data-toggle="modal" data-target="#cart_model">
+                    + ADD TO CART
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- item -->
+        <div class="item">
+          <div class="col-12">
+            <div class="product_thumb bg-white rounded">
+              <div class="pro_image">
+                <a href="single-product.html"
+                  ><img
+                    src="assets/img/product/product_9.jpg"
+                    class="fst-image mx-auto d-block img-fluid"
+                    alt="product_9"
+                /></a>
+                <a href="single-product.html"
+                  ><img
+                    src="assets/img/product/product_11.jpg"
+                    class="second-img mx-auto d-block img-fluid"
+                    alt="product_11"
+                /></a>
+              </div>
+              <div class="text-center">
+                <div class="button-group">
+                  <a href="#" class="symbol pro_heart" data-toggle="modal" data-target="#heart_model"></a>
+                  <a href="#" class="symbol pro_eye" data-toggle="modal" data-target="#eye_model"></a>
+                  <a href="#" class="symbol pro_compare" data-toggle="modal" data-target="#compare_model "></a>
+                </div>
+
+                <div class="main_text">
+                  <h2 class="text-center pro-heading my-2">
+                    <a href="single-product.html" class="font-weight-bolder">Ferns 'N' Petals 2 Layer Bamboo Plant </a>
+                  </h2>
+                  <div class="star">
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                  </div>
+                  <span class="text-center prices"
+                    ><span class="font-weight-bolder price">$69.00 </span> <del class="text-muted">$100.00</del></span
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- item -->
+      </div>
+      <!-- product_carousel2 -->
+    </div>
+  </div>
+</div>
+<!-- single_product_page -->
+<!-- custom product end -->
+<!-- footer -->
+
+   <!-- Toast section -->
+   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<script>
+
+function addToCart(id) {
+  
+  const qtyValue = document.querySelector('input[name="qty"]').value;
+
+  fetch(`/cart`,{method:'post',headers:{'Content-Type':'application/json'},body:JSON.stringify({qtyValue,id})})
+
+    .then(res=>res.json())
+
+      .then(data =>{
+
+        if(data.exist){
+
+          const Toast = Swal.mixin({
+  
+            toast: true,
+            position: "top-center",
+            showConfirmButton: false,
+              
+              timer: 2000,
+              timerProgressBar: false,
+              didOpen: (toast) => {
+                toast.onmouseenter = Swal.stopTimer;
+                toast.onmouseleave = Swal.resumeTimer;
+              },
+
+            });
+            Toast.fire({
+              icon: "warning",
+              title: "Already Added",
+             });
+  
+        }else if(data.success){
+
+          const Toast = Swal.mixin({
+              
+              toast: true,
+              position: "top-center",
+              showConfirmButton: false,
+                
+                timer: 2000,
+                timerProgressBar: false,
+                didOpen: (toast) => {
+                  toast.onmouseenter = Swal.stopTimer;
+                  toast.onmouseleave = Swal.resumeTimer;
+                },
+              });
+              Toast.fire({
+                icon: "success",
+                title: "Product added to Cart",
+              });
+  
+         }else{
+   const Toast = Swal.mixin({
+  
+  toast: true,
+  position: "top-center",
+  showConfirmButton: false,
+    
+    timer: 2000,
+    timerProgressBar: false,
+    didOpen: (toast) => {
+      toast.onmouseenter = Swal.stopTimer;
+      toast.onmouseleave = Swal.resumeTimer;
+    },
+
+  });
+  Toast.fire({
+    icon: "error",
+    title: "You are not loged in",
+   });
+}}
+)}
+    
+ 
+   
+      
+ 
+
+
+// product zoom
+
+const elem = document.querySelector(".imf");
+
+  let x, y, height, width;
+  elem.onmouseenter = () => {
+    const size = elem.getBoundingClientRect();
+    x = size.x;
+    y = size.y;
+    width = size.width;
+    height = size.height;
+  };
+
+  elem.onmousemove = (e) => {
+    const horizontel = ((e.clientX - x) / width) * 100;
+    const vertical = ((e.clientY - y) / height) * 100;
+    console.log(vertical);
+
+    elem.style.setProperty("--x", horizontel + "%");
+    elem.style.setProperty("--y", vertical + "%");
+    console.log(elem);
+  };
+
+  const thumbnails = document.querySelectorAll(".nj");
+  console.log(thumbnails);
+  thumbnails.forEach((thumbnail) => {
+    thumbnail.addEventListener("click", changeMainImage);
+  });
+
+  function changeMainImage(event) {
+    const mainImage = document.querySelector(".product-main-image");
+    console.log(mainImage);
+    mainImage.src = event.target.src;
+  }
+</script>
+
+<!-- Image Zooming Style -->
+
+<style>
+  body::-webkit-scrollbar {
+    width: 0;
+  }
+
+  .product-gallery-item:before {
+    opacity: 0;
+    visibility: hidden !important;
+    border: 0.1rem solid #c96;
+  }
+
+  .imf {
+    overflow: hidden;
+  }
+
+  .imf img {
+    transform: scale(var(--zoom, 1));
+    object-fit: cover;
+    transform-origin: var(--x) var(--y);
+    transition: cubic-bezier(0.18, 0.9, 0.33, 1.01) 1s;
+    /* opacity: 0.3; */
+  }
+
+  .imf:hover {
+    --zoom: 1.8;
+    cursor: crosshair;
+  }
+</style>
+
+<%- include('../layouts/client/footer') %>

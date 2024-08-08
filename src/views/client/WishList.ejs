@@ -1,0 +1,337 @@
+<%- include('../layouts/client/header') %>
+
+      <!-- header -->
+      <!-- header area end -->
+      <!-- vertical menu and slider -->
+      <div id="home_vertical_menu">
+        <div class="row ">
+           <div class="col-lg-3 vertical_menu">
+              <div class="v_menu bg-white rounded">
+                 <div class="cat_menu bg-warning rounded-top"><a href="#" class="pe-auto text-uppercase d-md-none d-sm-none d-none d-lg-block font-weight-bold"><i class="fas fa-bars"></i>all categories</a></div>
+                 <div class="navbar-header d-xl-none d-lg-none">
+                    <button type="button" class="btn-navbar navbar-toggle" onclick="openNav()" data-toggle="collapse" data-target=".navbar-ex1-collapse"><i class="fas fa-bars"></i></button>
+                 </div>
+                 <div id="mySidenav" class="sidenav  ">
+                    <div class="close-nav d-xl-none d-lg-none">
+                       <span class="categories">Menu</span>
+                       <a href="javascript:void(0)" class="closebtn pull-right" onclick="closeNav()"><i class="fas fa-times"></i></a>
+                    </div>
+                 <ul class="vertical_main_menu h_menu navbar navbar-nav">
+                       <li><a href="index.html">Home</a></li>
+                       <li class="">
+                          <a class="dropdown-toggle" href="shop-left-sidebar.html"  role="button" data-toggle="dropdown" aria-expanded="false">shop&nbsp;<span class="float-right"><i class="fas fa-angle-down"></i></span></a>
+                          <ul class="dropdown-menu">
+                             <li><a class="dropdown-item font-weight-bolderer" href="shop-left-sidebar.html">left sidebar</a></li>
+                             <li><a class="dropdown-item font-weight-bolderer" href="shop-right-sidebar.html">right sidebar</a></li>
+                          </ul>
+                       </li>
+                       <li class="dropdown mega_menu m1_menu level-1 font-weight-bolderer">
+                          <a class="dropdown-toggle" href="single-product.html"  role="button" data-toggle="dropdown" aria-expanded="false">portfolio&nbsp;<span class="float-right"><i class="fas fa-angle-down"></i></span></a>
+                          <ul class="dropdown-menu">
+                             <li>
+                                <ul class="row mx-0">
+                                   <li class="mg_menu col-lg-6 col-md-12 ">
+                                      <ul>
+                                         <li class="h_title text-uppercase font-weight-bolder border-bottom">portfolio grid 2</li>
+                                         <li><a class="dropdown-item font-weight-bolderer" href="portfolio-grid-2.html">portfolio grid 2</a></li>
+                                         <li><a class="dropdown-item font-weight-bolderer" href="portfolio-grid-3.html">portfolio grid 3</a></li>
+                                         <li><a class="dropdown-item font-weight-bolderer" href="portfolio-grid-4.html">portfolio grid 4</a></li>
+                                         <li><a class="dropdown-item font-weight-bolderer" href="mesonary-grid-2.html">mesonary grid 2</a></li>
+                                         <li><a class="dropdown-item font-weight-bolderer" href="mesonary-grid-3.html">mesonary grid 3</a></li>
+                                         <li><a class="dropdown-item font-weight-bolderer" href="mesonary-grid-4.html">mesonary grid 4</a></li>
+                                      </ul>
+                                   </li>
+                                   <li class="mg_menu col-lg-6 col-md-12">
+                                      <ul>
+                                         <li class="h_title text-uppercase font-weight-bolder border-bottom">theme elements</li>
+                                         <li><a class="dropdown-item font-weight-bolderer" href="title.html">title</a></li>
+                                         <li><a class="dropdown-item font-weight-bolderer" href="category-style.html">category</a></li>
+                                         <li><a class="dropdown-item font-weight-bolderer" href="services.html">services</a></li>
+                                         <li><a class="dropdown-item font-weight-bolderer" href="product-tab.html">product tab</a></li>
+                                         <li><a class="dropdown-item font-weight-bolderer" href="multi-slider-product.html">multi slider product</a></li>
+                                      </ul>
+                                   </li>
+                                </ul>
+                             </li>
+                          </ul>
+                       </li>
+                       <li>
+                          <a class="dropdown-toggle" href="blog.html"  role="button" data-toggle="dropdown" aria-expanded="false">
+                          blog&nbsp;<span class="float-right mt-1"><i class="fas fa-angle-down"></i></span></a>
+                          <ul class="dropdown-menu">
+                             <li><a class="dropdown-item font-weight-bolderer" href="blog.html">blog</a></li>
+                             <li><a class="dropdown-item font-weight-bolderer" href="blog-left-sidebar.html">left sidebar</a></li>
+                             <li><a class="dropdown-item font-weight-bolderer" href="blog-right-sidebar.html">right sidebar</a></li>
+                          </ul>
+                       </li>
+                       <li class="dropdown mega_menu level-1 font-weight-bolderer">
+                          <a class="dropdown-toggle" href="single-product.html"  role="button" data-toggle="dropdown" aria-expanded="false">Category&nbsp;<span class="float-right mt-1"><i class="fas fa-angle-down"></i></span></a>
+                          <ul class="dropdown-menu">
+                             <li>
+                                <ul class="row mx-0">
+                                   <li class="mg_menu col-lg-4 col-md-12 ">
+                                      <ul>
+                                         <li class="h_title text-uppercase font-weight-bolder border-bottom">Pot</li>
+                                         <li><a class="dropdown-item font-weight-bolderer" href="shop-left-sidebar.html">Pigmyweeds</a></li>
+                                         <li><a class="dropdown-item font-weight-bolderer" href="shop-left-sidebar.html">Indoor Plants</a></li>
+                                         <li><a class="dropdown-item font-weight-bolderer" href="shop-left-sidebar.html">outdoor Plants</a></li>
+                                         <li><a class="dropdown-item font-weight-bolderer" href="shop-left-sidebar.html">Flamingo plant</a></li>
+                                         <li><a class="dropdown-item font-weight-bolderer" href="shop-left-sidebar.html">Succulent Plant</a></li>
+                                      </ul>
+                                   </li>
+                                   <li class="mg_menu col-lg-4 col-md-12">
+                                      <ul>
+                                         <li class="h_title text-uppercase font-weight-bolder border-bottom">Plants</li>
+                                         <li><a class="dropdown-item font-weight-bolderer" href="shop-left-sidebar.html">Nerve Plant</a></li>
+                                         <li><a class="dropdown-item font-weight-bolderer" href="shop-left-sidebar.html">Flowering Plants</a></li>
+                                         <li><a class="dropdown-item font-weight-bolderer" href="shop-left-sidebar.html">Plant Seed</a></li>
+                                         <li><a class="dropdown-item font-weight-bolderer" href="shop-left-sidebar.html">Luck Plants</a></li>
+                                         <li><a class="dropdown-item font-weight-bolderer" href="shop-left-sidebar.html">Plant House</a></li>
+                                      </ul>
+                                   </li>
+                                </ul>
+                             </li>
+                          </ul>
+                       </li>
+                       <li class="dropdown level-1 font-weight-bolderer">
+                          <a class="dropdown-toggle" href="#"  role="button" data-toggle="dropdown" aria-expanded="false">pages&nbsp;<span class="float-right mt-1"><i class="fas fa-angle-down"></i></span></a>
+                          <ul class="dropdown-menu">
+                             <li><a class="dropdown-item font-weight-bolderer" href="about-us.html">about us</a></li>
+                             <li><a class="dropdown-item font-weight-bolderer" href="login.html">login</a></li>
+                             <li><a class="dropdown-item font-weight-bolderer" href="registration.html">registration</a></li>
+                             <li><a class="dropdown-item font-weight-bolderer" href="single-product.html">single product</a></li>
+                             <li><a class="dropdown-item font-weight-bolderer" href="single-blog.html">single blog</a></li>
+                             <li><a class="dropdown-item font-weight-bolderer" href="cart.html">cart</a></li>
+                             <li><a class="dropdown-item font-weight-bolderer" href="compare.html">compare</a></li>
+                             <li><a class="dropdown-item font-weight-bolderer" href="wishlist.html">wishlist</a></li>
+                             <li><a class="dropdown-item font-weight-bolderer" href="checkout.html">check out</a></li>
+                             <li><a class="dropdown-item font-weight-bolderer" href="forgot.html">forgot password</a></li>
+                          </ul>
+                       </li>
+                       <li class="level-1 font-weight-bolderer"><a href="contact-us.html">contact-us</a></li
+                          >
+                    </ul>
+                 </div>
+              </div>
+              <!-- v_menu bg-white rounded -->
+           </div>
+        </div>
+        <!-- row -->
+     </div>
+     <!-- container  menu_slider mt-4 -->
+     <!-- vertical menu and slider end -->
+     <!-- wishlist page -->
+     <div id="wishlist_page" class="wishlist-page animate__animated animate__fadeInUp">
+        <div class="sp_header bg-white p-3 ">
+           <div class="container custom_container ">
+              <div class="row ">
+                 <div class="col-12 ">
+                    <ul>
+                       <li class="d-inline-block font-weight-bolder"><a href="/home">home</a></li>
+                       <li class="d-inline-block hr_ font-weight-bolder"><a href="#">wishlist</a></li>
+                    </ul>
+                 </div>
+              </div>
+           </div>
+        </div>
+        <div id="reloadDiv" class="container custom_container">
+           <!-- 			<div class="row w_head sh_page border-bottom">
+              <div class="col-12 col-md-6 pr-0">
+                  <div class="d-flex">
+                      <div class=" col-xl-4 col-lg-5 col-md-5 col-4">
+                          <span class="font-weight-bold">image</span>
+                      </div>
+                      <div class=" col-xl-8 col-lg-7 col-md-7 col-8">
+                          <span class="font-weight-bold">product name</span>
+                      </div>
+                  </div>
+              </div>
+              <div class="col-12 col-md-6 pl-0">
+                  <div class="d-flex">
+                      <div class="col-md-4 col-sm-4 col-5 ">
+                          <span class="font-weight-bold">price</span>
+                      </div>
+                      <div class="col-md-4 col-sm-4 col-5">
+                          <span class="font-weight-bold">availability</span>
+                      </div>
+                      <div class="col-md-4 col-sm-4 col-2">
+                          <span class="font-weight-bold">action</span>
+                      </div>
+                  </div>
+              </div>
+              </div> -->
+           <!-- <div class="row sh_page border-bottom">
+              <div class="col-12">
+                 <span class="font-weight-bold">wishlist</span>
+              </div>
+           </div> -->
+           <% if(wishlistData&&wishlistData.products.length>0){%>
+           
+           <% wishlistData.products.forEach(val => { %>
+            
+           <div class="row sh_page border-bottom">
+
+               <div class="col-md-12 col-sm-12 col-12 text-right">
+                       <button onclick="removeWishlist('<%= val.product_id._id %>')" class="btn"><i class="fas fa-trash-alt "></i></button>
+               </div>
+
+              <div class="col-12 col-md-6 pr-0">
+                 <div class="d-flex">
+                    <div class=" col-xl-4 col-lg-5 col-md-5 col-4 px-0">
+                       <a href="#"><img src="assets/productImages/<%= val.product_id.images[0] %>" class="fst-image mx-auto d-block img-fluid" alt="product_13"></a>
+                    </div>
+                    <div class=" col-xl-8 col-lg-7 col-md-7 col-8 pr-0">
+                       <h5 class="w_product_name  mb-2 mb-sm-3 mb-xl-3 mt-sm-5 mt-md-5"><a href="#"><%= val.product_id.name %></a></h5>
+                       <!-- <ul>
+                          <li class="my-1 f_13">
+                             <span>size:</span>
+                             <span>s</span>
+                          </li>
+                          <li class="f_13">
+                             <span>color:</span>
+                             <span>white</span>
+                          </li>
+                       </ul> -->
+                    </div>
+                 </div>
+              </div>
+              <div class="col-12 col-md-6 mt-5 pl-0">
+                 <div class="d-flex">
+                    <div class="col-md-4 col-sm-4 col-4 ">
+                       <span class="font-weight-bold">$<%= val.product_id.price %></span>
+                    </div>
+                    <div class="col-md-4 col-sm-4 col-5 text-center">
+                       <span class="font-weight-bolder"><span class="d-xl-inline-block d-none ">availability : </span> <%= val.product_id.stock==0? 'out of stock':val.product_id.stock %></span>
+                    </div>
+                    <div class="col-md-4 col-sm-4 col-5 text-center">
+                       <% if(val.product_id.stock == 0){ %>
+                    <input type="button" disabled class="btn btn-success" onclick="addToCart('<%=val.products_id._id%>')" value="add to cart">
+                    <% }else{ %>
+                     <input type="button"  class="btn btn-success" onclick="addToCart('<%=val.product_id._id%>')" value="add to cart">
+                     <% } %>
+                  </div>
+
+                 </div>
+              </div>
+           </div>
+           <% }); %>
+           <% }else{ %>
+            <div class="mt-5">
+               <i style="display: flex;justify-content: center;">your wishlist is empty .</i>
+                  <a href="/shop" style="display: flex;justify-content: center;">click here</a>
+            </div>
+            <% } %>
+           <!-- <div class="row sh_page">
+               <div class="col-md-12 col-sm-12 col-12 text-right wishlist-p-dlt">
+                       <a href="#"><i class="fas fa-trash-alt "></i></a>
+                    </div>
+              <div class="col-12 col-md-6 pr-0">
+                 <div class="d-flex">
+                    <div class=" col-xl-4 col-lg-5 col-md-5 col-4 px-0">
+                       <a href="#"><img src="assets/img/product/product_16.jpg" class="fst-image mx-auto d-block img-fluid" alt="product_16"></a>
+                    </div>
+                    <div class=" col-xl-8 col-lg-7 col-md-7 col-8 pr-0">
+                       <h5 class="w_product_name  mb-2 mb-sm-3 mb-xl-3 mt-sm-2 mt-md-2"><a href="#">Aliquam Top Erat Volutpat</a></h5>
+                       <ul>
+                          <li class="my-1 f_13">
+                             <span>size:</span>
+                             <span>s</span>
+                          </li>
+                          <li class="f_13">
+                             <span>color:</span>
+                             <span>white</span>
+                          </li>
+                       </ul>
+                    </div>
+                 </div>
+              </div>
+              <div class="col-12 col-md-6 mt-4 pl-0">
+                 <div class="d-flex">
+                    <div class="col-md-4 col-sm-4 col-4 ">
+                       <span class="font-weight-bold">$45.00</span>
+                    </div>
+                    <div class="col-md-4 col-sm-4 col-5 text-center">
+                       <span class="font-weight-bolder"><span class="d-xl-inline-block d-none">availability : </span> in stock</span>
+                    </div>
+                 </div>
+              </div>
+           </div> -->
+        </div>
+        <!-- container custom_container -->
+     </div>
+     <!-- portfolio_2_page -->
+    
+
+<%- include('../layouts/client/footer') %>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<script>
+
+   function removeWishlist(proId){
+
+      fetch(`/removewishlist?id=${proId}`,{method:'post'})
+
+      .then(res=>res.json())
+
+      .then(data=>{
+
+         if(data.success){
+
+            $('#reloadDiv').load('/wishlist #reloadDiv') 
+
+         }
+
+      })
+}
+
+   function addToCart(id){
+
+      fetch('/cart',{method:'post',headers:{'Content-Type':'application/json'},body:JSON.stringify({id})})
+      .then(res=>res.json())
+      .then(data=>{
+         if(data.success){
+          
+          const Toast = Swal.mixin({
+              
+              toast: true,
+              position: "top-center",
+              showConfirmButton: false,
+                
+                timer: 2000,
+                timerProgressBar: false,
+                didOpen: (toast) => {
+                  toast.onmouseenter = Swal.stopTimer;
+                  toast.onmouseleave = Swal.resumeTimer;
+                },
+              });
+              Toast.fire({
+                icon: "success",
+                title: "Product added to Cart",
+              });
+                removeWishlist(id)
+         }else if(data.exist){
+            const Toast = Swal.mixin({
+         
+         toast: true,
+         position: "top-center",
+         showConfirmButton: false,
+            
+            timer: 2000,
+            timerProgressBar: false,
+            didOpen: (toast) => {
+               toast.onmouseenter = Swal.stopTimer;
+               toast.onmouseleave = Swal.resumeTimer;
+            },
+
+         });
+         Toast.fire({
+            icon: "warning",
+            title: "Already Added",
+            });
+
+         }
+      })
+
+   }
+</script>

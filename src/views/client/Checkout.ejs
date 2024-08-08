@@ -1,0 +1,1045 @@
+
+<%- include('../layouts/client/header') %>
+
+<div class="modal fade" id="coupenModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+   <div class="modal-dialog">
+
+      <div class="modal-content">
+
+
+      <div class="modal-body p-5 h-100 ">
+
+         <div class="row w-100 g-3 ">
+               <% if(coupenData.length>0){ %>
+                <% coupenData.slice().reverse().forEach((val,i) => { %>
+
+                    <div class="flip-card pt-3 col-lg-6" >
+                                                        
+                        <div class="flip-card-inner">
+                                                            
+                           <div class="flip-card-front" style="background: url('/assets/productImages/<%= val.image %>'); background-size: cover;">
+                                                                                                                
+                                <p class="title text-white" ><%= val.name %></p>
+                                                                
+                            </div>
+                                                            
+                            <div class="flip-card-back">
+
+                                <p class="title text-white pb-1"><%= val.name %></p>
+                                <h6 class="text-dark" style="font-weight: bold;"><%= val.discount %>% OFF</h6>
+
+                                <di class="coupon-row pt-1">
+
+                                    <span id="coupenCode"><%= val.coupen_id %></span>
+                                    <span onclick="copyCode('<%= val.coupen_id %>',this)" id="coupenBtn">Copy Code</span>
+
+                                </di>
+
+                            </div>
+
+                         </div>
+                                                            
+                    </div>
+                                                        
+                <%  }); %>
+
+                <% }else{ %>
+                  <p>sorry.you dont have any coupens</p>
+               <% } %>
+
+         </div>
+         
+      </div>
+
+      <div class="modal-footer">
+         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+         <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+      </div>
+
+      </div>
+
+   </div>
+
+   </div>
+
+<div class="modal fade" id="editAddress" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+         
+   <div class="modal-dialog">
+
+     <div class="modal-content">
+
+       <div class="modal-header">
+         <h1 class="modal-title fs-5" id="exampleModalLabel">Edit Address</h1>
+         <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close">X</button>
+       </div>
+
+       <div class="modal-body">
+
+         <form id="editForm" style="padding-left: 15px;padding-right: 15px;">
+            <p type="hiding" hidden id="message"><%=message %></p>
+            
+            <div class="row">
+                <div class="col-lg-6">
+                    <label for="name" class="col-form-label text-black">Name *</label>
+                    <input type="text" class="form-control" name="name" id="name" placeholder="Enter your Name" required >
+                    <div class="invalid-feedback">Please enter a valid name (3-50 characters, letters and spaces only).</div>
+                </div>
+        
+                <div class="col-lg-6">
+                    <label for="phone" class="col-form-label text-black">Mobile Number *</label>
+                    <input type="text" class="form-control" name="phone" id="phone" placeholder="Enter your Mobile" required>
+                    <div class="invalid-feedback">Please enter a valid 10-digit mobile number starting with 6, 7, 8, or 9.</div>
+                </div>
+        
+                <div class="col-lg-6">
+                    <label for="locality" class="col-form-label text-black">Locality *</label>
+                    <input type="text" class="form-control" name="locality" id="locality" placeholder="Enter your Locality" required >
+                    <div class="invalid-feedback">Please enter a valid locality (5-100 characters, alphanumeric and basic punctuation).</div>
+                </div>
+        
+                <div class="col-lg-6">
+                    <label for="pincode" class="col-form-label text-black">Pincode *</label>
+                    <input type="text" class="form-control" name="pincode" id="pincode" placeholder="Enter your pincode" required pattern="^[1-9][0-9]{5}$">
+                    <div class="invalid-feedback">Please enter a valid 6-digit pincode not starting with 0.</div>
+                </div>
+            </div>
+        
+            <div class="col-lg-12">
+                <label for="addresss" class="requird text-dark">Address *</label>
+                <textarea type="text" style="color: rgb(128, 128, 128);" id="addresss" class="form-control" rows="3" placeholder="Enter your Address" name="address" required ></textarea>
+                <div class="invalid-feedback">Please enter a valid address (10-200 characters).</div>
+            </div>
+        
+            <div class="row mb-1">
+                <div class="col-lg-6">
+                    <label for="city" class="col-form-label text-black">City *</label>
+                    <input type="text" class="form-control" name="city" id="city" placeholder="Enter your City" required >
+                    <div class="invalid-feedback">Please enter a valid city name (3-50 characters, letters and spaces only).</div>
+                </div>
+        
+                <div class="col-lg-6">
+                    <label for="state" class="col-form-label text-black">State *</label>
+                    <input type="text" class="form-control" name="state" id="state" placeholder="Enter your State" required >
+                    <div class="invalid-feedback">Please enter a valid state name (3-50 characters, letters and spaces only).</div>
+                </div>
+            </div>
+        
+            <input type="hidden" name="id" id="id">
+            
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary">Save changes</button>
+            </div>
+        </form>
+                                                     
+       </div>
+
+
+     </div>
+
+   </div>
+
+ </div>
+
+    
+     <!-- checkout page -->
+     <div id="checkout_page" class="checkout-page animate__animated animate__fadeInUp">
+        <div class="sp_header bg-white p-3 ">
+           <div class="container custom_container ">
+              <div class="row ">
+                 <div class="col-12 ">
+                    <ul>
+                       <li class="d-inline-block font-weight-bolderer"><a href="index.html">home</a></li>
+                       <li class="d-inline-block hr_ font-weight-bolderer"><a href="#">checkout</a></li>
+                    </ul>
+                 </div>
+              </div>
+           </div>
+        </div>
+        
+        <div class="container custom_container">
+        
+           <div class="row">
+              <div class="col-lg-8 col-12">
+                 <div class="accordion" id="check_out_toggle">
+                 
+
+					<span class="text-primary " data-toggle="modal" data-target="#coupenModal" style="cursor: pointer;">Available Coupens</span>
+
+					<!-- </button> -->
+                    
+      
+                    <!-- Coupen Area -->
+
+						<div class="cart-discount">
+
+							<p hidden class="msg"><%= message %></p>
+							
+							<% if (cartData.coupenDiscount == 0) { %>
+
+								<form action="/coupen" method="post">
+
+								<div class="input-group mt-1 ">
+
+									<input type="text" class="form-control"  name="coupen" oninput="coupenCheck(this)" placeholder="coupon code" required>
+
+									<div class="input-group-append">											
+
+										<button class="btn btn-outline-primary" id="btn" type="submit"><i class="icon-long-arrow-right"></i>Apply</button>
+
+									</div><!-- .End .input-group-append -->
+
+								</div><!-- End .input-group -->
+
+								</form>
+									
+							<%	} else { %>
+
+
+								<div class="input-group mt-1">
+
+								<input type="text" class="form-control" name="coupen" value="Coupen Applied" disabled>
+								<input type="text" class="form-control" id="coupen_idd" hidden value="<%= coupen_id ? coupen_id :''  %>" disabled>
+
+									<div class="input-group-append">											
+
+										<button class="btn btn-outline-danger" style="padding: 8px;" onclick="removeCoupen('<%=coupen_id%>')" id="btn" type="submit">Remove</button>
+                              
+									</div><!-- .End .input-group-append -->
+
+								</div><!-- End .input-group -->
+
+							<% } %>
+
+							</form>
+
+							<p id="msgg"></p>
+
+						</div><!-- End .cart-discount -->
+					
+                    <div class="row mt-4">
+                     <% if (address !== null && address.addressData.length !== 0) { %>
+                           
+                       <% for (let i = 0; i < address.addressData.length; i++) { %>
+
+                        
+                                                                                                                                                                                                                                                                    
+                        <div class="col-lg-6" onclick="submitAddress('<%= address.addressData[i]._id%>')" >
+                                <label  for="radio-<%= address.addressData[i]._id %>">
+                              
+                                 <div class="card card-dashboard" style="margin-bottom: 1rem;">
+         
+                                     <div class="card-body">
+                                       
+                                       <!-- <button type="button" class="close" aria-label="Close mb-2 " style="font-size: 23px;padding-bottom: 20px;" onclick="deleteAddress('<%= userId %>' , '<%= address.addressData[i]._id %>')">
+                                             <span aria-hidden="true">&times;</span>
+                                         </button>  -->
+                                <% if (address.addressData[i].status == true) { %>
+                                <input type="radio" value="<%= address.addressData[i]._id%>" name="address" style="font-size: 23px; padding-bottom: 20px;" class="address-radio" id="radio-<%= address.addressData[i]._id %>" checked >
+                               <% } else if (address.addressData[i].status == false && address.addressData.length == 1) { %>
+                                 <input type="radio" value="<%= address.addressData[i]._id%>" name="address" style="font-size: 23px; padding-bottom: 20px; "class="address-radio" id="radio-<%= address.addressData[i]._id %>" checked>
+                               <% } else {%>
+                                <input type="radio" value="<%= address.addressData[i]._id%>" name="address" style="font-size: 23px; padding-bottom: 20px;  "  class="address-radio" id="radio-<%= address.addressData[i]._id  %>" >
+
+                                <% } %>
+                              
+                              
+                                    
+          
+                                <h3 class="card-title">Address</h3><!-- End .card-title -->
+
+                                     <p><span><%=address.addressData[i].name %></span></p> 
+                                     <p><span><%=address.addressData[i].address %></span>, 
+                                     <br><span><%= address.addressData[i].locality %>,</span> 
+                                     <span><%=address.addressData[i].state %>,</span> 
+                                     <span><%=address.addressData[i].city %>,</span> 
+                                     <span><%= address.addressData[i].pincode %> </span> 
+                                        <br>
+                                      <span>Phone: <%= address.addressData[i].phone %> </span>
+                                      </p>
+
+                                <a herf="#" style="cursor: pointer; color: rgb(207, 149, 77);" data-toggle="modal" data-target="#editAddress" onclick="editAddress('<%= address.addressData[i]._id %>')">Edit<i class="icon-edit"></i></a>
+
+                                      </div><!-- End .card-body -->
+         
+                                 </div><!-- End .card-dashboard -->
+         
+                             </div ><!-- End .col-lg-6 -->
+                            
+                          <%  } %>
+                             
+                       <%} %>
+                        
+                         <div class="col-lg-12">
+                         <div class="card rounded mb-2">
+                           <div class="card-header bg-white" id="chechout_add">
+                              <h2 class="mb-0">
+                                 <button class="btn btn-link btn-block text-center collapsed text-body p-0 font-weight-bolder" type="button" data-toggle="collapse" data-target="#check_add" aria-expanded="false" aria-controls="check_add">
+                               Add Address<span class="float-right"><i class="fas fa-angle-down"></i></span>
+                                 </button>
+                              </h2>
+                           </div>
+                           <div id="check_add" class="collapse" aria-labelledby="chechout_add" data-parent="#check_out_toggle">
+                              <div class="card-body">
+                                 <div id="c_address" class="page-content">
+                                    <form class="needs-validation" method="post" id="addform" novalidate>
+                                       <div class="form-group">
+                                           <label for="name" class="font-weight-bolder">Name</label>
+                                           <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name" required>
+                                           <div class="invalid-feedback">Please enter a valid name (3-50 characters, letters and spaces only).</div>
+                                       </div>
+                                       <div class="form-group">
+                                           <label for="phone" class="font-weight-bolder">Mobile Number</label>
+                                           <input type="tel" class="form-control" id="phone" name="phone" placeholder="Enter your mobile number" required >
+                                           <div class="invalid-feedback">Please enter a valid 10-digit mobile number starting with 6, 7, 8, or 9.</div>
+                                       </div>
+                                       <div class="form-group">
+                                           <label for="locality" class="font-weight-bolder">Locality</label>
+                                           <input type="text" class="form-control" id="locality" name="locality" placeholder="Enter your locality" required >
+                                           <div class="invalid-feedback">Please enter a valid locality (5-100 characters, alphanumeric and basic punctuation).</div>
+                                       </div>
+                                       <div class="form-group">
+                                           <label for="pincode" class="font-weight-bolder">Pincode</label>
+                                           <input type="text" class="form-control" id="pincode" name="pincode" placeholder="Enter your pincode" required >
+                                           <div class="invalid-feedback">Please enter a valid 6-digit pincode not starting with 0.</div>
+                                       </div>
+                                       <div class="form-group">
+                                           <label for="address" class="font-weight-bolder">Address</label>
+                                           <textarea class="form-control" id="address" name="address" rows="3" placeholder="Enter your address" required ></textarea>
+                                           <div class="invalid-feedback">Please enter a valid address (10-200 characters).</div>
+                                       </div>
+                                       <div class="form-group">
+                                           <label for="city" class="font-weight-bolder">City</label>
+                                           <input type="text" class="form-control" id="city" name="city" placeholder="Enter your city" required >
+                                           <div class="invalid-feedback">Please enter a valid city name (3-50 characters, letters and spaces only).</div>
+                                       </div>
+                                       <div class="form-group">
+                                           <label for="state" class="font-weight-bolder">State</label>
+                                           <input type="text" class="form-control" id="state" name="state" placeholder="Enter your state" required >
+                                           <div class="invalid-feedback">Please enter a valid state name (3-50 characters, letters and spaces only).</div>
+                                       </div>
+                                       <input type="hidden" value="<%= userId %>" id="validUserId">
+                                       <input type="hidden" name="status" value="true" id="statusHidden">
+                                       <div>
+                                           <button id="clearButton" type="reset" class="f_13 btn btn-secondary mt-3">Reset</button>
+                                           <button type="submit" class="f_13 btn btn-primary mt-3 float-right" on>Add</button>
+                                       </div>
+                                   </form>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                           </div><!-- End .row -->
+                 </div>
+              </div>
+               <div class="col-lg-4 col-12 ">
+                  <div class="border rounded bg-white final_payment">
+                    <div class="card-body border-bottom">
+                      <p class="text-muted"><%= cartData.products.length %> items</p>
+                      <p class="font-weight-bolderer">show details</p>
+                      <b>products details:</b><br><br>
+                      <table>
+                        <thead>
+                          <tr> 
+                           <th style="padding-right:  2rem;">No</th>
+                            <th>Item</th>
+                            <th style="padding-left: 2rem;">Price</th>
+                            <th style="padding-left: 2rem;">Qty</th>
+                            <th style="padding-left: 2rem;">Amount</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <% cartData.products.forEach((elem,index) => { %>
+                            <tr>
+                              <td style="padding-right: 2rem;"><%= index+1 %></td>
+                              <td><%= elem.product_id.name %></td>
+                              <td style="padding-left: 2rem;">₹<%= elem.product_id.discount_price>0?elem.product_id.discount_price:elem.product_id.price %></td>
+                              <td id="quantity-<%= index %>" class="quantity" style="padding-left: 2rem;"><%= elem.quantity %></td>
+                              <td style="padding-left: 2rem;">₹<%= elem.product_id.price * (elem.price / elem.product_id.price) %></td>
+                            </tr>
+                          <% }); %>
+                        </tbody>
+                      </table>
+                
+                      <hr>
+                      
+                      <div>
+                        <span class="font-weight-bolder">Taxes</span>
+                        <span class="float-right font-weight-bolder" id="tax">₹<%= taxAmount %>.00</span>
+                      </div>
+                      <div>
+                        <span class="font-weight-bolder">Subtotal</span>
+                        <span class="float-right font-weight-bolder" id="subtotal">₹<%= cartData.totalCartPrice + cartData.coupenDiscount %>.00</span>
+                      </div>
+
+                      <div>
+                        <span class="font-weight-bolder text-danger"><%=cartData?.coupenDiscount>0?'coupen discount':'' %></span>
+                        <span class="float-right font-weight-bolder text-danger" id="subtotal"><%= (cartData?.coupenDiscount>0?'-'+cartData?.coupenDiscount:'') %></span>
+                      </div>
+                      <br>
+                    </div>
+                    <div class="card-body">
+                      <div>
+                        <span class="font-weight-bolder">Total (tax incl.)</span>
+                        <span class="float-right font-weight-bolder">₹<%= totalAmount %>.00</span>
+                      </div>
+                      <hr>
+                      <div>
+                        <label for="cod">
+                          <input type="radio" id="cod" name="payment" value="cod" > Cash on Delivery
+                        </label><br>
+                        <% if (!userWallet || cartData.totalCartPrice > userWallet?.balance || userWallet?.balance == 0 ) {%>
+                        <label for="wallet" style="text-decoration: line-through;">
+                              <input  type="radio" disabled id="wallet" name="payment" value="wallet" > Wallet
+                           </label>
+                           <% }else{ %>
+                              <label for="wallet">
+                              <input  type="radio"  id="wallet" name="payment" value="wallet" > Wallet
+                           </label>
+                              <% } %>
+                        </label><br>
+                        <label for="online">
+                          <input type="radio" id="online" name="payment" value="online"> Online Payment
+                        </label> 
+                      </div>
+                      <br>
+                      <button type="submit" onclick="submitPayment( '<%= cartData.totalCartPrice %>','<%= cartData.user_id %>')" class="btn btn-primary btn-block">Place Order</button>
+                     </div>
+                  </div>
+                </div>
+                
+           </div>
+        </div>
+     </div>
+
+     <style>
+     
+     </style>
+
+     <%- include('../layouts/client/footer') %>
+
+     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+     <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+     <!-- swal -->
+     <script>
+
+      
+  function form(event) {
+    event.preventDefault();
+    
+    const form = document.getElementById('addform');
+    const inputs = form.querySelectorAll('input, textarea');
+    let isValid = true;
+
+    const patterns = {
+        name: /^[A-Za-z]{3,50}(?: [A-Za-z]+)*$/,
+        phone: /^[6-9]\d{9}$/,
+        locality: /^[A-Za-z0-9\s,.'-]{2,100}$/,
+        pincode: /^[1-9][0-9]{5}$/,
+        address: /^.{10,200}$/,
+        city: /^[A-Za-z\s]{3,50}$/,
+        state: /^[A-Za-z\s]{3,50}$/
+    };
+
+    inputs.forEach(input => {
+        if (input.type !== 'hidden') {
+            const pattern = patterns[input.name];
+            if (pattern && !pattern.test(input.value.trim())) {
+                input.classList.add('is-invalid');
+                isValid = false;
+            } else if (input.required && input.value.trim() === '') {
+                input.classList.add('is-invalid');
+                isValid = false;
+            } else {
+                input.classList.remove('is-invalid');
+                input.classList.add('is-valid');
+            }
+        }
+    });
+
+    if (!isValid) {
+     
+    } else {
+        const validId = document.getElementById('validUserId').value;
+        addAddress(validId);
+    }
+}
+
+// Add event listener to the form
+document.getElementById('addform').addEventListener('submit', form);
+
+function addAddress(id){
+
+// console.log(id);
+
+  const form = document.getElementById('addform');
+
+  const formData = new FormData(form)
+  const addressData = {}
+  
+  formData.forEach((value , key) => {
+
+    addressData[key] = value;
+    
+  });
+
+fetch(`/address?id=${id}` , {method : 'put' , headers : {'Content-Type' : 'application/json'} , body:JSON.stringify({addressData})})
+
+.then(res => res.json()).then(data => {
+
+  if(data.success){
+
+    Swal.fire({
+ 
+     title:'Address Added',
+     text:'Address Added Successfully',
+     icon:'success',
+     confirmButtonText: 'OK'
+ 
+    }).then((result) => {
+
+      window.location.reload()
+
+     
+    })
+
+  } else {
+
+  Swal.fire({
+        html: "<b>this address is already exits</b>",
+        iconHtml: 'X',
+        iconColor: 'red',
+        background: '#f9f6e8',
+        width: '280px',
+        padding: '10px',
+        icon: 'error',
+        toast: true,
+        showConfirmButton: false,
+        timer: 1500,
+    });
+               
+   
+}
+})
+}
+
+function editAddress(addressId) {
+    console.log(addressId);
+    const namee = document.getElementById('name');
+    const phonee = document.getElementById('phone');
+    const localityy = document.getElementById('locality');
+    const pincodee = document.getElementById('pincode');
+    const addressss = document.getElementById('addresss');
+    const cityy = document.getElementById('city');
+    const statee = document.getElementById('state');
+    const idd = document.getElementById('id');
+
+    fetch('/editAddress', { method: 'put', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ addressId }) })
+        .then((res) => res.json())
+        .then((data) => {
+            const { name, phone, locality, pincode, address, city, state, _id } = data.editAddress.addressData[0];
+
+            namee.value = name;
+            phonee.value = phone;
+            pincodee.value = pincode;
+            localityy.value = locality;
+            addressss.value = address;
+            cityy.value = city;
+            statee.value = state;
+            idd.value = _id;
+        });
+}
+
+function validateForm(event) {
+    event.preventDefault();
+    
+    const form = document.getElementById('editForm');
+    const inputs = form.querySelectorAll('input, textarea');
+    let isValid = true;
+
+    const patterns = {
+        name: /^[A-Za-z]{3,50}(?: [A-Za-z]+)*$/,
+        phone: /^[6-9]\d{9}$/,
+        locality: /^[A-Za-z0-9\s,.'-]{2,100}$/,
+        pincode: /^[1-9][0-9]{5}$/,
+        address: /^.{10,200}$/,
+        city: /^[A-Za-z\s]{3,50}$/,
+        state: /^[A-Za-z\s]{3,50}$/
+    };
+
+    inputs.forEach(input => {
+        if (input.type !== 'hidden') {
+            const pattern = patterns[input.name];
+            if (pattern && !pattern.test(input.value.trim())) {
+                input.classList.add('is-invalid');
+                isValid = false;
+            } else if (input.required && input.value.trim() === '') {
+                input.classList.add('is-invalid');
+                isValid = false;
+            } else {
+                input.classList.remove('is-invalid');
+                input.classList.add('is-valid');
+            }
+        }
+    });
+
+    if (!isValid) {
+        // Show error message(i am not showing any swal message)
+    } else {
+        // If valid, submit the form 
+        const formData = new FormData(form);
+        const data = Object.fromEntries(formData.entries());
+
+        fetch('/addEditAddress?from=checkout', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data),
+        })
+        .then(response => response.json())
+        .then(data => {
+            // Handle the response
+          
+            Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title:"edited successfully",
+            text: "address edited successfully",
+            showConfirmButton: false,
+            timer: 1500
+       }).then(()=>{
+         window.location.reload()
+        })
+        
+            // Close the modal or update the UI as needed
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+        });
+    }
+}
+
+
+function coupenCheck(val){
+
+const msg = document.getElementById('msgg')
+const btn = document.getElementById('btn')
+
+fetch(`/checkCoupen` , {method : 'post' , headers : {'Content-Type' : 'application/json'} , body : JSON.stringify({id : val.value})})
+
+.then(res => res.json())
+
+.then(data => {
+
+   console.log(data);
+
+   if(data.succuss){
+
+      msg.textContent = 'Valid Coupen'
+      msg?.classList?.remove('text-danger')
+      msg?.classList?.add('text-success')
+      btn.disabled = false
+
+   } else  {
+
+      msg.textContent = 'Invalid Coupen'
+      msg?.classList?.remove('text-success')
+      msg?.classList?.add('text-danger')
+      btn.disabled = true
+
+   }
+
+})
+}
+    
+      
+      // let selectedAddressId = document.querySelector('input[name="address"]:checked').value||null;
+      let selectedAddressId = null
+
+     const addressRadio= document.querySelectorAll('.address-radio');
+      addressRadio.forEach(radio => {
+        console.log(radio.checked);
+        
+      if(radio.checked){
+         selectedAddressId = radio.value
+         console.log(selectedAddressId)
+      }
+      });
+      function submitAddress(addressId) {
+        
+      selectedAddressId = addressId;
+      console.log(selectedAddressId)
+  }
+  function submitPayment(amount,userID){
+         let coupen = document.getElementById('coupen_id')
+         if(coupen){
+            coupenIdd = coupen.value
+         }else{
+            coupenIdd = null
+         }
+         console.log(coupenIdd)
+        var selectedPayment = document.querySelector('input[name="payment"]:checked')
+        if(selectedPayment){
+         var selectedpayment = selectedPayment.value
+        }else{
+         selectedpayment=null
+        }
+          console.log(selectedPayment)
+         if (!selectedAddressId) {
+            Swal.fire({
+                    html: "<b>Please add one address</b>",
+                    iconHtml: 'X',
+                    iconColor: 'red',
+                    background: '#f9f6e8',
+                    width: '280px',
+                    padding: '10px',
+                    icon: 'error',
+                    toast: true,
+                    showConfirmButton: false,
+                    timer: 1500,
+                });
+             return
+      }
+      else if(!selectedPayment){
+      Swal.fire({
+                    html: "<b>Please select any one payment method</b>",
+                    iconHtml: 'X',
+                    iconColor: 'red',
+                    background: '#f9f6e8',
+                    width: '280px',
+                    padding: '10px',
+                    icon: 'error',
+                    toast: true,
+                    showConfirmButton: false,
+                    timer: 1500,
+                });
+            return
+      }else{
+    
+         fetch('/orders', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+        body: JSON.stringify({ amount, selectedAddressId,selectedpayment,coupenIdd})
+      })
+      .then(res => {
+        if (!res.ok) {
+            throw new Error('Network response was not ok ' + res.statusText);
+        }
+        return res.json();
+      })
+      .then(data => {
+      console.log(data)
+      if(data.razorpay){
+         return razorpayPayment(data.order);
+      }
+      
+      if(data.listed){
+        return window.location.href=`/cart?message=${data.message}`
+      }else if(data.success){
+        console.log(data);
+        return window.location.href=`/success`
+      }else if(!data.quantity){
+         return window.location.href=`/cart?message=${data.message}`
+      }else if(data.insuficent){
+         Swal.fire({
+                    html: "<b>jfdkj</b>",
+                    iconHtml: 'X',
+                    iconColor: 'red',
+                    background: '#f9f6e8',
+                    width: '280px',
+                    padding: '10px',
+                    icon: 'error',
+                    toast: true,
+                    showConfirmButton: false,
+                    timer: 1500,
+                });
+            return
+      }
+      if(data.order){
+          console.log(data.order)
+          return
+       }
+      })
+      .catch(error => {
+        console.error('There was a problem with the fetch operation:', error);
+
+      });
+   
+         
+  
+      }
+}
+
+function razorpayPayment(order){
+
+var options = {
+    "key": "rzp_test_deu2ORuCjDgPNd", 
+    "amount":order.amount, 
+    "currency": "INR",
+    "name": "plantly", 
+    "description": "Test Transaction",
+    "image": "https://cdn-icons-png.flaticon.com/512/616/616430.png",
+    "order_id": order.id, 
+    // "callback_url": "https://eneqd3r9zrjok.x.pipedream.net/",
+    "handler": function (response){                              
+        console.log('response:',response);
+        verifyPayment(response,order);
+    },
+    "prefill": { 
+        "name": "muhammad riyas ck", 
+        "email": "plantlyplant@gmail.com", 
+        "contact": "9000090000" 
+    },
+    "notes": {
+        "address": "Razorpay Corporate Office"
+    },
+    "theme": {  
+        "color": "#f2a100"
+    }
+};
+
+   var rzp1 = new Razorpay(options);
+   console.log('rzp1:',rzp1);
+   rzp1.on('payment.failed', function (response){
+   window.location.href=`/failuer?id=${order.receipt}`
+
+});
+
+rzp1.open();
+}
+
+function verifyPayment(response,order){
+        fetch('/razorpay',{
+            method:"POST",
+            headers:{
+                "content-type": "application/json;charset=utf-8"
+            },
+            body:JSON.stringify({
+                response,
+                order
+            })
+        })
+        .then((res)=>res.json())
+        .then((data)=>{
+            if(data.statusChanged){
+      
+                window.location.href=`/success`
+            }
+        })   
+    }
+
+
+
+
+
+// Add event listener to the form
+document.getElementById('editForm').addEventListener('submit', validateForm);
+
+// Add input event listeners to remove invalid class when user starts typing
+document.querySelectorAll('#editForm input, #editForm textarea').forEach(input => {
+    input.addEventListener('input', function() {
+        this.classList.remove('is-invalid');
+        this.classList.remove('is-valid');
+    });
+});
+
+  const message = document.getElementById('message');
+  
+  if(message.textContent == 'Address Edited'){
+
+    Swal.fire({
+     
+      title:'Address Edited',
+      text:'Address Edited Successfully',
+      icon:'success',
+      confirmButtonText: 'OK'
+     
+    })
+
+  }
+
+
+// Add input event listeners to remove invalid class when user starts typing
+document.querySelectorAll('#addform input, #addform textarea').forEach(input => {
+    input.addEventListener('input', function() {
+        this.classList.remove('is-invalid');
+        this.classList.remove('is-valid');
+    });
+});
+
+
+
+//	Sweet Alert For Edit Address :-
+
+const msg = document.getElementById('msg');
+
+if(msg?.textContent == 'coupen'){
+
+	const Toast = Swal.mixin({
+
+		toast: true,
+		position: "top-end",
+		showConfirmButton: false,
+		timer: 3000,
+	    timerProgressBar: true,
+
+		didOpen: (toast) => {
+
+			toast.onmouseenter = Swal.stopTimer;
+		   toast.onmouseleave = Swal.resumeTimer;
+		}
+
+	});
+					
+	Toast.fire({
+
+		icon: "success",
+		title: "Coupen Applied"		
+
+	});
+		
+} else if(msg?.textContent == 'usedOne'){
+
+	const Toast = Swal.mixin({
+
+		toast: true,
+		position: "top-end",
+		showConfirmButton: false,
+		timer: 3000,
+	    timerProgressBar: true,
+
+		didOpen: (toast) => {
+
+			toast.onmouseenter = Swal.stopTimer;
+		   toast.onmouseleave = Swal.resumeTimer;
+		}
+
+	});
+					
+	Toast.fire({
+
+		icon: "warning",
+		title: "Already Used!!!"		
+
+	});
+
+}
+
+//	Remove Coupen :-
+
+function removeCoupen(coupen_id){
+fetch(`/removeCop` , {method : 'put',headers:{'content-type':'application/json'},body:JSON.stringify({coupen_id})})
+
+.then(res => res.json())
+
+.then(data => {
+
+   if(data.succ){
+
+      window.location.reload()
+
+   }
+
+})
+
+}
+   //  Copy Coupen Code :-
+ 
+    var btn = document.getElementById("copybtn");
+    var copenCode = document.getElementById("coupencode");
+ 
+     function copyCode(code,elem){
+ 
+       navigator.clipboard.writeText(code);
+       elem.innerHTML ="COPIED";
+       
+       setTimeout(function(){
+ 
+         elem.innerHTML="COPY CODE";
+ 
+       }, 3000);
+ 
+     }
+ 
+ </script>
+ 
+ <style>
+ 
+   #coupenCode{
+     border: 1px dashed #fff;
+     padding: 10px 20px;
+      display: none;
+     border-right: 0;
+ 
+ }
+ #coupenBtn{
+     border: 1px solid #fff;
+     background: #fff;
+     padding: 10px 20px;
+     color: #000000;
+     cursor: pointer;
+ }
+ 
+     
+ .flip-card {
+ 
+   background-color: transparent;
+   width: 150px;
+   height: 200px;
+   perspective: 1000px;
+   font-family: sans-serif;
+ }
+ 
+ .title {
+   font-size: 1.5em;
+   font-weight: 900;
+   text-align: center;
+   margin: 0;
+ }
+ 
+ .flip-card-inner {
+   position: relative;
+   width: 100%;
+   height: 100%;
+   text-align: center;
+   transition: transform 0.8s;
+   transform-style: preserve-3d;
+ }
+ 
+ .flip-card:hover .flip-card-inner {
+   transform: rotateY(180deg);
+ }
+ 
+ .flip-card-front, .flip-card-back {
+   box-shadow: 0 8px 14px 0 rgba(0,0,0,0.2);
+   position: absolute;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   width: 100%;
+   height: 100%;
+   -webkit-backface-visibility: hidden;
+   backface-visibility: hidden;
+   border: 1px solid coral;
+   border-radius: 1rem;
+ }
+ 
+ .flip-card-front {
+   background: linear-gradient(120deg, bisque 60%, rgb(255, 231, 222) 88%,
+      rgb(255, 211, 195) 40%, rgba(255, 127, 80, 0.603) 48%);
+   color: coral;
+ }
+ 
+ .flip-card-back {
+   background: linear-gradient(120deg, rgb(255, 174, 145) 30%, coral 88%,
+      bisque 40%, rgb(255, 185, 160) 78%);
+   color: white;
+   transform: rotateY(180deg);
+ }
+ 
+ </style>

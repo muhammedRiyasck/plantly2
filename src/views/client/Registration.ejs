@@ -1,0 +1,416 @@
+<%- include('../layouts/client/header') %>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+<style>
+  .form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* height: 100vh; */
+    padding-top: 30px;
+  }
+  input::placeholder {
+            text-align: center;
+        }
+  .error {
+    color: #ca1515;
+    font-size: 0.8rem;
+    margin-top: 4px;
+  }
+
+  .password-strength {
+    font-size: 0.8rem;
+    margin-top: 4px;
+  }
+
+  .live-validation {
+    font-size: 0.8rem;
+    margin-top: 4px;
+    color: #6c757d;
+  }
+</style>
+
+<body>
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.8/axios.min.js"
+    integrity="sha512-PJa3oQSLWRB7wHZ7GQ/g+qyv6r4mbuhmiDb8BjSFZ8NZ2a42oTtAq5n0ucWAwcQDlikAtkub+tPVCw4np27WCg=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  ></script>
+  <div class="container-fluid">
+    <div class="sp_header bg-white p-3">
+      <div class="container custom_container">
+        <div class="row">
+          <div class="col-12">
+            <ul>
+              <li class="d-inline-block font-weight-bolder"><a href="/home">home</a></li>
+              <li class="d-inline-block hr_ font-weight-bolder"><a href="#">Registration</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top: 4rem">
+      <h1 class="text-center h1_">Log in to your account</h1>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-md-8 form-container">
+        <div class="card">
+          <div class="card-body">
+            <form action="/registration" method="post">
+              <% if (messages.success) { %>
+              <div class="alert alert-success" role="alert" style="color: green"><%= messages.success %></div>
+              <% } %> <% if (messages.error) { %>
+              <div class="alert alert-danger" role="alert" style="color: red"><%= messages.error %></div>
+              <% } %>
+
+              <div class="form-group">
+                <label for="name">FullName </label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="name"
+                  maxlength="20"
+                  name="name"
+                  style="
+                    height: 40px;
+                    border-width: 1px;
+                    border-style: solid;
+                    border-color: rgb(238, 238, 238);
+                    border-image: initial;
+                  "
+                />
+                <div class="error" id="name-error"></div>
+              </div>
+              <div class="form-group">
+                <label for="email">Email Address</label>
+                <input
+                  type="email"
+                  class="form-control"
+                  id="email"
+                  name="email"
+                  style="
+                    height: 40px;
+                    border-width: 1px;
+                    border-style: solid;
+                    border-color: rgb(238, 238, 238);
+                    border-image: initial;
+                  "
+                />
+                <div class="error" id="email-error"></div>
+              </div>
+              <div class="form-group">
+                <label for="mobile">Mobile Number </label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="mobile"
+                  maxlength="15"
+                  name="mobile"
+                  style="
+                    height: 40px;
+                    border-width: 1px;
+                    border-style: solid;
+                    border-color: rgb(238, 238, 238);
+                    border-image: initial;
+                  "
+                />
+                <div class="error" id="mobile-error"></div>
+              </div>
+              <div class="form-group">
+                <label for="password">Password </label>
+                <input
+                  type="password"
+                  class="form-control"
+                  id="password"
+                  autocomplete="new-password"
+                  name="password"
+                  style="
+                    height: 40px;
+                    border-width: 1px;
+                    border-style: solid;
+                    border-color: rgb(238, 238, 238);
+                    border-image: initial;
+                  "
+                />
+                <div class="error" id="password-error"></div>
+                <div class="password-strength" id="password-strength"></div>
+                <div class="live-validation" id="password-validation" style="color: #ca1515"></div>
+              </div>
+              <div class="form-group">
+                <label for="confirm_password">Confirm Password </label>
+                <input
+                  type="password"
+                  class="form-control"
+                  id="cpassword"
+                  name="c_password"
+                  style="
+                    height: 40px;
+                    border-width: 1px;
+                    border-style: solid;
+                    border-color: rgb(238, 238, 238);
+                    border-image: initial;
+                  "
+                />
+                <div class="error" id="cpassword-error"></div>
+                <div class="live-validation" id="cpassword-validation" style="color: #ca1515"></div>
+              </div>
+              <div class="form-group">
+                <label for="confirm_password">Refferal code</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="refferal"
+                  name="refferal_code"
+                  placeholder="(optional)"
+                  style="
+                    height: 40px;
+                    width: 200px;
+                    border-width: 1px;
+                    border-style: solid;
+                    border-color: rgb(198, 198, 198);
+                    border-image: initial;
+                  "
+                  oninput="validrefferal(this)"
+                />
+                <div class="error" id="refferal-error"></div>
+                <div class="live-validation" id="refferal-validation" style="color: #ca1515"></div>
+              </div>
+              <div
+                class="d-flex w-100 px-2"
+                style="align-items: center; justify-content: center; padding: 1rem; gap: 8rem"
+              >
+                <button type="submit" id="submit" class="btn btn-primary w-20">Create an Account</button>
+
+                <a href="/auth/google" class="btn google-account red-btn" style="margin-left: 21px; margin-bottom: px">
+                  <img width="30" height="30" src="https://img.icons8.com/color/48/google-logo.png" alt="google-logo" />
+                  <span>Sign Up with Google</span>
+                </a>
+              </div>
+            </form>
+            <p class="text-center create-account">
+              Already have an account? <a href="/login" class="text-decoration-none">Login</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <%- include('../layouts/client/footer') %>
+
+  <script>
+    function validrefferal(refferal_code){
+      console.log(refferal_code.value) 
+      let error_message = document.getElementById('refferal-error')
+      fetch(`/refferal-cheking?id=${refferal_code.value}`,{
+        method:'put',
+        headers:{'content-type':'application/json'},
+        body:JSON.stringify({refferal_code})})
+        .then(res=>res.json())
+        .then(data=>{
+          if(data.success){
+            error_message.textContent=`you were reffered by ${data.refferedUser}`
+          }else{
+            error_message.textContent='invalid refferal code'
+          }
+        })
+    }
+    document.addEventListener("DOMContentLoaded", function () {
+      const submit = document.getElementById("submit");
+      submit.disabled = true;
+
+      function validateName(name) {
+        const nameError = document.getElementById("name-error");
+        nameError.innerText = "";
+
+        const lettter = /^[A-Z][a-zA-Z]*/;
+        const secondLetter = /^[A-Z][a-z]*(?: [A-Z][a-z]*)*$/;
+        const NaN = /^[a-zA-Z\s]+$/;
+
+        name = name.trim();
+
+        if (name === "") {
+          nameError.innerText = "Name cannot be empty";
+          return false;
+        } else if (!NaN.test(name)) {
+          nameError.innerText = "Name should be alphabetic character";
+          return false;
+        } else if (!lettter.test(name)) {
+          nameError.innerText = "First letter must be an uppercase";
+          return false;
+        } else if (!secondLetter.test(name)) {
+          nameError.innerText = "After a space, the letter should be uppercase";
+          return false;
+        } else if (name.length < 3) {
+          nameError.innerText = "Name should be at least 3 characters long";
+          return false;
+        } else if (name.length >= 20) {
+          nameError.innerText = "Name should be within 20 characters";
+          return false;
+        } else {
+          nameError.innerText = "";
+          return true;
+        }
+      }
+
+      async function validateEmail(email) {
+        const emailError = document.getElementById("email-error");
+        emailError.innerText = "";
+
+        email = email.trim();
+
+        if (email === "") {
+          emailError.innerText = "Email cannot be empty";
+          return false;
+        } else if (!email.endsWith("@gmail.com") && !email.endsWith("@yahoo.com")) {
+          emailError.innerText = "Email is invalid";
+          return false;
+        } else {
+          const { data } = await axios.put("/emailCheck", { email });
+          if (data.exist) {
+            emailError.innerText = "Email already exists";
+            return false;
+          } else {
+            emailError.innerText = "";
+            return true;
+          }
+        }
+      }
+
+      function validateMobile(mobile) {
+        const mobileError = document.getElementById("mobile-error");
+        mobileError.innerText = "";
+
+        const regex = /^(\+91[\-\s]?)?[0]?(91)?[6789]\d{9}$/;
+
+        mobile = mobile.trim();
+
+        if (mobile === "") {
+          mobileError.innerText = "Mobile cannot be empty";
+          return false;
+        } else if (!regex.test(mobile)) {
+          mobileError.innerText = "Invalid Mobile Number";
+          return false;
+        } else {
+          mobileError.innerText = "";
+          return true;
+        }
+      }
+
+      function validatePassword(password) {
+        const passwordValidation = document.getElementById("password-validation");
+        const strength = document.getElementById("password-strength");
+        passwordValidation.innerHTML = "";
+        strength.innerHTML = "";
+
+        const uppercaseRegex = /[A-Z]/;
+        const specialCharRegex = /[@$!%*?&]/;
+        const numberRegex = /\d/;
+        const strongRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%?&])[A-Za-z\d@$!%?&]{10,}$/;
+        const mediumRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d@$!%?&]{6,}$/;
+
+        password = password.trim();
+
+        if (password === "") {
+          passwordValidation.innerText = "Password should not be empty";
+          return false;
+        } else if (!uppercaseRegex.test(password)) {
+          passwordValidation.innerHTML += "Include at least one uppercase letter.<br>";
+          return false;
+        } else if (!specialCharRegex.test(password)) {
+          passwordValidation.innerHTML += "Include at least one special character.<br>";
+          return false;
+        } else if (!numberRegex.test(password)) {
+          passwordValidation.innerHTML += "Include at least one number.<br>";
+          return false;
+        }
+
+        if (strongRegex.test(password)) {
+          strength.innerHTML = "Strong";
+          strength.style.color = "green";
+          return true;
+        } else if (mediumRegex.test(password)) {
+          strength.innerHTML = "Medium";
+          strength.style.color = "orange";
+          return true;
+        } else {
+          strength.innerHTML = "Weak";
+          strength.style.color = "red";
+          return false;
+        }
+      }
+
+      function validateCPassword(password, cpassword) {
+        const cpasswordValidation = document.getElementById("cpassword-validation");
+
+        cpassword = cpassword.trim();
+
+        if (cpassword === "") {
+          cpasswordValidation.innerHTML = "Confirm Password should not be empty.";
+          return false;
+        } else if (password === cpassword) {
+          cpasswordValidation.innerHTML = "Passwords match.";
+          cpasswordValidation.style.color = "green";
+          return true;
+        } else {
+          cpasswordValidation.innerHTML = "Password is not match.";
+          cpasswordValidation.style.color = "red";
+          return false;
+        }
+      }
+
+      async function validateForm() {
+        const name = document.getElementById("name").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const mobile = document.getElementById("mobile").value.trim();
+        const password = document.getElementById("password").value.trim();
+        const cpassword = document.getElementById("cpassword").value.trim();
+
+        const isNameValid = validateName(name);
+        const isEmailValid = await validateEmail(email);
+        const isMobileValid = validateMobile(mobile);
+        const isPasswordValid = validatePassword(password);
+        const isCPasswordValid = validateCPassword(password, cpassword);
+
+        const allValid = isNameValid && isEmailValid && isMobileValid && isPasswordValid && isCPasswordValid;
+
+        submit.disabled = !allValid;
+      }
+
+      document.querySelectorAll(".form-control").forEach(function (input) {
+        input.addEventListener("input", function () {
+          validateForm();
+        });
+
+        input.addEventListener("blur", function () {
+          validateForm();
+        });
+      });
+
+      document.getElementById("signup-form").addEventListener("submit", function (event) {
+        const name = document.getElementById("name").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const mobile = document.getElementById("mobile").value.trim();
+        const password = document.getElementById("password").value.trim();
+        const cpassword = document.getElementById("cpassword").value.trim();
+
+        if (!name || !email || !mobile || !password || !cpassword) {
+          event.preventDefault();
+          validateForm();
+        }
+      });
+
+      function clearFlashMessages() {
+        const flashMessages = document.querySelectorAll(".alert");
+        flashMessages.forEach(function (message) {
+          setTimeout(function () {
+            message.remove();
+          }, 5000);
+        });
+      }
+
+      clearFlashMessages();
+    });
+  </script>
+</body>

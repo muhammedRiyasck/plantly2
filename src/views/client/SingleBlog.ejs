@@ -1,0 +1,429 @@
+<%- include('../layouts/client/header') %>
+
+      <!-- header area end -->
+      <!-- vertical menu and slider -->
+      <div id="home_vertical_menu">
+        <div class="row ">
+           <div class="col-lg-3 vertical_menu">
+              <div class="v_menu bg-white rounded">
+                 <div class="cat_menu bg-warning rounded-top"><a href="#" class="pe-auto text-uppercase d-md-none d-sm-none d-none d-lg-block font-weight-bold"><i class="fas fa-bars"></i>all categories</a></div>
+                 <div class="navbar-header d-xl-none d-lg-none">
+                    <button type="button" class="btn-navbar navbar-toggle" onclick="openNav()" data-toggle="collapse" data-target=".navbar-ex1-collapse"><i class="fas fa-bars"></i></button>
+                 </div>
+                 <div id="mySidenav" class="sidenav  ">
+                    <div class="close-nav d-xl-none d-lg-none">
+                       <span class="categories">Menu</span>
+                       <a href="javascript:void(0)" class="closebtn pull-right" onclick="closeNav()"><i class="fas fa-times"></i></a>
+                    </div>
+                 <ul class="vertical_main_menu h_menu navbar navbar-nav">
+                       <li><a href="index.html">Home</a></li>
+                       <li class="">
+                          <a class="dropdown-toggle" href="shop-left-sidebar.html"  role="button" data-toggle="dropdown" aria-expanded="false">shop&nbsp;<span class="float-right"><i class="fas fa-angle-down"></i></span></a>
+                          <ul class="dropdown-menu">
+                             <li><a class="dropdown-item font-weight-bolderer" href="shop-left-sidebar.html">left sidebar</a></li>
+                             <li><a class="dropdown-item font-weight-bolderer" href="shop-right-sidebar.html">right sidebar</a></li>
+                          </ul>
+                       </li>
+                       <li class="dropdown mega_menu m1_menu level-1 font-weight-bolderer">
+                          <a class="dropdown-toggle" href="single-product.html"  role="button" data-toggle="dropdown" aria-expanded="false">portfolio&nbsp;<span class="float-right"><i class="fas fa-angle-down"></i></span></a>
+                          <ul class="dropdown-menu">
+                             <li>
+                                <ul class="row mx-0">
+                                   <li class="mg_menu col-lg-6 col-md-12 ">
+                                      <ul>
+                                         <li class="h_title text-uppercase font-weight-bolder border-bottom">portfolio grid 2</li>
+                                         <li><a class="dropdown-item font-weight-bolderer" href="portfolio-grid-2.html">portfolio grid 2</a></li>
+                                         <li><a class="dropdown-item font-weight-bolderer" href="portfolio-grid-3.html">portfolio grid 3</a></li>
+                                         <li><a class="dropdown-item font-weight-bolderer" href="portfolio-grid-4.html">portfolio grid 4</a></li>
+                                         <li><a class="dropdown-item font-weight-bolderer" href="mesonary-grid-2.html">mesonary grid 2</a></li>
+                                         <li><a class="dropdown-item font-weight-bolderer" href="mesonary-grid-3.html">mesonary grid 3</a></li>
+                                         <li><a class="dropdown-item font-weight-bolderer" href="mesonary-grid-4.html">mesonary grid 4</a></li>
+                                      </ul>
+                                   </li>
+                                   <li class="mg_menu col-lg-6 col-md-12">
+                                      <ul>
+                                         <li class="h_title text-uppercase font-weight-bolder border-bottom">theme elements</li>
+                                         <li><a class="dropdown-item font-weight-bolderer" href="title.html">title</a></li>
+                                         <li><a class="dropdown-item font-weight-bolderer" href="category-style.html">category</a></li>
+                                         <li><a class="dropdown-item font-weight-bolderer" href="services.html">services</a></li>
+                                         <li><a class="dropdown-item font-weight-bolderer" href="product-tab.html">product tab</a></li>
+                                         <li><a class="dropdown-item font-weight-bolderer" href="multi-slider-product.html">multi slider product</a></li>
+                                      </ul>
+                                   </li>
+                                </ul>
+                             </li>
+                          </ul>
+                       </li>
+                       <li>
+                          <a class="dropdown-toggle" href="blog.html"  role="button" data-toggle="dropdown" aria-expanded="false">
+                          blog&nbsp;<span class="float-right mt-1"><i class="fas fa-angle-down"></i></span></a>
+                          <ul class="dropdown-menu">
+                             <li><a class="dropdown-item font-weight-bolderer" href="blog.html">blog</a></li>
+                             <li><a class="dropdown-item font-weight-bolderer" href="blog-left-sidebar.html">left sidebar</a></li>
+                             <li><a class="dropdown-item font-weight-bolderer" href="blog-right-sidebar.html">right sidebar</a></li>
+                          </ul>
+                       </li>
+                       <li class="dropdown mega_menu level-1 font-weight-bolderer">
+                          <a class="dropdown-toggle" href="single-product.html"  role="button" data-toggle="dropdown" aria-expanded="false">Category&nbsp;<span class="float-right mt-1"><i class="fas fa-angle-down"></i></span></a>
+                          <ul class="dropdown-menu">
+                             <li>
+                                <ul class="row mx-0">
+                                   <li class="mg_menu col-lg-4 col-md-12 ">
+                                      <ul>
+                                         <li class="h_title text-uppercase font-weight-bolder border-bottom">Pot</li>
+                                         <li><a class="dropdown-item font-weight-bolderer" href="shop-left-sidebar.html">Pigmyweeds</a></li>
+                                         <li><a class="dropdown-item font-weight-bolderer" href="shop-left-sidebar.html">Indoor Plants</a></li>
+                                         <li><a class="dropdown-item font-weight-bolderer" href="shop-left-sidebar.html">outdoor Plants</a></li>
+                                         <li><a class="dropdown-item font-weight-bolderer" href="shop-left-sidebar.html">Flamingo plant</a></li>
+                                         <li><a class="dropdown-item font-weight-bolderer" href="shop-left-sidebar.html">Succulent Plant</a></li>
+                                      </ul>
+                                   </li>
+                                   <li class="mg_menu col-lg-4 col-md-12">
+                                      <ul>
+                                         <li class="h_title text-uppercase font-weight-bolder border-bottom">Plants</li>
+                                         <li><a class="dropdown-item font-weight-bolderer" href="shop-left-sidebar.html">Nerve Plant</a></li>
+                                         <li><a class="dropdown-item font-weight-bolderer" href="shop-left-sidebar.html">Flowering Plants</a></li>
+                                         <li><a class="dropdown-item font-weight-bolderer" href="shop-left-sidebar.html">Plant Seed</a></li>
+                                         <li><a class="dropdown-item font-weight-bolderer" href="shop-left-sidebar.html">Luck Plants</a></li>
+                                         <li><a class="dropdown-item font-weight-bolderer" href="shop-left-sidebar.html">Plant House</a></li>
+                                      </ul>
+                                   </li>
+                                </ul>
+                             </li>
+                          </ul>
+                       </li>
+                       <li class="dropdown level-1 font-weight-bolderer">
+                          <a class="dropdown-toggle" href="#"  role="button" data-toggle="dropdown" aria-expanded="false">pages&nbsp;<span class="float-right mt-1"><i class="fas fa-angle-down"></i></span></a>
+                          <ul class="dropdown-menu">
+                             <li><a class="dropdown-item font-weight-bolderer" href="about-us.html">about us</a></li>
+                             <li><a class="dropdown-item font-weight-bolderer" href="login.html">login</a></li>
+                             <li><a class="dropdown-item font-weight-bolderer" href="registration.html">registration</a></li>
+                             <li><a class="dropdown-item font-weight-bolderer" href="single-product.html">single product</a></li>
+                             <li><a class="dropdown-item font-weight-bolderer" href="single-blog.html">single blog</a></li>
+                             <li><a class="dropdown-item font-weight-bolderer" href="cart.html">cart</a></li>
+                             <li><a class="dropdown-item font-weight-bolderer" href="compare.html">compare</a></li>
+                             <li><a class="dropdown-item font-weight-bolderer" href="wishlist.html">wishlist</a></li>
+                             <li><a class="dropdown-item font-weight-bolderer" href="checkout.html">check out</a></li>
+                             <li><a class="dropdown-item font-weight-bolderer" href="forgot.html">forgot password</a></li>
+                          </ul>
+                       </li>
+                       <li class="level-1 font-weight-bolderer"><a href="contact-us.html">contact-us</a></li
+                          >
+                    </ul>
+                 </div>
+              </div>
+              <!-- v_menu bg-white rounded -->
+           </div>
+        </div>
+        <!-- row -->
+     </div>
+     <!-- container  menu_slider mt-4 -->
+     <!-- vertical menu and slider end -->
+     <!-- blog page -->
+     <div id="single_blog_page" class="single-blog-page animate__animated animate__fadeInUp">
+        <div class="sp_header bg-white p-3">
+           <div class="container custom_container ">
+              <div class="row ">
+                 <div class="col-12 ">
+                    <ul>
+                       <li class="d-inline-block font-weight-bolder"><a href="index.html">home</a></li>
+                       <li class="d-inline-block hr_ font-weight-bolder"><a href="#">single blog</a></li>
+                    </ul>
+                 </div>
+              </div>
+           </div>
+        </div>
+        <div class="container custom_container">
+           <div class="row">
+              <div class="col-12">
+                 <div class="title_outer">
+                    <h1 class="mb-3 d-inline-block pb-3 position-relative border-bottom h1_">single blog</h1>
+                 </div>
+                 <!-- title_outer -->
+              </div>
+              <!-- col-12 -->
+           </div>
+           <!-- row -->
+           <div class="row sh_page">
+              <div class="col-md-7 col-sm-12">
+                 <div class="card mb-4" data-wow-duration="0.8s" data-wow-delay="0s">
+                    <a href="#"><img src="assets/img/blog/blog_1.jpg" class="fst-image mx-auto d-block img-fluid" alt="blog_1"></a>
+                    <div class="card-body p-0 mt-3">
+                       <div class="blog_subtitle">
+                          <span class="font-weight-bolder pr-2"><i class="far fa-calendar-alt mr-2"></i>Oct 27 2020</span>
+                          <span class="font-weight-bolder border-secondary border-left border-right px-2"><i class="far fa-comments mr-2"></i>0 comments</span>
+                          <span class="font-weight-bolder pl-2"><i class="fas fa-user mr-2"></i>author</span>
+                       </div>
+                       <h2 class="card-title mt-3 font-weight-bold"><a href="#">Donec ac elit id metus auctor imperdiet vitae quis erat.</a></h2>
+                       <p class="card-text text-muted f_13">
+                          In eros dolor, pharetra non sem non, feugiat sagittis tellus. Suspendisse malesuada dolor vel risus pulvinar, in ornare nulla mattis. Phasellus turpis orci, bibendum eget tellus at, commodo aliquet arcu. Sed at luctus elit. Nam fermentum bibendum mi non hendrerit. Duis in accumsan sem. Etiam eget orci urna. Cras nisi nunc, laoreet sed justo nec, maximus tincidunt lectus. Praesent vel pharetra leo. Duis et justo orci. Maecenas malesuada congue ex sed molestie. Aenean eu magna vel ex feugiat porta. Pellentesque ac mollis eros. Praesent varius orci eu dapibus vestibulum.
+                       </p>
+                       <p class="card-text text-muted f_13">
+                          Cras tristique justo eget ante euismod eleifend. Vivamus elementum ultricies felis, at suscipit nisi ullamcorper id. Ut sit amet pretium metus. Integer accumsan fringilla fermentum. Vivamus et augue ut odio dictum imperdiet id non justo. Interdum et malesuada fames ac ante ipsum primis in faucibus. Aenean auctor, orci sed convallis tincidunt, est tortor fringilla elit, vel viverra nisl ipsum a justo. Nunc volutpat molestie pulvinar.
+                       </p>
+                       <p class="card-text text-muted f_13">
+                          Duis et nunc ut odio hendrerit posuere. Donec vel risus quam. Maecenas pharetra varius tempor. Ut blandit leo a varius vestibulum. Fusce sit amet nulla venenatis, laoreet risus vel, rutrum lectus. Maecenas elementum, massa non condimentum facilisis, odio dolor porta diam, ut maximus quam nisl a sapien. Nulla gravida lacus at magna imperdiet vulputate. Suspendisse placerat ligula eu arcu porttitor vehicula. Sed tincidunt sodales justo at ullamcorper. Donec at commodo nisi. Praesent consequat nibh at leo dignissim pulvinar. Etiam enim lacus, pellentesque ac orci id, maximus bibendum metus.
+                       </p>
+                       <p class="card-text text-muted f_13">
+                          Ut augue est, rhoncus eu malesuada vitae, commodo vel orci. Donec sed libero mi. Integer porttitor nisi a nisl faucibus pellentesque. Curabitur a eleifend ante, id tristique dui. Ut luctus iaculis convallis. Vestibulum mattis tincidunt massa in bibendum. Nullam leo felis, sagittis vel ex a, aliquet aliquam mauris. Aenean maximus ipsum quis erat suscipit pharetra. Curabitur erat elit, tempor sed sem sed, porttitor rhoncus lacus. Pellentesque tincidunt massa ut mauris porta, ut tristique dolor feugiat. Vivamus accumsan velit eu elementum bibendum. Mauris mollis sapien sit amet metus maximus pulvinar. Nulla facilisi.
+                       </p>
+                       <p class="card-text text-muted f_13">
+                          Nam at bibendum purus. Proin ut viverra ante. Vestibulum malesuada condimentum metus, tincidunt bibendum mi commodo vel. Vivamus diam libero, tempus nec elit vel, posuere facilisis risus. Nullam ultricies elementum sapien eget tincidunt. Morbi vitae sodales sapien. Sed maximus urna vel arcu lobortis porta. Duis et efficitur ipsum.
+                       </p>
+                    </div>
+                 </div>
+              </div>
+              <div class="col-md-5 col-sm-12 ">
+                 <div class="s_b_comment">
+                    <h2 class="mb-5">leave a comment</h2>
+                    <form>
+                       <div class="">
+                          <div class="col-12 sp_form pl-0">
+                             <label class="font-weight-bolder">name:</label>
+                             <input type="text" class="form-control f_13 bg-light" placeholder="First name">
+                          </div>
+                          <div class="col-12 sp_form pl-0">
+                             <label class="font-weight-bolder">email:</label>
+                             <input type="email" class="form-control bg-light" placeholder="Enter Your Mail">
+                          </div>
+                          <div class="col-12 sp_form pl-0">
+                             <label class="font-weight-bolder">website url:</label>
+                             <input type="text" class="form-control bg-light" placeholder="Website">
+                          </div>
+                          <div class="col-12 sp_form pl-0">
+                             <label class="font-weight-bolder">subject:</label>
+                             <input type="text" class="form-control bg-light" placeholder="subject">
+                          </div>
+                          <div class="col-12 sp_form pl-0">
+                             <label class="font-weight-bolder">message:</label>
+                             <textarea class="form-control sp_text_area bg-light"  rows="3" placeholder="Your Message"></textarea>
+                          </div>
+                          <div class="col-12 sp_form pl-0">
+                             <button type="submit" class="btn btn-primary font-weight-bolder f_13 px-3 py-2 ">post comment</button>
+                          </div>
+                       </div>
+                    </form>
+                 </div>
+              </div>
+           </div>
+        </div>
+     </div>
+     <!-- blog page -->
+     <!-- cart-model -->
+     <div class="modal fade" id="cart_model" tabindex="-1"  aria-hidden="true">
+        <div class="modal-dialog">
+           <div class="modal-content">
+              <div class="modal-header">
+                 <div class="modal-title f_13 font-weight-bold">Product successfully added to your shopping cart</div>
+                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                 <span aria-hidden="true">&times;</span>
+                 </button>
+              </div>
+              <div class="modal-body">
+                 <div class="row">
+                    <div class="col-sm-4 col-xs-12 mb-3	">
+                       <img src="assets/img/product/product_13.jpg" class="fst-image mx-auto d-block img-fluid border rounded" alt="product_13">
+                    </div>
+                    <div class="col-sm-8 col-xs-12 ">
+                       <h6 class="font-weight-bold">Hummingbird printed t-shirt</h6>
+                       <div class="font-weight-bold pb-1">$19.12</div>
+                       <span class="font-weight-bold f_13 pb-1">Size: S</span><br>
+                       <span class="font-weight-bold f_13 pb-1">Color: White</span><br>
+                       <span class="font-weight-bold f_13 pb-1">Qty: 2</span>
+                    </div>
+                 </div>
+                 <div class="row">
+                    <div class=" col-12 ">
+                       <div class="border rounded final_payment">
+                          <div class="card-body  border-bottom">
+                             <p class="text-muted">5 items</p>
+                             <p class="font-weight-bolder">show details</p>
+                             <div>
+                                <span class="font-weight-bold">subtotal</span>
+                                <span class="float-right font-weight-bold">$94.00</span>
+                             </div>
+                             <div>
+                                <span class="font-weight-bold">shipping</span>
+                                <span class="float-right font-weight-bold">$9.00</span>
+                             </div>
+                          </div>
+                          <div class="card-body ">
+                             <div>
+                                <span class="font-weight-bold">total(tax excl.)</span>
+                                <span class="float-right font-weight-bold">$94.00</span>
+                             </div>
+                          </div>
+                       </div>
+                    </div>
+                 </div>
+              </div>
+              <div class="modal-footer">
+                 <a class="btn btn-primary mt-2 f_13 px-3 py-2 rounded" data-dismiss="modal">close</a>
+                 <a href="checkout.html" class="btn btn-primary mt-2 f_13 px-3 py-2 rounded">continue</a>
+              </div>
+           </div>
+        </div>
+     </div>
+     <!-- cart_model -->
+     <!-- eye-model -->
+     <div class="modal fade" id="eye_model" tabindex="-1"  aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+           <div class="modal-content">
+              <div class="modal-header">
+                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                 <span aria-hidden="true">&times;</span>
+                 </button>
+              </div>
+              <div class="modal-body">
+                 <div class="row">
+                    <div class="col-sm-5 col-12">
+                       <img src="assets/img/product/product_13.jpg" class="fst-image mx-auto d-block img-fluid border rounded" alt="product_13">
+                    </div>
+                    <div class="col-sm-7 col-12">
+                       <h5 class="font-weight-bold border-bottom me_name">Aliquam Top Erat Volutpat</h5>
+                       <div class="font-weight-bold border-bottom me_price">$19.12</div>
+                       <div class="my-2 border-bottom me_des">Fashion has been creating well-designed collections since 2010. </div>
+                       <div class="me_quan">
+                          <div class="sp_counter ">
+                             <div class="input-group">
+                                <span class="input-group-btn">
+                                <button type="button" class="btn btn-default btn-number" disabled="disabled" data-type="minus" data-field="quant[1]"><span class="minus">-</span></button>
+                                </span>
+                                <input type="number" name="quant[1]" class="form-control input-number" value="1" min="1" max="10">
+                                <span class="input-group-btn">
+                                <button type="button" class="btn btn-default btn-number" data-type="plus" data-field="quant[1]"><span class="plus">+</span></button>
+                                </span>
+                             </div>
+                          </div>
+                          <span>
+                          <a class="btn btn-primary primary mt-3">add to cart</a>
+                          </span>
+                       </div>
+                    </div>
+                 </div>
+              </div>
+           </div>
+        </div>
+     </div>
+     <!-- eye_model -->
+     <!-- compare-model -->
+     <div class="modal fade" id="compare_model" tabindex="-1"  aria-hidden="true">
+        <div class="modal-dialog">
+           <div class="modal-content">
+              <div class="modal-header">
+                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                 <span aria-hidden="true">&times;</span>
+                 </button>
+              </div>
+              <div class="modal-body text-center">
+                 <p>
+                    <svg width="30px" height="30px">
+                       <use xlink:href="#checked"></use>
+                    </svg>
+                 </p>
+                 <h5>Compare list updated!</h5>
+                 <p class="text-muted font-weight-bold">Product successfully removed from the product comparison!</p>
+                 <div class="text-danger font-weight-bold">Go to Compare</div>
+              </div>
+           </div>
+        </div>
+     </div>
+     <!-- compare_model -->
+     <!-- heart-model -->
+     <div class="modal fade" id="heart_model" tabindex="-1"  aria-hidden="true">
+        <div class="modal-dialog">
+           <div class="modal-content">
+              <div class="modal-header">
+                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                 <span aria-hidden="true">&times;</span>
+                 </button>
+              </div>
+              <div class="modal-body text-center">
+                 <p>
+                    <svg width="30px" height="30px">
+                       <use xlink:href="#checked"></use>
+                    </svg>
+                 </p>
+                 <p class="text-muted font-weight-bold">You must be logged in to manage your wishlist.</p>
+                 <div class="text-danger font-weight-bold">Go to wishlist</div>
+              </div>
+           </div>
+        </div>
+     </div>
+     <!-- heart_model -->
+     <!-- shipping -->
+     <div class="modal fade" id="shippingModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+           <div class="modal-content ">
+              <div class="modal-header">
+                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                 <span aria-hidden="true">&times;</span>
+                 </button>
+              </div>
+              <div class="modal-body">
+                 <ul>
+                    <li>Fashion has been creating well-designed collections since 2010. </li>
+                    <li>The brand offers feminine designs delivering stylish separates and statement dresses which have since evolved into a full ready-to-wear collection in which every item is a vital part of a woman's wardrobe. </li>
+                    <li>The result? Cool, easy, chic looks with youthful elegance and unmistakable signature style. </li>
+                    <li>All the beautiful pieces are made in Italy and manufactured with the greatest attention. Now Fashion extends to a range of accessories including shoes, hats, belts and more!</li>
+                 </ul>
+              </div>
+           </div>
+        </div>
+     </div>
+     <!-- shipping -->
+     <!-- ask about product -->
+     <div class="modal fade" id="question_Modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+           <div class="modal-content">
+              <div class="modal-header">
+                 <h5 class="modal-title " id="exampleModalLabel">shipping</h5>
+                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                 <span aria-hidden="true">&times;</span>
+                 </button>
+              </div>
+              <div class="modal-body que_form">
+                 <h6>have a any question?</h6>
+                 <form>
+                    <div>
+                       <div class="col-12 sp_form pl-0 pb-3">
+                          <textarea class="form-control"  rows="3" placeholder="Enter Your Message"></textarea>
+                       </div>
+                       <div class="col-12 sp_form pl-0 pb-3">
+                          <input type="text" class="form-control" placeholder="Enter Your Name">
+                       </div>
+                       <div class="col-12 sp_form pl-0 pb-3">
+                          <input type="email" class="form-control" placeholder="Enter Your Mail">
+                       </div>
+                       <div class="col-12 sp_form pl-0 pb-3 ">
+                          <input type="tel" pattern=".{10}" class="form-control" id="other_number" oninput="check(this)" required placeholder="Enter Your Phone">
+                       </div>
+                       <div class="col-12 sp_form pl-0 pb-3">
+                          <button type="submit" class="btn btn-primary">submit review</button>
+                       </div>
+                    </div>
+                 </form>
+              </div>
+           </div>
+        </div>
+     </div>
+     <!-- ask about product -->
+     <!-- add to wishlist -->
+     <div class="modal fade" id="wish_Modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+           <div class="modal-content">
+              <div class="modal-body">
+                 Please login and you will add product to your wishlist
+                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                 <span aria-hidden="true">&times;</span>
+                 </button>
+              </div>
+              <div class="modal-footer">
+                 <button type="submit" class="btn btn-primary">Sign In</button>
+                 <button type="submit" class="btn btn-primary">Register</button>
+              </div>
+           </div>
+        </div>
+     </div>
+
+<%- include('../layouts/client/footer') %>

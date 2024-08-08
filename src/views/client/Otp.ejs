@@ -1,0 +1,230 @@
+<%- include('../layouts/client/header') %>
+
+    
+							<div class="tab-content">
+
+							    <div class="tab-pane show active" id="signin-2" role="tabpanel" aria-labelledby="signin-tab-2" style="display: flex; justify-content: center; margin-top: 5rem;">
+
+							    	<form id="otpForm" action="/verifyotp" method="post" style="border: solid black 1px; width: 50%;">
+
+							    		<div class="form-group text-center" style="margin-top: 5rem;">
+
+											<label for="otp1" style="padding-bottom: 3rem;"><h4>Enter OTP </h4></label><br>
+											
+                      <% if(otpError){ %>
+
+                      <p hidden id="otp-error" style="color: red;"> <%= otpError %></p>
+
+                      <% } %>
+
+                      <input type="text" name="inp1" id="otp1" class="otp-input" pattern="[0-9]" maxlength="1" onkeyup="moveToNext(this, 'otp2')" onkeydown="moveToPrevious(this, 'otp1')" required> - 
+                      <input type="text" name="inp2" id="otp2" class="otp-input" pattern="[0-9]" maxlength="1" onkeyup="moveToNext(this, 'otp3')" onkeydown="moveToPrevious(this, 'otp1')" required> - 
+                      <input type="text" name="inp3" id="otp3" class="otp-input" pattern="[0-9]" maxlength="1" onkeyup="moveToNext(this, 'otp4')" onkeydown="moveToPrevious(this, 'otp2')" required> - 
+                      <input type="text" name="inp4" id="otp4" class="otp-input" pattern="[0-9]" maxlength="1" onkeydown="moveToPrevious(this, 'otp3')" required>
+                      
+                                                    
+                          <input type="email" hidden value="<%= emailQuery %>" name="email">
+											
+							    		</div><!-- End .form-group -->
+
+							    		<div class="form-footer" style="padding-top: 2rem; padding-bottom: 7rem; text-align: center;">
+											
+							    			<button class="btn btn-outline-success" type="submit" >
+													<span id="verifyBtn">verify</span>
+			            						<i class="icon-long-arrow-right"></i>
+											</button>
+
+                        <div style="padding-top: 2rem; cursor: pointer;">
+                          <p href="#" class="forgot-link" >Didn't Receive OTP? <small id="timer"></small></p>
+						            </div>
+
+
+                      <% if (locals.token !== null) { %>
+
+                        <input hidden type="text" value="<%= token %>" name="token">                     
+
+                        <div id="button-container" style="display: none;">  
+                          
+                          <button id="backButton" class="small-button"><a href="/forgotPassword">Back</a></button>
+                          
+                          <button id="resend-btn" class="small-button" ><a href="/resendOtp?email=<%= emailQuery %>&token=<%= token %>">Resend OTP</a></button>
+                          
+                        </div>
+                        
+                        <%  } else { %>
+                          
+                          <div id="button-container" style="display: none;">
+  
+                            <button id="backButton" class="small-button"><a href="/registration">Back</a></button>
+  
+                            <button id="resend-btn" class="small-button" ><a href="/resendOtP">Resent OTP</a></button>
+                            
+                           </div>
+
+                      <% } %>
+
+                         </div><!-- End .form-footer -->
+
+							    	</form>
+                    
+									
+                    
+							    </div><!-- .End .tab-pane -->
+							</div><!-- End .tab-content -->
+						</div><!-- End .form-tab -->
+            		</div><!-- End .form-box -->
+            	</div><!-- End .container -->
+            </div><!-- End .login-page section-bg -->
+            
+        </main>
+
+<style>
+    .otp-input {
+        width: 30px;
+        height: 40px;
+        text-align: center;
+        margin: 0 5px;
+        font-size: 1.5rem;
+		border: 0px;
+		border-radius: 5px;
+		box-shadow: rgba(4, 126, 40, 0.35) 0px 1px 10px;
+    }
+	.success-box {
+        padding: 10px;
+        background-color: #f1343459;
+        border: 1px solid #c3e6cb;
+        color: #0c0c0c;
+        margin-top: 10px;
+        display: none;
+    }
+	#timer {
+  font-size: 14px;
+  font-weight: bold;
+}
+.small-button {
+
+  font-size: 12px;
+  padding: 5px 10px;
+  border: 1px solid lightgreen;
+  margin-right: 10px; 
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.verifyBtn {
+  cursor: pointer;
+}
+
+
+
+</style>
+
+<!--column changing-->
+
+<script>
+	
+	function moveToNext(current, nextFieldID) {
+
+		if (current.value.length >= current.maxLength) { 
+
+			document.getElementById(nextFieldID).focus();
+
+		}
+	}
+
+  function moveToPrevious(current, prevFieldID) {
+    
+    if (event.key === 'Backspace' && current.value.length === 0) {
+
+        document.getElementById(prevFieldID).focus();
+    }
+}
+
+ 
+  setTimeout(() => {
+    const text = document.getElementById('otp')
+    text.innerText=''
+  }, 2000);
+
+  function startTimer() {
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const createdAt = parseInt(urlParams.get("time"), 10); // OTP creation timestamp
+    const time = parseInt(urlParams.get('existing'),10)
+  
+    const currentTime = Date.now();
+    const totalOtpTime = time; // Total time for OTP expiration
+    const elapsedSeconds = Math.floor((currentTime - createdAt) / 1000); // Calculate elapsed time
+    let timeLeft = totalOtpTime - elapsedSeconds; // Calculate remaining time
+  
+    const timerElement = document.getElementById("timer");
+    const buttonContainer = document.getElementById("button-container");
+  
+    if (timeLeft <= 0) {
+
+      timerElement.textContent = "Resend OTP";
+      document.getElementById("resend-btn").disabled = false;
+      buttonContainer.style.display = "block"; // Show the "Resend OTP" button
+
+    } else {
+
+      timerElement.textContent = `Resend OTP in ${formatTime(timeLeft)}`;
+  
+      const countdown = setInterval(() => {
+
+        if (timeLeft <= 0) {
+
+          clearInterval(countdown);
+          timerElement.textContent = "Resend OTP";
+          document.getElementById("resend-btn").disabled = false;
+          buttonContainer.style.display = "block"; // Show the "Resend OTP" button
+
+        } else {
+
+          timeLeft -= 1; // Decrement time left
+          timerElement.textContent = `Resend OTP in ${formatTime(timeLeft)}`;
+
+        }
+
+      }, 1000); // Update the countdown every second
+
+    }
+    
+  }
+
+  
+  function formatTime(seconds) {
+    const minutes = Math.floor(seconds / 60);
+    const remainingSeconds = seconds % 60;
+    return `${String(minutes).padStart(2, '0')}:${String(remainingSeconds).padStart(2, '0')}`;
+}
+
+
+  window.onload = startTimer; // Start the timer when the page loads
+  
+
+
+
+
+
+
+
+  </script>
+  <!-- sweet alert cdn -->
+<script  src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> 
+<script>
+  const messages = document.getElementById('otp-error')
+  console.log(2323)
+    if(messages.textContent.trim() == 'Invalid OTP'){
+    console.log('haii')
+      Swal.fire({
+            position: "top-center",
+            icon: "error",
+            title:"Invalid OTP",
+            text:'Entered OTP Is Not Valid',
+            showConfirmButton: false,
+            timer: 2000
+      });
+    }
+</script>
+<%- include('../layouts/client/footer') %>

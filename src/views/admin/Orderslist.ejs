@@ -1,0 +1,111 @@
+<%- include('../layouts/admin/header.ejs') %>
+
+<div class="container-scroller">
+
+    <%-include('../layouts/admin/sidebar') %>
+
+    <div class="container-fluid page-body-wrapper">
+        
+        <%-include('../layouts/admin/navbar') %>
+
+        <script>
+            let flag2 = true;
+            const dropdown1 = () => {
+              const report = document.getElementById("option");
+              if (flag2) report.style.display = "block";
+              else report.style.display = "none";
+              flag2 =!flag2;
+            };
+          </script>
+              
+    <div class="main-panel">
+
+        <div class="content-wrapper">
+            
+            <div style="margin-left: 18px; margin-bottom: 8px;" class="dropdown">
+                <button class="btn btn-outline-info dropdown-toggle" type="button" id="dropdownMenu2" onclick="dropdown1()" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Options
+                  </button>
+                <div id="option" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                  <a class="dropdown-item" href="/admin/cancelOrders">Cancel Orders</a>
+                  <a class="dropdown-item" href="/admin/returnOrders">Return Orders</a>
+                </div>
+              </div>
+         <div>
+            <div class="w-100 container-fluid mb-5">
+                    <table class="table table-dark" style="border-radius: 10px;">
+                        <thead class="text-center ">
+
+                            <tr>
+                                <th class="text-white">No</th>
+                                <th class="text-white">Billing Name</th>
+                                <th class="text-white">Date</th>
+                                <th class="text-white">Order Amount</th>
+                                 <th class="text-white">Payment Method</th>
+                                <th class="text-white">View Details</th>
+                            </tr>
+
+                        </thead>
+
+                        <!-- Fetch data in dbs and show -->
+
+                        <tbody class="text-center ">
+
+                          <% if (orderData.length > 0) { %>
+
+                            <% orderData.forEach((order , ind)=>{ %>
+
+                                    <tr>
+
+                                        <td><%= ind + 1 + skip%></td>
+                                        <td><%= order.deliveryAddress.name %></td>
+                                        <td><%= order.orderDate.toString().split(' ').slice(0,4).join('  ') %></td>
+                                        <td>$<%= order.orderAmount %></td>
+                                        <td><%= order.payment %></td>
+
+                                        <td>
+
+                                            <a href="/admin/orderDetails?id=<%= order._id %>">
+
+                                            <button type="button" class="btn btn-outline-primary btn-icon-text">
+                                            <i class="mdi mdi-file-check btn-icon-prepend"></i> View Details </button>
+
+                                            </a>
+
+                                        </td>
+                                        
+                                    </tr>
+
+
+                                <% }) %>
+
+                            <% } else { %>
+
+                                <tr >
+                                    <td colspan="8">
+
+                                        <p class="text-danger">Orders Not Found</p>
+
+                                    </td>
+                                </tr>
+
+                            <% } %>
+
+                        </tbody>
+                    </table>
+                    <!-- End table -->
+                </div>
+
+             
+            </div>
+            <%-include('../layouts/admin/Pagination') %>
+         </div>
+        </div>
+
+
+            </div>
+
+        </div>
+
+
+<%- include('../layouts/admin/footer.ejs') %>

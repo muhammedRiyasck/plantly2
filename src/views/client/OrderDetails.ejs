@@ -1,0 +1,413 @@
+<%- include('../layouts/client/header') %>
+
+<div class="page-wrapper" >
+
+ 
+
+  <main class="main">
+
+        <div class="page-header text-center" style="background-image: url('assets/images/page-header-bg.jpg')">
+            <div class="container">
+                <h1 class="page-title pt-5 text-black-50">My Profile</h1>
+            </div><!-- End .container -->
+        </div><!-- End .page-header -->
+
+        <nav aria-label="breadcrumb" class="breadcrumb-nav mb-3">
+            <div class="container">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/orders">Orders</a></li>
+                    <!-- <li class="breadcrumb-item"><a href="#"></a></li> -->
+                    <li class="breadcrumb-item active" aria-current="page">Order Details</li>
+                </ol>
+            </div><!-- End .container -->
+        </nav><!-- End .breadcrumb-nav -->
+
+      <section class="">
+
+        <div class="container-fluid  py-1 h-100 position-relative ">
+
+          <div class="row d-flex align-items-start  h-100" style="gap: 10rem;">
+
+            <aside class="col-md-2 col-lg-2 ">
+
+              <!-- profile nave -->
+
+              <ul class="nav nav-dashboard flex-column mb-3 mb-md-0 "   role="tablist">
+
+                <li class="nav-item ">
+                  <a class="nav-link active" id="tab-orders-link" href="/orders" aria-selected="true">Back to Orders</a>
+                </li>
+
+              </ul>
+
+              <br>
+
+              <% //if (order.products[0].orderProStatus == 'delivered') { %>
+                
+                <!-- <div class="mb-2">
+    
+                  <button class="btn border"><a href="/downloadInvoice?id=<%= //order._id %>">Download Invoice</a></button>
+    
+                </div> -->
+
+            <%//  } %>
+
+              <div class="card" style="border:.1rem solid #ebebeb !important; border-radius: 8px; padding-left: 13px ; margin-left: 1rem;">
+
+                <div class="card-body" >
+
+                  <div class="hedaer d-flex align-items-center justify-content-center w-100">
+
+                    <h5 class="card-title mb-2">
+
+                      deliveryAddress
+
+                    </h5><br>
+
+                  </div>
+
+                  <div class="mb-3">
+
+                    <label class="form-label d-flex">name:&nbsp;<%= order?.deliveryAddress?.name %></label>
+
+                  </div>
+
+                  <div class="mb-3">
+
+                    <label class="form-label"> place:&nbsp;<%= order?.deliveryAddress?.state %>,<%= order?.deliveryAddress?.city %> </label>
+
+                  </div>
+
+                  
+                  <div class="mb-3">
+
+                    <label class="form-label">address: <%= order?.deliveryAddress?.address %>, <%= order?.deliveryAddress?.locality %></label>
+
+
+                  </div>
+
+               
+
+                  <div class="mb-3">
+
+                    <label class="form-label"> pincode:&nbsp;<%= order?.deliveryAddress?.pincode %></label>
+
+                  </div>
+
+               
+                </div>
+
+              </div>
+             
+              <% if(order.products[0].productStatus =='delivered'){ %>
+              <div class="mb-3 ml-3 mt-3">
+                <button class="btn btn-success "><a class="text-white" href="/invoice/<%=order._id%>">Parchase Invoice</a></button>
+              </div>
+              <% } %>
+            </aside>
+
+            <aside class="col col-lg-8 mb-4 mb-lg-0">
+                
+              <div class="row w-100  " style="margin-top: 2rem;">
+                <div class="container">
+                  <table class="table table-wishlist table-mobile text-center" style="width: 100%; border-collapse: separate; border-spacing: 0 1rem;">
+                    <thead>
+                      <tr style="background-color: #f8f9fa;">
+                        <th style="padding: 1rem;">Product</th>
+                        <th style="padding: 1rem;">Name</th>
+                        <th style="padding: 1rem;">Price</th>
+                        <th style="padding: 1rem;">Ordered Date</th>
+                        <th style="padding: 1rem;">Quantity</th>
+                        <th style="padding: 1rem;">Status</th>
+                        <th style="padding: 1rem;">subTotal & coupen Discount</th>
+                        <th style="padding: 1rem;" class="<%= order.products[0].productStatus == 'canceled' ? 'disabled' : '' %>">
+                          <%= order.products[0].orderStatus == 'canceled' ? '' : 'Options' %>
+                        </th> 
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <% if(locals.order) { %>
+                        <% order.products.slice().reverse().forEach((product, index)=>{ %>
+                          <% if(product.productStatus=='canceled'){ %>
+                          <tr style="border-bottom: 1px solid #dee2e6;">
+                            <td style="padding: 1rem; vertical-align: middle;">
+                              <div style="max-width: 100px; margin: 0 auto;">
+                                <a href="/productDetails?proId=<%= product.product_id._id %>">
+                                  <img src="/assets/productImages/<%= product.product_id.images[0] %>" style="max-width: 100%; height: auto;" alt="product image">
+                                </a>
+                              </div>
+                            </td>
+                            <td style="padding: 1rem; vertical-align: middle;">
+                              <a href="/productDetails?proId=<%= product.product_id._id %>" style="color: #333;text-decoration:line-through">
+                                <%= product.product_id.name %>
+                              </a>
+                            </td>
+                            <td style="padding: 1rem; vertical-align: middle;text-decoration:line-through;">₹<%= product.product_id.discount_price>0?product.product_id.discount_price:product.product_id.price %></td>
+                            <% const formattedDate = order.orderDate.toLocaleString('en-US', { weekday: 'short', month: 'short', day: 'numeric', year: 'numeric' }); %>
+                            <td style="padding: 1rem; vertical-align: middle;text-decoration:line-through"><%= formattedDate %></td>
+                            <td style="padding: 1rem; vertical-align: middle; font-weight: bold;text-decoration:line-through"><%= product.quantity %></td>
+                            <td style="padding: 1rem; vertical-align: middle;">
+                              <span style="color:red; text-transform: capitalize;" class="<%= product.productStatus === 'canceled' ? 'text-btn-outline-danger' : (product.productStatus === 'returned' ? 'text-success' : 'text-primary') %>">
+                                <%= product.productStatus %>
+                              </span>
+                            </td>
+                        
+                            <td style="padding: 1rem; vertical-align: middle; font-weight: bold;text-decoration:line-through"><span style="text-decoration: line-through;">₹<%=(product.product_id.discount_price>0?product.product_id.discount_price:product.product_id.price)*product.quantity  %></span> <span class="text-danger ">- ₹<%=((product.product_id.discount_price>0?product.product_id.discount_price:product.product_id.price)*product.quantity)-product.price  %></span> <br> ₹<%= product.price %> <br> </td>
+                            <td style="padding: 1rem; vertical-align: middle;">
+                              <div style="display: flex; justify-content: center;">
+                                <% //if (product.productStatus == 'pending') { %>
+                                  <!-- <button type="button" style="min-width: 100px; padding: 0.5rem 1rem;" class="btn btn-primary" onclick="razorpayPayment('<%=// order.order_d %>', '<%=// order.orderAmount %>', '<%=// order._id %>')">
+                                    pay again
+                                  </button> -->
+                                <% //} else { %>
+                                  <% if (product.productStatus == 'delivered' || product.productStatus == 'returned') { %>
+                                    <button <%= product.productStatus == 'returned' && 'disabled' %> 
+                                            type="submit" 
+                                            onclick="returnOrder('<%= product.product_id._id %>', '<%= orde.order_Id %>', '<%= product.price %>')" 
+                                            style="min-width: 100px; padding: 0.5rem 1rem;" 
+                                            class="btn btn-outline-primary <%= product.productStatus == 'returned' && 'opacity-50' %>">
+                                      Return
+                                    </button>
+                                  <% } else if (product.productStatus=='placed' || product.productStatus == 'shipped' || product.productStatus == 'pending' || product.productStatus == 'canceled') { %>
+                                    <button <%= product.productStatus == 'canceled' && 'disabled' %> 
+                                            type="submit" 
+                                            onclick="cancelOrder('<%= product.product_id._id %>', '<%= order.order_Id %>', '<%= product.price %>',<%= order.orderAmount%>)" 
+                                            style="min-width: 100px; padding: 0.5rem 1rem;" 
+                                            class="btn btn-outline-danger <%= product.productStatus == 'canceled' && 'opacity-50' %>">
+                                      Cancel
+                                    </button>
+                                  <% } %>
+                                <% //} %>
+                              </div>
+                            </td>
+                          </tr>
+                          <% }else{ %>
+                            <tr style="border-bottom: 1px solid #dee2e6;">
+                              <td style="padding: 1rem; vertical-align: middle;">
+                                <div style="max-width: 100px; margin: 0 auto;">
+                                  <a href="/productDetails?proId=<%= product.product_id._id %>">
+                                    <img src="/assets/productImages/<%= product.product_id.images[0] %>" style="max-width: 100%; height: auto;" alt="product image">
+                                  </a>
+                                </div>
+                              </td>
+                              <td style="padding: 1rem; vertical-align: middle;">
+                                <a href="/productDetails?proId=<%= product.product_id._id %>" style="color: #333; text-decoration: none; font-weight: bold;">
+                                  <%= product.product_id.name %>
+                                </a>
+                              </td>
+                              <td style="padding: 1rem; vertical-align: middle; font-weight: bold;">₹<%= product.product_id.discount_price>0?product.product_id.discount_price:product.product_id.price %></td>
+                              <% const formattedDate = order.orderDate.toLocaleString('en-US', { weekday: 'short', month: 'short', day: 'numeric', year: 'numeric' }); %>
+                              <td style="padding: 1rem; vertical-align: middle;"><%= formattedDate %></td>
+                              <td style="padding: 1rem; vertical-align: middle; font-weight: bold;"><%= product.quantity %></td>
+                              <td style="padding: 1rem; vertical-align: middle;">
+                                <span style="font-weight: bold; text-transform: capitalize;" class="<%= product.productStatus === 'canceled' ? 'text-btn-outline-danger' : (product.productStatus === 'returned' ? 'text-success' : 'text-primary') %>">
+                                  <%= product.productStatus %>
+                                </span>
+                              </td>
+                          
+                              <td style="padding: 1rem; vertical-align: middle; font-weight: bold;"><span style="text-decoration: line-through;">₹<%=(product.product_id.discount_price>0?product.product_id.discount_price:product.product_id.price)*product.quantity  %></span> <span class="text-danger ">- ₹<%=((product.product_id.discount_price>0?product.product_id.discount_price:product.product_id.price)*product.quantity)-product.price  %></span> <br> ₹<%= product.price %> <br> </td>
+                              <td style="padding: 1rem; vertical-align: middle;">
+                                <div style="display: flex; justify-content: center;">
+                                  <% //if (product.productStatus == 'pending') { %>
+                                    <!-- <button type="button" style="min-width: 100px; padding: 0.5rem 1rem;" class="btn btn-primary" onclick="razorpayPayment('<%=// order.order_d %>', '<%=// order.orderAmount %>', '<%=// order._id %>')">
+                                      pay again
+                                    </button> -->
+                                  <% //} else { %>
+                                    <% if (product.productStatus == 'delivered' || product.productStatus == 'returned') { %>
+                                      <button <%= product.productStatus == 'returned' && 'disabled' %> 
+                                              type="submit" 
+                                              onclick="returnOrder('<%= product.product_id._id %>', '<%= order.order_Id %>', '<%= product.price %>')" 
+                                              style="min-width: 100px; padding: 0.5rem 1rem;" 
+                                              class="btn btn-outline-primary <%= product.productStatus == 'returned' && 'opacity-50' %>">
+                                        Return
+                                      </button>
+                                    <% } else if (product.productStatus=='placed' || product.productStatus == 'shipped' || product.productStatus == 'pending' || product.productStatus == 'canceled') { %>
+                                      <button <%= product.productStatus == 'canceled' && 'disabled' %> 
+                                              type="submit" 
+                                              onclick="cancelOrder('<%= product.product_id._id %>', '<%= order.order_Id %>', '<%= product.price %>')" 
+                                              style="min-width: 100px; padding: 0.5rem 1rem;" 
+                                              class="btn btn-outline-danger <%= product.productStatus == 'canceled' && 'opacity-50' %>">
+                                        Cancel
+                                      </button>
+                                    <% } %>
+                                  <% //} %>
+                                </div>
+                              </td>
+                            </tr>
+                            <% } %>
+                        <% }) %>
+                      <% } %>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <span>Total Price(include Tax) : <%= order.orderAmount %></span>
+            </aside>
+          </div>
+
+        </div>
+
+      </section >
+
+      </main> 
+      
+  <!-- Connect Footer -->
+ 
+  <!-- Connect Footer -->
+
+</div>
+
+
+
+  <i class="icon-arrow-up"></i>
+
+</button>
+
+<!--Connect Mobaile View-->
+
+<!--Connect Mobaile View-->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<!-- Plugins JS File -->
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/bootstrap.bundle.min.js"></script>
+<script src="assets/js/jquery.hoverIntent.min.js"></script>
+<script src="assets/js/jquery.waypoints.min.js"></script>
+<script src="assets/js/superfish.min.js"></script>
+<script src="assets/js/owl.carousel.min.js"></script>
+<!-- Main JS File -->
+<script src="assets/js/main.js"></script>
+
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
+<script>
+
+  //  Cancel Order :-
+
+  async function cancelOrder(productId , orderId , price, orderAmout){
+    console.log(productId , orderId , price)
+    const {value: cancelReason} = await Swal.fire({
+
+      title: "Cancel reason",
+      input: "text",
+      inputLabel: "Cancel reason",
+      showCancelButton: true,
+
+      inputValidator: (value)=>{
+        
+        if(!value){
+
+          return "You need to write something"
+
+        }
+
+      }
+
+    });
+  
+    if(cancelReason){
+
+      Swal.fire({
+
+        title:"succes",
+        text: "Canceled order is success check your wallet",
+        icon: "success"
+
+      }).then(()=>{
+
+        editOrd(productId, orderId , price , cancelReason);
+
+      })
+
+    }
+
+  }
+
+  function editOrd(proId , ordId , price , reason){
+    console.log(price,'pricee')
+    
+    fetch('/cancelOrder' , {method : 'post' , headers : {'Content-Type': 'application/json'} , body : JSON.stringify({proId , ordId , price , reason})})
+
+    .then(res => res.json())
+
+    .then(data => {
+
+      if(data.succ ){
+
+        window.location.reload();
+
+      } else if(data.fail) {
+
+        window.location.reload()
+      }
+
+    })
+
+  }
+
+  //  Return Order :-
+
+  async function returnOrder(proId , ordId , price){
+
+    const {value: cancelReason} = await Swal.fire({
+
+      title: "Return reason",
+      input: "text",
+      inputLabel: "Return reason",
+      showCancelButton: true,
+
+      inputValidator: (value)=>{
+        
+        if(!value){
+
+          return "You need to write something"
+
+        }
+
+      }
+
+    });
+  
+    if(cancelReason){
+
+      Swal.fire({
+
+        title:"success",
+        text: "Return Request Sended",
+        icon: "success"
+
+      }).then(()=>{
+
+        editReturnOrd(proId, ordId , price , cancelReason);
+
+      })
+
+    }
+
+  }
+
+  function editReturnOrd(proId , ordId , price , reason){
+
+    fetch('/returnOrder' , {method : 'put' , headers : {'Content-Type': 'application/json'} , body : JSON.stringify({proId , ordId , price , reason})})
+
+    .then(res => res.json())
+
+    .then(data => {
+
+      if(data.succ){
+
+       window.location.reload()
+
+      }
+
+    })
+
+  }
+
+//	RazorPay :-
+
+
+</script>
+
+
+
+<%- include('../layouts/client/footer') %> 

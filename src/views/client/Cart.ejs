@@ -1,0 +1,274 @@
+<%- include('../layouts/client/header') %>
+
+
+<div id="cart_page" class="cart-page animate__animated animate__fadeInUp">
+   <div class="sp_header bg-white p-2 ">
+      <div class="container custom_container ">
+         <div class="row ">
+            <div class="col-12 ">
+               <ul class="p-md-3 p-2 bg-light">
+                  <li class="d-inline-block font-weight-bolderer"><a href="/home">home</a></li>
+                  <li class="d-inline-block  font-weight-bolderer"><a href="/cart" class="hr_">Cart</a></li>
+               </ul>
+            </div>
+         </div>
+      </div>
+   </div>
+   <div class="container custom_container ">
+      <div class="row">
+         <div class="col-12">
+            <div class="title_outer">
+               <h1 class="mb-3 d-inline-block pb-3 position-relative border-bottom h1_">Cart</h1>
+            </div>
+            <!-- title_outer -->
+         </div>
+         <!-- col-12 -->
+      </div>
+      <!-- row -->
+      <% message.forEach(element => { %>
+         
+         <span style="color: red;display: flex;justify-content: center; text-transform: uppercase;"><%= element %></span><br>       
+      <% }); %> <br>
+
+         <span style="color: red;display: flex;justify-content: center; text-transform: uppercase;" ><%= querymessage %></span>
+
+
+      <div class="row" style="justify-content: center;">
+         <div class="col-12 col-lg-8">
+            <div class="card">
+               <div class="card-header cart_header bg-white">
+                  <div class="card-title mb-0">
+                     <div class="row">
+                        <div class="col-12">
+                           <h5 class="mb-0 "><i class="fas fa-shopping-cart" ></i>&nbsp;&nbsp;Shopping Cart</h5>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+              
+               <div class="card-body cart_body">
+                  
+                
+                  <% if (locals.cartData && locals.cartData.products.length>0) { %>
+                           
+                     
+                     <% cartData.products.forEach(element => { %>
+
+                     <div class="row"  >
+                       <div onclick="deleteItem('<%= element.product_id._id %>','<%=element.quantity%>')" class="col-12 my-2 mt-1 text-right view-cart ">
+                           <a ><i class="fas fa-trash-alt "></i></a>
+                       </div>  
+                        <div class="col-12 col-md-6 pr-0">
+                           <div class="d-flex">
+                              <div class=" col-xl-4 col-lg-5 col-md-4 col-4 px-0 p-2">
+                                 <a href="#"><img src="/assets/productImages/<%= element.product_id.images[0] %>" class="fst-image mx-auto d-block img-fluid" alt="product_17"></a>
+                              </div>
+                              <div class=" col-xl-8 col-lg-7 col-md-8 col-8 pr-0" >
+                                 <h4 class="product-name font-weight-bolder mb-2 mb-sm-3 mb-xl-3 mt-sm-2 mt-md-2"><a href="#"><%= element.product_id.name %></a></h4>
+                                 <div><span class="font-weight-bolderer price"><%= element.product_id.discount_price>0?element.product_id.discount_price:element.product_id.price %>.00</span>&nbsp; <del class="text-muted"><%= element.product_id.discount_price>0?element.product_id.price:'00' %>.00</div>
+                                 <!-- <div class="my-1 f_13">
+                                    <span>size:</span>
+                                    <span>s</span>
+                                 </div> -->
+                                 <!-- <div class="f_13">
+                                    <span>color:</span>
+                                    <span>white</span>
+                                 </div> -->
+                              </div>
+                           </div>
+                        </div>
+                        <div class="col-12 col-md-6 mt-4">
+                           <div class="d-flex">
+                              <div class="col-md-3 col-sm-4 col-5 text-left text-md-right my-2 ">
+                                 <span class="font-weight-bolder" id="price<%= element.product_id._id%>"><%= element.price %>.00</span>
+                              </div>
+                              <!-- <div class="col-md-9 col-sm-4 col-5">
+                                 <input type="number" class="form-control border"  placeholder="" readonly>
+                              </div> -->
+                              <div class="sp_counter">
+                                 <div class="input-group">
+                                     <span class="input-group-btn" onclick="plus(this), cartUpdate(this.nextElementSibling,'<%=element.price%>','<%=element.product_id._id%>','<%=cartData._id%>')">
+                                         <button type="button"  class="btn btn-default btn-number p-0" data-type="minus" ><span class="minus">-</span></button>
+                                     </span>
+                                    
+                                     <input type="number" name="qty" oninput="cartUpdate(this,'<%=element.price%>','<%=element.product_id._id%>')" class="form-control input-number" value="<%=element.quantity%>" min="1" max="<%= element.product_id.stock %>" readonly>
+                                     <span class="input-group-btn">
+                                         <button type="button" class="btn btn-default btn-number p-0" data-type="plus" onclick="minus(this), cartUpdate(this.parentNode.previousElementSibling,'<%= element.product_id.discount_price>0?element.product_id.discount_price:element.product_id.price %>','<%=element.product_id._id%>','<%=cartData._id%>')"><span class="plus">+</span></button>
+                                        
+                                     </span>
+                                 </div>
+                             </div>
+                           </div>
+                        </div>
+                     </div>
+                     <script>
+                       
+                      </script>        
+                   
+                     <input id="stockCheck<%=element.product_id.stock %>" hidden type="text" value="<%= element.product_id.stock %>"> 
+                                 
+                                 <hr>
+                                 <%  }); %>
+
+
+                                    <div class="card-footer">
+                                    <div class="row">
+                                       <div class="col-6 col-sm-7 text-right">
+                                          <div class="my-2 font-weight-bolder">
+                                             <span>total:</span>
+                                             <span id="total"><%= totalAmount %></span>
+                                          </div>
+                                       </div>
+                                       <div class="col-6 col-sm-5 checkout-btn">
+                                          <a href=/checkout class="btn btn-block f_13 font-weight-bolder">Checkout</a>
+                                       </div>
+                                    </div>
+                                 </div>
+                     <!-- <hr>  -->
+                      
+                          </div>
+                        </div>
+                      </div>
+                     <div class="col-12 col-lg-4">
+                        <div class="border rounded bg-white final_payment">
+                           <div class="card-body  border-bottom">
+                              <p class="text-muted"><%= cartData.products.length %> items</p>
+                              <p class="font-weight-bolderer">show details</p>
+                              <div>
+                                 <span class="font-weight-bolder">subtotal</span>
+                                 <span class="float-right font-weight-bolder" id="subtotal" >₹<%= productPrice %>.00</span>
+                              <div hidden>
+                                 <span class="font-weight-bolder">taxes</span>
+                                 <span class="float-right font-weight-bolder">9%</span>
+                              </div>
+                              </div>
+                           </div>
+                           <div class="card-body ">
+                              <div hidden>
+                                 <span class="font-weight-bolder">(tax excl.)</span>
+                                 <span class="float-right font-weight-bolder" id="tax"><%= productPrice %></span>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <% } else {%>
+                        
+                        <p class="text-center cartempty1">Your Shopping cart is empty!
+                        <a href="/shop" ><i>Click here to add</i></a></p>
+                     
+                      <% } %>
+          
+
+
+               </div>
+
+             
+               
+            <!--  </div> -->
+         </div>
+
+         
+     
+      </div> 
+   </div>
+</div>
+
+
+ 
+     
+   
+<%- include('../layouts/client/footer') %>
+
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
+
+<script>
+
+  function deleteItem(id,qty){
+   
+   Swal.fire({
+
+title: "Are you sure?",
+text: "Delete this cart",
+icon: "warning",
+showCancelButton: true,
+confirmButtonColor: "#3085d6",
+cancelButtonColor: "#d33",
+confirmButtonText: "Yes, delete it!"
+
+}).then((result)=>{
+   if(result.isConfirmed){
+      const Toast = Swal.mixin({
+  
+  toast: true,
+  position: "top-center",
+  showConfirmButton: false,
+    
+    timer: 1000,
+    timerProgressBar: false,
+    didOpen: (toast) => {
+      toast.onmouseenter = Swal.stopTimer;
+      toast.onmouseleave = Swal.resumeTimer;
+    },
+   })
+   Toast.fire({
+   icon: "error",
+   title: "removed from cart",
+   }).then(data => {
+
+      
+   fetch('/cartItemRemove',{method:'post',headers:{'Content-Type':'application/json'},body:JSON.stringify({id,qty})})
+      if(data){
+         window.location.reload()
+      }
+     })
+     
+   }
+ })
+}
+
+     function plus(e){
+       console.log(e.nextElementSibling,e.parentNode);
+        const inp=e.nextElementSibling
+    Number(inp.value)>1&& (inp.value=inp.value-1)
+    }
+               
+    function minus(e){
+       e.parentNode.previousElementSibling.stepUp()
+    }
+
+function cartUpdate(e,price,productId,cartId){
+   
+      const Tprice = document.getElementById(`price${productId}`);
+      const subtotal = document.getElementById(`subtotal`)
+      const Tax = document.getElementById(`tax`)
+      const Total = document.getElementById(`total`)
+
+
+      fetch('/cartUpdate',{method:'post',headers:{'Content-Type':'application/json'},body:JSON.stringify({quantity:e.value,productId,price,cartId})})
+      
+      .then(res=>res.json())
+      .then(data=>{
+         if(data.success !== undefined && data.productPrice !== undefined && data.taxAmount!=undefined){
+
+            Tprice.textContent = `₹${data.productPrice}`;
+            subtotal.textContent = `₹${data.success}`;
+            Tax.textContent = `₹${data.taxAmount}`;
+            Total.textContent = `₹${data.taxAmount+data.success}`
+      
+
+
+         }
+      })
+
+      
+
+}
+
+
+
+
+
+</script>

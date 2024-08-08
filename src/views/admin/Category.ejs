@@ -1,0 +1,567 @@
+<%-include('../layouts/admin/header') %>
+
+<div class="container-scroller">
+
+    <%-include('../layouts/admin/sidebar') %>
+
+    <div class="container-fluid page-body-wrapper">
+
+        <%-include('../layouts/admin/navbar') %>
+
+            <!-- partial -->
+
+          <div class="main-panel">
+            <div class="content-wrapper" id="reloadDiv">
+              <div>
+            <div class="d-flex">
+            
+              <!-- Add Brand Modal -->
+
+              <!-- <img width="50" height="50" src="https://img.icons8.com/color/48/potted-plant--v1.png" alt="potted-plant--v1"/>    -->
+              <!-- <h3 class="pt-2">Plantly</h3> -->
+              
+             <div class="justify-content-end d-flex  w-50 " style="padding-top: 1rem;">
+              
+                <!-- category exist messge -->
+              
+               
+              </div>
+             
+         
+
+              <div class="w-50 p-2 d-flex justify-content-end ">
+
+              <button type="button" class="btn btn-outline-success  btn-icon-text" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal_addCategory" data-bs-whatever="@mdo">
+
+                <i class="mdi mdi-upload btn-icon-prepend"></i>
+
+                Add Category
+              
+              </button>
+
+                <!--modal for add-->
+                <div class="modal fade" id="exampleModal_addCategory" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+                  <div class="modal-dialog">
+
+                    <div class="modal-content">
+
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Add New Category</h5>
+                          <button type="button" class="btn-close btn-outline-danger" data-bs-dismiss="modal" aria-label="Close">x</button>
+                      </div>
+
+                      <form action="/admin/addCategory" method="post">
+
+                      <div class="modal-body">
+
+                          <div class="mb-3">
+                            <label for="recipient-name" class="col-form-label">Category Name</label>
+                            <p id="error" class="text-danger text-center "></p>
+                            <input type="text" class="form-control text-white" name="name" id="cateName" oninput="categoryValidation(this)">
+                            <div class="text-center"><p class="text-danger" id="err"></p></div>
+                          </div>
+                         
+                        <div>
+
+                          <div class="form-check">
+                            <input class="form-check-input" value="true" type="radio" name="radio" id="flexRadioDefault1">
+                            <label class="form-check-label" for="flexRadioDefault1">Listed</label>
+                          </div>
+
+                          <div class="form-check">
+                            <input  class="form-check-input" value="false" type="radio" name="radio" id="flexRadioDefault2" checked>
+                            <label class="form-check-label" for="flexRadioDefault2">Unlisted</label>
+                          </div>
+
+                        </div>  
+                                                
+                      </div>
+                      
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" disabled class="btn btn-outline-success" data-bs-dismiss="modal" id="submit">Save</button>
+                      </div>
+                      
+                    </form>
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+                <!-- modal for edit -->
+
+            
+
+            </div>
+          
+            <table class="table table-dark mt-4 " style="border-radius: 10px;">
+
+              <thead class="text-center ">
+
+               <tr class="text-center">
+
+                   <th class="text-white">No</th>
+                   <th class="text-white">Category</th>
+                   <th class="text-white">Status</th>
+                   <th class="text-white">Action</th>
+                   <!-- <th class="text-white">DELETE</th> -->
+
+                </tr>
+
+               </thead>
+
+                  <tbody class="text-center">
+                    <% if (category.length > 0) { %>
+                    <% category.forEach((val , indx) => { %>
+
+                       <!-- modal for delete confirmation -->
+                       <!-- Button trigger modal -->
+
+
+                    <!-- Modal -->
+                    <!-- <div class="modal fade" id="Modal_delete" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                      <div class="modal-dialog">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title fs-5" id="exampleModalLabel">Delete Category
+                              confirmation</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">x</button>
+                          </div>
+                          <div class="modal-body">
+
+                            <p class="text-center">Are you sure to delete <span class="text-success"><%=// val.name %></span> ?</p>
+
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-outline-danger" onclick="cateDelete('<%=// val._id%>')">Delete</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div> -->
+
+                     <tr>
+
+                      <td><%= indx + 1 + skip %></td>
+
+                      <td><%= val.name %></td>
+
+                      <td><% if(val.Listed == true ) { %>
+
+                        <span class="text-success " id="s<%= val._id %>">Listed</span>
+
+                      <% } else { %>
+
+                        <span class="text-danger  "id="s<%=val._id  %>">Unlisted</span>
+
+                        <% } %>
+
+                     </td>
+
+                     <td>
+                      <button type="button" id="s<%= val._id %>" class="action btn <%= val.Listed == false ? 'btn-outline-success':'btn-outline-danger' %> btn-icon-text" onclick = "list('<%= val._id  %>',this)" style="margin-right: 5px;"><%= val.Listed ? 'Unlist' : 'List' %></button>
+                      <button type="button" class="btn btn-outline-primary modal-title"  data-bs-toggle="modal" data-bs-target="#exampleModal_editCategory" onclick="valueSet('<%= val._id %>')">Edit</button>
+
+                    </td>
+                                       
+                     <!-- <td>
+                      
+                      <button type="button" class="btn btn-outline-danger"  data-bs-toggle="modal" data-bs-target="#Modal_delete">DELETE</button>
+                                           
+                     </td> -->
+
+
+                     </tr>
+
+                     <div class="modal fade" id="exampleModal_editCategory" tabindex="-1" aria-labelledby="exampleModalLabell" aria-hidden="true">
+
+                      <div class="modal-dialog">
+    
+                        <div class="modal-content">
+    
+                          <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabell">Edit Category</h5>
+                              <button type="button" class="btn-close btn-outline-danger" data-bs-dismiss="modal" aria-label="Close">x</button>
+                          </div>
+    
+                       <form action="/admin/categoryEdit" method="post">
+    
+                        <div class="modal-body">
+    
+                          <div class="mb-3">
+                            <label for="recipient-name" class="col-form-label">Category Name</label>
+                            <p id="error" class="text-danger text-center "></p>
+                            <input type="text" class="form-control text-white" name="name" id="catee" value="" oninput="categoryValidation(this)">
+                            <div class="text-center"><p class="text-danger" id="err"></p></div>
+                          </div>
+
+                          <p id="messages" hidden><%= messages %></p>
+
+                        
+
+
+                          <input type="text" value="" id="ID" name="CateID" hidden>
+
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Close</button>
+                            <button type="submit"   class="btn btn-outline-success" data-bs-dismiss="modal" id="submit">SaveChanges</button>
+                          </div>
+                                                
+                      </div>
+    
+                       </form>
+    
+                        </div>
+                      </div>
+                    </div>
+                      
+                  <%  }); %>
+
+                  
+                  <%} else {%>
+                    <tr>
+                      <td colspan="7">Category Not Found</td>
+                    </tr>
+                    <% } %>
+                     
+                    </tbody>
+
+              </table>
+              </div>
+                <br>
+                <br>
+              <%-include('../layouts/admin/Pagination') %>      
+          </div>
+
+        </div>
+
+    </div>  <!-- page-body-wrapper ends -->
+
+</div>  <!-- container-scroller -->
+
+<!---->
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<script>
+
+
+const messages = document.getElementById('messages')
+
+if(messages.textContent.trim() == 'good'){
+
+  Swal.fire({
+
+    title: 'Category Edited',
+    text: 'Category Edited Successfully ',
+    icon: 'success',
+    confirmButtonText: 'OK'
+
+    })
+
+
+} else if(messages.textContent.trim() == 'goood'){
+
+  Swal.fire({
+
+      title: 'Category added',
+      text: 'Category Added Successfully ',
+      icon: 'success',
+      confirmButtonText: 'OK'
+
+      })
+
+
+} else if(messages.textContent.trim() == 'bad'){
+
+  Swal.fire({
+
+    icon: "error",
+    title: "Oops...",
+    text: "Category Already Exist!",
+    confirmButtonText: 'OK'
+
+  });
+
+
+}
+
+function cateDelete(user){
+
+  fetch(`/admin/categoryDelete?userId=${user}`,{ 
+
+    method:'post',
+
+    headers:{
+      'Content-Type': 'application/json' 
+    },
+
+  }
+  )
+
+  .then(res=>res.json())
+  .then(data => {
+
+    if(data.succ){
+
+      window.location.reload()
+
+    }
+
+  })
+
+}
+
+
+// Add Category  :-
+  
+// function addCategory() {
+
+//   const categoryy = document.getElementById('cateName');
+//   const radio = document.querySelector('input[name="radio"]:checked');
+
+//   fetch(`/admin/addCategory?name=${categoryy.value}&&radio=${radio.value}`,{method:'post'})
+
+//   .then(response => {
+
+//       if (response.ok) {
+        
+//         categorySweet();
+//         $('#reloadDiv').load('/admin/category #reloadDiv')
+
+//       }
+
+//     })
+
+//     .catch(error => {
+
+//       console.error('Error:', error);
+
+//     });
+
+// };
+
+// Checking The Unique Category :-
+
+// function categoryCheck(input) {
+
+//   const error  = document.getElementById('err')
+//   const button = document.querySelector('#submit')
+
+//   fetch(`/admin/addCategory?inp=${input.value}`,{method:'post'}).then(res => res.json()).then(data=>{
+ 
+//     if(data.status){
+
+//       button.disabled = true;
+//       error.textContent = 'Already Exist'
+    
+//     }else{
+
+//       button.disabled = false;
+//       error.textContent=''
+
+//     }
+
+//   });
+
+// };
+
+// Add Category Validation :-
+
+function categoryValidation(input) {
+  
+  let value = input.value.trim(); 
+  let errorElement = document.getElementById('err');
+  let button = document.getElementById('submit')
+
+  let letters = /^[A-Za-z ]+$/;
+
+  if (!value.match(letters)) {
+
+      button.disabled=true
+      errorElement.textContent = 'only characters';
+      input.value = ''; 
+      return false;
+
+    } 
+    
+  if (value.length < 4) {
+
+    errorElement.textContent = 'Minimum 4 characters required.';
+    button.disabled=true
+
+    return false;
+
+  } else if(value.length >= 4){
+
+    button.disabled=false
+
+  }
+  
+  errorElement.textContent = ''; 
+
+  return true;
+  
+};
+
+  //function Edit
+
+//   function cateEdit(categoryId) {
+//     // You can perform any additional operations here if needed
+
+
+//     // Show the modal
+//     const modal = new bootstrap.Modal(document.getElementById('editModal'));
+//     modal.show();
+// }
+
+
+  // Category Action :-
+
+  function list(id,e) {
+    
+      const status = document.getElementById(`s${id}`);
+
+      fetch(`/admin/categoryList`, {
+
+        method: 'put',
+        headers: {
+
+          'Content-Type': 'application/json'
+
+        },
+
+        body:JSON.stringify({id})
+
+      })
+
+      .then(response => {
+
+        if (!response.ok) {
+
+          console.log(error);
+
+        }
+            
+      })
+
+
+    if (e.textContent=='List') {
+
+      e.textContent = 'Unlist'    
+      e.classList.remove('btn-outline-success');
+      e.classList.add('btn-outline-danger');
+      status.textContent='Listed'
+      status.classList=('text-success')
+
+    } else {
+
+      e.textContent = 'List'    
+      e.classList.add('btn-outline-success');
+      e.classList.remove('btn-outline-danger');
+      status.textContent='Unlisted'
+      status.classList=('text-danger')
+
+    }
+        
+
+      
+};
+
+//  Edit Category :-
+
+ function editCategory(id) {
+      console.log(id)
+  fetch(`/admin/categoryEdit`, {
+
+    method: 'PUT',
+    headers: { 'Content-Type': 'application/json' },
+
+    body:JSON.stringify({id})
+
+  })
+   
+
+}
+
+//  Edit Validation :-
+
+function editValidation(input,cateId){
+
+    var value = input.value.trim(); 
+    var errorElement = document.getElementById('editerr_'+cateId);
+    const button =document.getElementById('submitedit_'+cateId)
+
+    var letters = /^[A-Za-z ]+$/;
+
+    if (!value.match(letters)) {
+        errorElement.textContent = 'only characters';
+        
+        button.disabled = true;
+        return false;
+      }
+    if(value==''){
+      errorElement.textContent = 'Fill the field';
+        
+        button.disabled = true;
+        return false;
+    }
+      
+    if (value.length < 4) {
+      
+        errorElement.textContent = 'Minimum 4 characters required.';
+        button.disabled = true;
+        return false;
+    }
+    
+
+    errorElement.textContent = ''; 
+    button.disabled = false;
+
+};
+
+//  Vall Sett :-
+
+function valueSet(id){
+
+  console.log(id);
+
+  fetch(`/admin/valSet?id=${id}`, { method: 'post' })
+
+    .then(res => res.json())
+
+    .then(data => {
+
+      if(data.succ){
+
+    const category = document.getElementById('catee').value = data.succ.name;
+      const id = document.getElementById('ID').value = data.succ._id
+
+      }
+
+    })
+
+    .catch(error => console.error('Error setting value for editing:', error));
+
+}
+
+</script>
+
+<style>
+
+  .swal2-popup {
+
+    /* font-size: 16px;  */
+    background-color: #ffffff;
+
+  }
+  .swal2-content, .swal2-title {
+
+    color: #29b926 !important;
+
+  }
+
+</style>
+
+<%-include('../layouts/admin/footer') %>

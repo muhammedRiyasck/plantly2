@@ -1,0 +1,293 @@
+<%- include('../layouts/client/header') %>
+
+
+      <!-- header -->
+      <!-- header area end -->
+      <!-- vertical menu and slider -->
+      <div id="home_vertical_menu">
+        <div class="row ">
+           <div class="col-lg-3 vertical_menu">
+              <div class="v_menu bg-white rounded">
+                 <div class="cat_menu bg-warning rounded-top"><a href="#" class="pe-auto text-uppercase d-md-none d-sm-none d-none d-lg-block font-weight-bold"><i class="fas fa-bars"></i>all categories</a></div>
+                 <div class="navbar-header d-xl-none d-lg-none">
+                    <button type="button" class="btn-navbar navbar-toggle" onclick="openNav()" data-toggle="collapse" data-target=".navbar-ex1-collapse"><i class="fas fa-bars"></i></button>
+                 </div>
+                 <div id="mySidenav" class="sidenav  ">
+                    <div class="close-nav d-xl-none d-lg-none">
+                       <span class="categories">Menu</span>
+                       <a href="javascript:void(0)" class="closebtn pull-right" onclick="closeNav()"><i class="fas fa-times"></i></a>
+                    </div>
+                   <ul class="vertical_main_menu h_menu navbar navbar-nav">
+                       <li><a href="index.html">Home</a></li>
+                       <li class="">
+                          <a class="dropdown-toggle" href="shop-left-sidebar.html"  role="button" data-toggle="dropdown" aria-expanded="false">shop&nbsp;<span class="float-right"><i class="fas fa-angle-down"></i></span></a>
+                          <ul class="dropdown-menu">
+                             <li><a class="dropdown-item font-weight-bolderer" href="shop-left-sidebar.html">left sidebar</a></li>
+                             <li><a class="dropdown-item font-weight-bolderer" href="shop-right-sidebar.html">right sidebar</a></li>
+                          </ul>
+                       </li>
+                       <li class="dropdown mega_menu m1_menu level-1 font-weight-bolderer">
+                          <a class="dropdown-toggle" href="single-product.html"  role="button" data-toggle="dropdown" aria-expanded="false">portfolio&nbsp;<span class="float-right"><i class="fas fa-angle-down"></i></span></a>
+                          <ul class="dropdown-menu">
+                             <li>
+                                <ul class="row mx-0">
+                                   <li class="mg_menu col-lg-6 col-md-12 ">
+                                      <ul>
+                                         <li class="h_title text-uppercase font-weight-bolder border-bottom">portfolio grid 2</li>
+                                         <li><a class="dropdown-item font-weight-bolderer" href="portfolio-grid-2.html">portfolio grid 2</a></li>
+                                         <li><a class="dropdown-item font-weight-bolderer" href="portfolio-grid-3.html">portfolio grid 3</a></li>
+                                         <li><a class="dropdown-item font-weight-bolderer" href="portfolio-grid-4.html">portfolio grid 4</a></li>
+                                         <li><a class="dropdown-item font-weight-bolderer" href="mesonary-grid-2.html">mesonary grid 2</a></li>
+                                         <li><a class="dropdown-item font-weight-bolderer" href="mesonary-grid-3.html">mesonary grid 3</a></li>
+                                         <li><a class="dropdown-item font-weight-bolderer" href="mesonary-grid-4.html">mesonary grid 4</a></li>
+                                      </ul>
+                                   </li>
+                                   <li class="mg_menu col-lg-6 col-md-12">
+                                      <ul>
+                                         <li class="h_title text-uppercase font-weight-bolder border-bottom">theme elements</li>
+                                         <li><a class="dropdown-item font-weight-bolderer" href="title.html">title</a></li>
+                                         <li><a class="dropdown-item font-weight-bolderer" href="category-style.html">category</a></li>
+                                         <li><a class="dropdown-item font-weight-bolderer" href="services.html">services</a></li>
+                                         <li><a class="dropdown-item font-weight-bolderer" href="product-tab.html">product tab</a></li>
+                                         <li><a class="dropdown-item font-weight-bolderer" href="multi-slider-product.html">multi slider product</a></li>
+                                      </ul>
+                                   </li>
+                                </ul>
+                             </li>
+                          </ul>
+                       </li>
+                       <li>
+                          <a class="dropdown-toggle" href="blog.html"  role="button" data-toggle="dropdown" aria-expanded="false">
+                          blog&nbsp;<span class="float-right mt-1"><i class="fas fa-angle-down"></i></span></a>
+                          <ul class="dropdown-menu">
+                             <li><a class="dropdown-item font-weight-bolderer" href="blog.html">blog</a></li>
+                             <li><a class="dropdown-item font-weight-bolderer" href="blog-left-sidebar.html">left sidebar</a></li>
+                             <li><a class="dropdown-item font-weight-bolderer" href="blog-right-sidebar.html">right sidebar</a></li>
+                          </ul>
+                       </li>
+                       <li class="dropdown mega_menu level-1 font-weight-bolderer">
+                          <a class="dropdown-toggle" href="single-product.html"  role="button" data-toggle="dropdown" aria-expanded="false">Category&nbsp;<span class="float-right mt-1"><i class="fas fa-angle-down"></i></span></a>
+                          <ul class="dropdown-menu">
+                             <li>
+                                <ul class="row mx-0">
+                                   <li class="mg_menu col-lg-4 col-md-12 ">
+                                      <ul>
+                                         <li class="h_title text-uppercase font-weight-bolder border-bottom">Pot</li>
+                                         <li><a class="dropdown-item font-weight-bolderer" href="shop-left-sidebar.html">Pigmyweeds</a></li>
+                                         <li><a class="dropdown-item font-weight-bolderer" href="shop-left-sidebar.html">Indoor Plants</a></li>
+                                         <li><a class="dropdown-item font-weight-bolderer" href="shop-left-sidebar.html">outdoor Plants</a></li>
+                                         <li><a class="dropdown-item font-weight-bolderer" href="shop-left-sidebar.html">Flamingo plant</a></li>
+                                         <li><a class="dropdown-item font-weight-bolderer" href="shop-left-sidebar.html">Succulent Plant</a></li>
+                                      </ul>
+                                   </li>
+                                   <li class="mg_menu col-lg-4 col-md-12">
+                                      <ul>
+                                         <li class="h_title text-uppercase font-weight-bolder border-bottom">Plants</li>
+                                         <li><a class="dropdown-item font-weight-bolderer" href="shop-left-sidebar.html">Nerve Plant</a></li>
+                                         <li><a class="dropdown-item font-weight-bolderer" href="shop-left-sidebar.html">Flowering Plants</a></li>
+                                         <li><a class="dropdown-item font-weight-bolderer" href="shop-left-sidebar.html">Plant Seed</a></li>
+                                         <li><a class="dropdown-item font-weight-bolderer" href="shop-left-sidebar.html">Luck Plants</a></li>
+                                         <li><a class="dropdown-item font-weight-bolderer" href="shop-left-sidebar.html">Plant House</a></li>
+                                      </ul>
+                                   </li>
+                                </ul>
+                             </li>
+                          </ul>
+                       </li>
+                       <li class="dropdown level-1 font-weight-bolderer">
+                          <a class="dropdown-toggle" href="#"  role="button" data-toggle="dropdown" aria-expanded="false">pages&nbsp;<span class="float-right mt-1"><i class="fas fa-angle-down"></i></span></a>
+                          <ul class="dropdown-menu">
+                             <li><a class="dropdown-item font-weight-bolderer" href="about-us.html">about us</a></li>
+                             <li><a class="dropdown-item font-weight-bolderer" href="login.html">login</a></li>
+                             <li><a class="dropdown-item font-weight-bolderer" href="registration.html">registration</a></li>
+                             <li><a class="dropdown-item font-weight-bolderer" href="single-product.html">single product</a></li>
+                             <li><a class="dropdown-item font-weight-bolderer" href="single-blog.html">single blog</a></li>
+                             <li><a class="dropdown-item font-weight-bolderer" href="cart.html">cart</a></li>
+                             <li><a class="dropdown-item font-weight-bolderer" href="compare.html">compare</a></li>
+                             <li><a class="dropdown-item font-weight-bolderer" href="wishlist.html">wishlist</a></li>
+                             <li><a class="dropdown-item font-weight-bolderer" href="checkout.html">check out</a></li>
+                             <li><a class="dropdown-item font-weight-bolderer" href="forgot.html">forgot password</a></li>
+                          </ul>
+                       </li>
+                       <li class="level-1 font-weight-bolderer"><a href="contact-us.html">contact-us</a></li
+                          >
+                    </ul>
+                 </div>
+              </div>
+              <!-- v_menu bg-white rounded -->
+           </div>
+        </div>
+        <!-- row -->
+     </div>
+     <!-- container  menu_slider mt-4 -->
+     <!-- vertical menu and slider end -->
+     <!-- login page -->
+     <div id="login_page" class="login-page animate__animated animate__fadeInUp">
+        <div class="sp_header bg-white p-3 ">
+           <div class="container custom_container">
+              <div class="row ">
+                 <div class="col-12 ">
+                    <ul>
+                       <li class="d-inline-block font-weight-bolder"><a href="/home">home</a></li>
+                       <li class="d-inline-block hr_ font-weight-bolder"><a href="/login">login</a></li>
+                    </ul>
+                 </div>
+              </div>
+           </div>
+        </div>
+        
+        <div class="container custom_container ">
+           <h3 class="text-center" >Log in to your account </h3>
+           <% if(message) { %>
+
+            <p class="justify-contentt text-center" style="color: red;">  
+
+               <%= message %> </p>
+
+          <% } %>
+
+          <% if(swal) {%>
+
+            <p id="swal" hidden> <%= swal %> </p>
+
+         <% } %>
+          
+          
+
+           <div id="login" class="page-content card card-block p-3 p-sm-4 ">
+              <form onsubmit="hello()" class="needs-validation" action="/verifylogin" method="post" >
+                 <div class="form-group">
+                    <label for="user_email" class="font-weight-bolder">Email address</label>
+                    <input type="email" name="email" value="<%= email %>"  class="form-control" id="user_email"  >
+                    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                    <div style="color: red;" id="emailError"></div>
+                 </div>
+                 <div class="form-group font-weight-bolder" >
+                    <label for="user_password" class="font-weight-bolder">Password</label>
+                    <input type="password" name="password" class="form-control" id="user_password">
+                    <div style="color: red;" id="passwordError"></div>
+                 </div>
+                 <div class="form-group form-check">
+                    <input type="checkbox" class="form-check-input" id="user_check" >
+                    <label class="form-check-label" for="user_check">Check me out</label>
+                 </div>
+                 <div class="button-container ;">
+
+                  <input type="submit" id="submit" name="submit" class="btn btn-primary mb-3" value="submit">
+
+                  <a href="/auth/google" class="btn google-account red-btn" style="margin-left: 215px; margin-bottom: 12px;">
+                     <img width="30" height="30"  src="https://img.icons8.com/color/48/google-logo.png" alt="google-logo"/>
+                     <span >Sign in with Google</span>                                     
+                  </a>
+                  
+                  </div>
+                
+                 
+                 <div class="pass_acc border-top pt-3">
+                    <span class="forgot_password font-weight-bolder"><a href="/forgotPassword">Forgot your password? </a></span>
+                    <span class="no_account float-right font-weight-bolder"><a href="/registration">No account? Create one here</a></span>
+                 </div>
+              </form>
+           </div>
+        </div>
+     </div>
+
+     
+
+     <%- include('../layouts/client/footer') %>
+<!-- <script>
+  const email=localStorage.getItem("email")||""
+      console.log(email);
+      const inp=document.getElementById("user_email");
+      inp.value=email
+   function hello(){
+      const inp=document.getElementById("user_email");
+      localStorage.setItem("email",inp.value)
+   }
+</script> -->
+
+<!-- sweet alert cdn -->
+<script  src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> 
+<script>
+const messages = document.getElementById('swal')
+  
+    if(messages.textContent.trim() == 'password updated'){
+   
+      Swal.fire({
+            position: "top-center",
+            icon: "success",
+            title:"Password Updated successfuly",
+            text:'New Password Updated successfuly',
+            showConfirmButton: false,
+            timer: 2000
+      });
+    }
+
+
+document.getElementById('submit').addEventListener('click', function(event) {
+    if (!validateForm()) {
+        event.preventDefault();
+    }
+});
+
+function validateForm() {
+    var email = document.getElementById('user_email').value.trim();
+    var password = document.getElementById('user_password').value.trim();
+    var emailError = document.getElementById('emailError');
+    var passwordError = document.getElementById('passwordError');
+
+    var isValid = true;
+
+    if (email === "") {
+        emailError.textContent = 'Please enter your email address.';
+        isValid = false;
+        setTimeout(() => {
+      emailError.textContent =''
+   }, 1000);
+    } else if (!email.endsWith('@gmail.com')) {
+        emailError.textContent = 'Please enter a valid email address.';
+
+        isValid = false;
+        setTimeout(() => {
+      emailError.textContent =''
+   }, 1000);
+
+    } else {
+        emailError.textContent = '';
+
+    }
+
+    if (password === "") {
+        passwordError.textContent = 'Please enter your password.';
+        isValid = false;
+
+        setTimeout(() => {
+      passwordError.textContent =''
+   }, 1000);
+        
+    } else {
+        passwordError.textContent = '';
+    }
+
+    return isValid;
+}
+
+
+   </script>
+
+<style>
+
+   .swal2-popup {
+ 
+     /* font-size: 16px;  */
+     background-color: #ffffff;
+ 
+   }
+   .swal2-content, .swal2-title {
+ 
+     color: #29b926 !important;
+ 
+   }
+ 
+ </style>
+

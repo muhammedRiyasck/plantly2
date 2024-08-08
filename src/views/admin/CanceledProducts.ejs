@@ -1,0 +1,103 @@
+<%- include('../layouts/admin/header.ejs') %>
+
+<div class="container-scroller">
+
+    <%- include('../layouts/admin/sidebar.ejs') %>
+
+    <div class="container-fluid page-body-wrapper">
+
+        <%- include('../layouts/admin/navbar.ejs') %>
+
+            <!-- partial -->
+
+          <div class="main-panel">
+              <div class="content-wrapper">
+                <span ><a style="text-decoration: none;" href="/admin/orders">back</a></span>
+                <h3 style="display: flex;justify-content: center;">Canceled Products</h3>
+                              
+           <div class="w-100  container-fluid mt-3 mb-4">
+
+            <table class="table table-dark rounded-2 w-100" style="border-radius: 10px;">
+
+              <thead class="text-center">
+
+                  <tr class="text-center ">
+                      <th class="text-white">No</th>
+                      <th class="text-white">Name</th>
+                      <th class="text-white">Image</th>
+                      <th class="text-white">Resaon</th>
+                      <th class="text-white">Quantity</th>
+                      <th class="text-white">Purchased Price</th>
+                    </tr>
+                    
+                </thead>
+                
+                <tbody>
+
+        <% if (canceledProducts.length > 0) { %>
+                                                            
+            <%canceledProducts.slice().reverse().forEach((pro , indx) => { %>
+        
+                <tr class="text-center">
+                    
+                    <td><%= indx + 1 %></td>
+
+                    <td><%= pro.product_id.name %></td>
+                    
+                    <td>
+
+                    <div class="progress d-flex align-items-center h-100 w-100" style=" background-color: transparent; justify-content: center;">
+
+                        
+                        <% pro.product_id.images.forEach(img => { %>
+                            
+                        <div class="cir" style="display: inline-block; width: 30px; height: 30px;  border-radius: 50%; overflow: hidden;">
+                            <img style="width: 100%; height: 100%; object-fit: cover; " src='/assets/productImages/<%= img %>' alt="">
+                        </div>
+                            
+                    <% }); %>
+
+                    </div>
+
+                    </td>
+                          
+                        <td><%= pro.reason%></td>
+                        <td><%= pro.quantity %></td>
+                        <td><%= pro.price %></td>
+
+                      
+
+                 
+                </tr>
+
+            <%  }); %>
+
+        <% } else { %>
+
+            <tr>
+                <td colspan="10" class=" text-center">Product Not Found</td>
+           </tr>
+
+        <% } %>
+     
+           </tbody>
+
+        </table>
+
+        <p hidden id="swal"><%=// messages %></p>
+        
+        <!-- End table -->
+        
+    </div>
+    
+    <%-include('../layouts/admin/Pagination') %>
+    
+</div>
+
+
+</div>
+
+</div>
+
+</div>
+<%- include('../layouts/admin/footer.ejs') %>

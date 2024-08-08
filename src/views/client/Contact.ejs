@@ -1,0 +1,182 @@
+<%- include('../layouts/client/header') %>
+
+      <!-- header area end -->
+      <!-- vertical menu and slider -->
+      <div id="home_vertical_menu">
+        <div class="row ">
+           <div class="col-lg-3 vertical_menu">
+              <div class="v_menu bg-white rounded">
+                 <div class="cat_menu bg-warning rounded-top"><a href="#" class="pe-auto text-uppercase d-md-none d-sm-none d-none d-lg-block font-weight-bolder"><i class="fas fa-bars"></i>all categories</a></div>
+                 <div class="navbar-header d-xl-none d-lg-none">
+                    <button type="button" class="btn-navbar navbar-toggle" onclick="openNav()" data-toggle="collapse" data-target=".navbar-ex1-collapse"><i class="fas fa-bars"></i></button>
+                 </div>
+                 <div id="mySidenav" class="sidenav  ">
+                    <div class="close-nav d-xl-none d-lg-none">
+                       <span class="categories">Menu</span>
+                       <a href="javascript:void(0)" class="closebtn pull-right" onclick="closeNav()"><i class="fas fa-times"></i></a>
+                    </div>
+                 <ul class="vertical_main_menu h_menu navbar navbar-nav">
+                       <li><a href="index.html">Home</a></li>
+                       <li class="">
+                          <a class="dropdown-toggle" href="shop-left-sidebar.html"  role="button" data-toggle="dropdown" aria-expanded="false">shop&nbsp;<span class="float-right"><i class="fas fa-angle-down"></i></span></a>
+                          <ul class="dropdown-menu">
+                             <li><a class="dropdown-item font-weight-bolderer" href="shop-left-sidebar.html">left sidebar</a></li>
+                             <li><a class="dropdown-item font-weight-bolderer" href="shop-right-sidebar.html">right sidebar</a></li>
+                          </ul>
+                       </li>
+                       <li class="dropdown mega_menu m1_menu level-1 font-weight-bolderer">
+                          <a class="dropdown-toggle" href="single-product.html"  role="button" data-toggle="dropdown" aria-expanded="false">portfolio&nbsp;<span class="float-right"><i class="fas fa-angle-down"></i></span></a>
+                          <ul class="dropdown-menu">
+                             <li>
+                                <ul class="row mx-0">
+                                   <li class="mg_menu col-lg-6 col-md-12 ">
+                                      <ul>
+                                         <li class="h_title text-uppercase font-weight-bolder border-bottom">portfolio grid 2</li>
+                                         <li><a class="dropdown-item font-weight-bolderer" href="portfolio-grid-2.html">portfolio grid 2</a></li>
+                                         <li><a class="dropdown-item font-weight-bolderer" href="portfolio-grid-3.html">portfolio grid 3</a></li>
+                                         <li><a class="dropdown-item font-weight-bolderer" href="portfolio-grid-4.html">portfolio grid 4</a></li>
+                                         <li><a class="dropdown-item font-weight-bolderer" href="mesonary-grid-2.html">mesonary grid 2</a></li>
+                                         <li><a class="dropdown-item font-weight-bolderer" href="mesonary-grid-3.html">mesonary grid 3</a></li>
+                                         <li><a class="dropdown-item font-weight-bolderer" href="mesonary-grid-4.html">mesonary grid 4</a></li>
+                                      </ul>
+                                   </li>
+                                   <li class="mg_menu col-lg-6 col-md-12">
+                                      <ul>
+                                         <li class="h_title text-uppercase font-weight-bolder border-bottom">theme elements</li>
+                                         <li><a class="dropdown-item font-weight-bolderer" href="title.html">title</a></li>
+                                         <li><a class="dropdown-item font-weight-bolderer" href="category-style.html">category</a></li>
+                                         <li><a class="dropdown-item font-weight-bolderer" href="services.html">services</a></li>
+                                         <li><a class="dropdown-item font-weight-bolderer" href="product-tab.html">product tab</a></li>
+                                         <li><a class="dropdown-item font-weight-bolderer" href="multi-slider-product.html">multi slider product</a></li>
+                                      </ul>
+                                   </li>
+                                </ul>
+                             </li>
+                          </ul>
+                       </li>
+                       <li>
+                          <a class="dropdown-toggle" href="blog.html"  role="button" data-toggle="dropdown" aria-expanded="false">
+                          blog&nbsp;<span class="float-right mt-1"><i class="fas fa-angle-down"></i></span></a>
+                          <ul class="dropdown-menu">
+                             <li><a class="dropdown-item font-weight-bolderer" href="blog.html">blog</a></li>
+                             <li><a class="dropdown-item font-weight-bolderer" href="blog-left-sidebar.html">left sidebar</a></li>
+                             <li><a class="dropdown-item font-weight-bolderer" href="blog-right-sidebar.html">right sidebar</a></li>
+                          </ul>
+                       </li>
+                       <li class="dropdown mega_menu level-1 font-weight-bolderer">
+                          <a class="dropdown-toggle" href="single-product.html"  role="button" data-toggle="dropdown" aria-expanded="false">Category&nbsp;<span class="float-right mt-1"><i class="fas fa-angle-down"></i></span></a>
+                          <ul class="dropdown-menu">
+                             <li>
+                                <ul class="row mx-0">
+                                   <li class="mg_menu col-lg-4 col-md-12 ">
+                                      <ul>
+                                         <li class="h_title text-uppercase font-weight-bolder border-bottom">Pot</li>
+                                         <li><a class="dropdown-item font-weight-bolderer" href="shop-left-sidebar.html">Pigmyweeds</a></li>
+                                         <li><a class="dropdown-item font-weight-bolderer" href="shop-left-sidebar.html">Indoor Plants</a></li>
+                                         <li><a class="dropdown-item font-weight-bolderer" href="shop-left-sidebar.html">outdoor Plants</a></li>
+                                         <li><a class="dropdown-item font-weight-bolderer" href="shop-left-sidebar.html">Flamingo plant</a></li>
+                                         <li><a class="dropdown-item font-weight-bolderer" href="shop-left-sidebar.html">Succulent Plant</a></li>
+                                      </ul>
+                                   </li>
+                                   <li class="mg_menu col-lg-4 col-md-12">
+                                      <ul>
+                                         <li class="h_title text-uppercase font-weight-bolder border-bottom">Plants</li>
+                                         <li><a class="dropdown-item font-weight-bolderer" href="shop-left-sidebar.html">Nerve Plant</a></li>
+                                         <li><a class="dropdown-item font-weight-bolderer" href="shop-left-sidebar.html">Flowering Plants</a></li>
+                                         <li><a class="dropdown-item font-weight-bolderer" href="shop-left-sidebar.html">Plant Seed</a></li>
+                                         <li><a class="dropdown-item font-weight-bolderer" href="shop-left-sidebar.html">Luck Plants</a></li>
+                                         <li><a class="dropdown-item font-weight-bolderer" href="shop-left-sidebar.html">Plant House</a></li>
+                                      </ul>
+                                   </li>
+                                </ul>
+                             </li>
+                          </ul>
+                       </li>
+                       <li class="dropdown level-1 font-weight-bolderer">
+                          <a class="dropdown-toggle" href="#"  role="button" data-toggle="dropdown" aria-expanded="false">pages&nbsp;<span class="float-right mt-1"><i class="fas fa-angle-down"></i></span></a>
+                          <ul class="dropdown-menu">
+                             <li><a class="dropdown-item font-weight-bolderer" href="about-us.html">about us</a></li>
+                             <li><a class="dropdown-item font-weight-bolderer" href="login.html">login</a></li>
+                             <li><a class="dropdown-item font-weight-bolderer" href="registration.html">registration</a></li>
+                             <li><a class="dropdown-item font-weight-bolderer" href="single-product.html">single product</a></li>
+                             <li><a class="dropdown-item font-weight-bolderer" href="single-blog.html">single blog</a></li>
+                             <li><a class="dropdown-item font-weight-bolderer" href="cart.html">cart</a></li>
+                             <li><a class="dropdown-item font-weight-bolderer" href="compare.html">compare</a></li>
+                             <li><a class="dropdown-item font-weight-bolderer" href="wishlist.html">wishlist</a></li>
+                             <li><a class="dropdown-item font-weight-bolderer" href="checkout.html">check out</a></li>
+                             <li><a class="dropdown-item font-weight-bolderer" href="forgot.html">forgot password</a></li>
+                          </ul>
+                       </li>
+                       <li class="level-1 font-weight-bolderer"><a href="contact-us.html">contact-us</a></li
+                          >
+                    </ul>
+                 </div>
+              </div>
+              <!-- v_menu bg-white rounded -->
+           </div>
+        </div>
+        <!-- row -->
+     </div>
+     <!-- container  menu_slider mt-4 -->
+     <!-- vertical menu and slider end -->
+    <!-- contact page -->
+     <section class="contact-page">
+        <div class="container">
+           <div class="row">
+              <div class="col-sm-12 title_outer">
+                 <h2 class="font-weight-bolder mt-2 mb-3 d-inline-block pb-3 position-relative border-bottom">contact us</h2>
+              </div>
+              <!-- title_outer -->  
+              <div class="col-lg-6 col-md-12 col-sm-12 col-12">
+                 <form id="contactForm" method="post">
+                    <div class="row">
+                       <div class="form-group mb-3 col-sm-12 col-12">
+                          <label>Your Name</label>
+                          <input type="text" class="form-control" name="txt_name" id="txt_name" placeholder="Your Name*" data-form-field="Name" required="">
+                       </div>
+                       <div class="form-group mb-3 col-sm-12 col-12">
+                          <label>Your Email</label>
+                          <input type="email" class="form-control" name="txt_email" required="" id="txt_email" placeholder="Your Email*" data-form-field="Email">
+                       </div>
+                       <div class="form-group mb-3 col-12">
+                          <label>Your Phone</label>
+                          <input type="tel" class="form-control" name="txt_phone" id="txt_phone" placeholder="Your Phone" data-form-field="Phone">
+                       </div>
+                       <div class="form-group mb-3 col-12">
+                          <label>Your Message</label>
+                          <textarea class="form-control" name="txt_message" id="txt_message"  placeholder="Your Message" rows="7" data-form-field="Message"></textarea>
+                       </div>
+                       <div class="contact-us-btn col-12">
+                          <button type="submit" class="btn btn-small">contact us</button>
+                       </div>
+                       <div id="message" class="ajax_response"></div>
+                    </div>
+                 </form>
+              </div>
+              <div class="col-lg-6 col-md-12 col-sm-12 col-12 col-sm-offset-2 pt-lg-0 pt-md-4 pt-sm-4 pt-4">
+                 <div class="our_off">
+                    <h4 class="mb-3">Our <strong>Office</strong></h4>
+                    <ul class="list list-icons list-icons-style-2 mt-2">
+                       <li class="mb-3"><i class="fas fa-map-marker-alt top-6"></i> <strong class="text-dark">Address:</strong> 1234 Street Name, City Name, United States</li>
+                       <li class="mb-3"><i class="fas fa-phone top-6"></i> <strong class="text-dark">Phone:</strong> (123) 456-789</li>
+                       <li class="mb-0"><i class="fas fa-envelope top-6"></i> <strong class="text-dark">Email:</strong> <a href="#">company@example.com</a></li>
+                    </ul>
+                 </div>
+                 <div class="buss_hou">
+                    <h4 class="pt-5 mb-3">Business <strong>Hours</strong></h4>
+                    <ul class="list list-icons list-dark mt-2">
+                       <li class="mb-3"><i class="far fa-clock top-6"></i> Monday - Friday - 9am to 5pm</li>
+                       <li class="mb-3"><i class="far fa-clock top-6"></i> Saturday - 9am to 2pm</li>
+                       <li class="mb-0"><i class="far fa-clock top-6"></i> Sunday - Closed</li>
+                    </ul>
+                 </div>
+                 <div class="pt-5">
+                    <h4>Get in <strong>Touch</strong></h4>
+                    <p class="lead mb-0 get_in">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur eget leo at velit imperdiet varius. In eu ipsum vitae velit congue iaculis vitae at risus. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                 </div>
+              </div>
+           </div>
+        </div>
+     </section>
+
+<%- include('../layouts/client/footer') %>
