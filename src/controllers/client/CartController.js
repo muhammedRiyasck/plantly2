@@ -16,11 +16,13 @@ console.log('hellooooooooo');
             const userId = req.session.user._id
 
             let cartData = await cart.findOne({ user_id: userId }).populate('products.product_id')
-            console.log('hellooooooooo1');
-            cartData.percentage=0;
-            console.log('hellooooooooo2');
-            cartData.coupenDiscount=0;
-            await cartData.save();
+            // console.log('hellooooooooo1');
+            // console.log('hellooooooooo2');
+        if(cartData){
+            cartData?.percentage=0;
+            cartData?.coupenDiscount=0;
+            await cartData?.save();
+        }
             let querymessage = req.query.message
             if (cartData) {
                 console.log('anbhahnahahahahah');
