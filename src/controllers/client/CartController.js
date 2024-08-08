@@ -10,6 +10,7 @@ const loadCart = async (req, res, next) => {
     try {
 
         if (req.session.user) {
+console.log('hellooooooooo');
 
 
             const userId = req.session.user._id
