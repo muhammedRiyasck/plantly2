@@ -205,7 +205,7 @@
                     </div>
                     <div class="col-md-4 col-sm-4 col-5 text-center">
                        <% if(val.product_id.stock == 0){ %>
-                    <input type="button" disabled class="btn btn-success" onclick="addToCart('<%=val.products_id._id%>')" value="add to cart">
+                    <input type="button" disabled class="btn btn-success" value="add to cart">
                     <% }else{ %>
                      <input type="button"  class="btn btn-success" onclick="addToCart('<%=val.product_id._id%>')" value="add to cart">
                      <% } %>
